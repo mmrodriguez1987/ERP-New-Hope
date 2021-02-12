@@ -14,28 +14,27 @@ class ProfessionController extends Controller
      */
     public function index()
     {
-        //
+          return Faq::search(request()->search)
+            ->orderBy(request()->orderBy, request()->desc == 'true' ? 'DESC' : 'ASC')
+            ->paginate();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created Profession in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $profession = Profession::create(request()->all());
+        $profession->save();
+
+        return [
+            'message' => trans('Profession created'),
+            'id' => $profession->id,
+        ];
     }
 
     /**
@@ -46,20 +45,10 @@ class ProfessionController extends Controller
      */
     public function show(Profession $profession)
     {
-        //
+        return Profession::all();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Profession  $profession
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Profession $profession)
-    {
-        //
-    }
-
+  
     /**
      * Update the specified resource in storage.
      *
@@ -68,8 +57,9 @@ class ProfessionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Profession $profession)
-    {
-        //
+    {       
+        $profession->update(request()->all());    
+        return ['message' => trans('Profession Updated')];
     }
 
     /**
@@ -80,6 +70,7 @@ class ProfessionController extends Controller
      */
     public function destroy(Profession $profession)
     {
-        //
+        $profession->delete();
+        return ['message' => trans('Profession destroyed')];
     }
 }
