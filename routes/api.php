@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('professions','ProfessionsController')->middleware('auth:sanctum');
-Route::apiResource('positions','ProfessionsController')->middleware('auth:sanctum');
-Route::apiResource('personttypes','ProfessionsController')->middleware('auth:sanctum');
+Route::apiResource('professions', ProfessionController::class)->middleware('auth:sanctum');

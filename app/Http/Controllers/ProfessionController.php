@@ -14,8 +14,15 @@ class ProfessionController extends Controller
      */
     public function index()
     {
-          return Faq::search(request()->search)
-            ->orderBy(request()->orderBy, request()->desc == 'true' ? 'DESC' : 'ASC')
+        //$profession = Profession::all();
+        // Return Json Response
+        //return response()->json(['professions' => $profession],200);
+        
+        return Profession::search(request()->search)
+            ->orderBy(
+                request()->orderBy, 
+                request()->desc == 'true' ? 'DESC' : 'ASC'
+                )
             ->paginate();
     }
 
@@ -31,10 +38,7 @@ class ProfessionController extends Controller
         $profession = Profession::create(request()->all());
         $profession->save();
 
-        return [
-            'message' => trans('Profession created'),
-            'id' => $profession->id,
-        ];
+         return response()->json(['professions' => $profession],200);
     }
 
     /**
