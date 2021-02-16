@@ -9,7 +9,7 @@ class Person extends Model
 {
     use HasFactory;
 
-    protected $table = 'people';
+    protected $table = 'persons';
 
       protected $fillable = [
         'title',
@@ -129,12 +129,12 @@ class Person extends Model
             ->orWhere('person_type_id', 'like', "%$target%")
             ->orWhere('profession_id', 'like', "%$target%")
             ->orWhere('birthdate', 'like', "%$target%");
-            
+
         }
         return $query;
     }
 
-  
+
     /**
      * Method to filter by Profession
      *
@@ -145,7 +145,7 @@ class Person extends Model
     public function scopeProfession($query, $profession_id) {
         if ($profession_id != '') {
             return $query->where('profession_id', $profession_id);
-        }        
+        }
     }
 
     /**
@@ -158,7 +158,7 @@ class Person extends Model
     public function scopePersontype($query, $person_type_id) {
         if ($person_type_id != '') {
             return $query->where('person_type_id', $person_type_id);
-        }        
+        }
     }
 
     /**
@@ -171,11 +171,11 @@ class Person extends Model
     public function scopePosition($query, $position_id) {
         if ($position_id != '') {
             return $query->where('position_id', $position_id);
-        }        
+        }
     }
 
 
-    
+
     public function getProfessionNameAttribute() {
         return $this->profession->name;
     }
@@ -183,7 +183,7 @@ class Person extends Model
     public function getPersonTypeNameAttribute() {
         return $this->persontype->name;
     }
-    
+
     public function getPositionNameAttribute() {
         return $this->position->name;
     }

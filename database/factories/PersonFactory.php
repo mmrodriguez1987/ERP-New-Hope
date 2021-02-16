@@ -5,7 +5,7 @@ namespace Database\Factories;
 use App\Models\Person;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PeopleFactory extends Factory
+class PersonFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
@@ -29,7 +29,7 @@ class PeopleFactory extends Factory
             'maritalstatus_id' => 1,
             'gender_id' => 1,
             'familyrole_id' => 1,
-            'family_id' => 1,            
+            'family_id' => 1,
             'birthdate' => $this->faker->dateTime,
             'sex' => 'M',
             'cid' => $this->faker->ssn,
@@ -40,15 +40,19 @@ class PeopleFactory extends Factory
             'postal_code'=> '33015',
             'city'=> $this->faker->city,
             'email' => $this->faker->unique->safeEmail,
+            'linkedin' => $this->faker->url,
+            'twitter' => $this->faker->url,
+            'facebook' => $this->faker->url,
+            'instagram' => $this->faker->url,
             'phone' => $this->faker->phoneNumber,
             'cnt_emerg_name' => $this->faker->name,
             'cnt_emerg_phone' => $this->faker->phoneNumber,
-            'cnt_emerg_address' => $this->faker->streetName, 
+            'cnt_emerg_address' => $this->faker->streetName,
             'crt_employer_name' => $this->faker->name,
             'crt_employer_address' => $this->faker->streetAddress,
             'crt_employer_phone' => $this->faker->phoneNumber,
-            'position_id' =>  1, 
-            'person_type_id' =>  1, 
+            'position_id' =>  1,
+            'person_type_id' =>  1,
         ];
     }
 }

@@ -7,11 +7,13 @@ use App\Models\User;
 use Laravel\Sanctum\Sanctum;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Http\Request;
 use Tests\TestCase;
 
 class ProfessionControllerTest extends TestCase
 {
     use RefreshDatabase;
+    private Response $profession;
 
     protected function setUp(): void
     {
@@ -19,28 +21,33 @@ class ProfessionControllerTest extends TestCase
         //Craete the user as Default for all method
         Sanctum::actingAs(
             User::factory()->create()
-        );      
-        
-        Profession::factory()->count(200)->create();
+        );
+
+        $profession = Profession::factory()->count(500)->create();
     }
 
     public function test_index()
-    { 
-        $response = $this->getJson('/api/professions');     
-        $response->assertStatus(200);
-        $response->assertHeader('content-type', 'application/json');
-        $response->assertJsonCount(200);
-        //dd($response->decodeResponseJson());
+    {
+        $this->get('/api/professions')
+             ->assertSuccessful();
     }
 
-    public function test_create_new_Profession()
+    public function test_create_new_profession()
     {
         $data = ['name' => 'Engineer'];
-        $response = $this->postJson('/api/professions', $data);
 
+        $response = $this->post('/api/professions', $data);
         $response->assertSuccessful();
-        $response->assertHeader('content-type', 'application/json');
-        $this->assertDatabaseHas('Professions', $data);
+        $this->assertDatabaseHas('professions', $data);
+    }
+
+    /** @test */
+    function if_profession_is_paginated()
+    {
+        $this->get('/api/profession?page=1&search=&orderBy=id&desc=true')
+             ->assertSuccessful()
+             ->assertSee($profession[19]->question)
+             ->assertDontSee($profession[0]->question);
     }
 
     // public function test_update_Profession()

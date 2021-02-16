@@ -14,7 +14,9 @@ class PositionController extends Controller
      */
     public function index()
     {
-        //
+        return Profession::search(request()->search)
+            ->orderBy(request()->orderBy, request()->desc == 'true' ? 'DESC' : 'ASC')
+            ->paginate();
     }
 
     /**
@@ -24,7 +26,13 @@ class PositionController extends Controller
      */
     public function create()
     {
-        //
+        $profession = Profession::create(request()->all());
+        $profession->save();
+
+        return [
+            'message' =>'Profession Created Suscefully',
+            'id' => $faq->id,
+        ];
     }
 
     /**
@@ -35,7 +43,11 @@ class PositionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $profession = Profession::find($id);
+        // $profession->fill(request()->all());
+        // $profession->save();
+
+        // return ['message' => trans('app.faq.update_message')];
     }
 
     /**
