@@ -9,18 +9,23 @@ class ProfessionController extends Controller
 {
 
     public function index()
-    {       
+    {
         return Profession::search(request()->search)
             ->orderBy(
-                request()->orderBy,
+                request()->orderBy == null ? 'id' : 'name',
                 request()->desc == 'true' ? 'DESC' : 'ASC')
             ->paginate();
     }
 
-    public function store()
+
+    public function store(Request $request)
     {
-        $profession = Profession::create(request()->all());
-        $profession->save();
+
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $profession = Profession::create($request->all());
 
         return [
             'message' => trans('app.profession.store_message'),
@@ -36,19 +41,24 @@ class ProfessionController extends Controller
 
 
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        $profession = Profession::find($id);
-        $profession->fill(request()->all());
-        $profession->save();
+        $data = $request->validate([
+            'name' => 'required'
+        ]);
 
-        return ['message' => trans('app.profession.update_message')];
+        $profession = Profession::where('id', $id)->update($data,$id);
+
+        return [
+            'message' => trans('app.profession.update_message')
+        ];
     }
 
 
     public function destroy($id)
     {
-        $profession->Profession::destroy($id);
+        $profession = Profession::destroy($id);
+
         return ['message' => trans('app.profession.delete_message')];
     }
 }

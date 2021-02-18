@@ -15,6 +15,7 @@ class ProfessionControllerTest extends TestCase
     use RefreshDatabase;
     protected $profession;
 
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -23,16 +24,16 @@ class ProfessionControllerTest extends TestCase
             User::factory()->create()
         );
 
-        $profession = Profession::factory()->count(500)->create();
+        $profession = Profession::factory()->count(20)->create();
     }
 
-    public function test_index()
+    public function test_if_index_is_ok()
     {
         $this->get('/api/professions')
              ->assertSuccessful();
     }
 
-    public function test_create_new_profession()
+    public function test_if_store_is_ok()
     {
         $data = ['name' => 'Engineer'];
 
@@ -41,47 +42,95 @@ class ProfessionControllerTest extends TestCase
         $this->assertDatabaseHas('professions', $data);
     }
 
-    /** @test */
-    function if_profession_is_paginated()
+
+    public  function test_if_profession_is_paginated()
     {
-        $this->get('/api/profession?page=1&search=&orderBy=id&desc=true')
-             ->assertSuccessful()
-             ->assertSee($profession[19]->name)
-             ->assertDontSee($profession[0]->name);
+        $profession = Profession::factory()->count(80)->create();
+
+        $this->get('/api/professions?page=1&search=&orderBy=id&desc=true')
+            ->assertSuccessful();
     }
 
-    // public function test_update_Profession()
-    // {
-    //     /** @var Profession $profession */
-    //     $profession = factory(Profession::class)->create();
+    public function test_if_profession_can_be_updated()
+    {
+        $profession = Profession::factory()->create();
 
-    //     $data = ['name' => 'Developer'];
+        $fields = ['name' => 'New Profession'];
 
-    //     $response = $this->patchJson("/api/professions/{$profession->getKey()}", $data);
-    //     $response->assertSuccessful();
-    //     $response->assertHeader('content-type', 'application/json');
-    // }
+        $this->get(route('professions.update', $profession->id))->assertStatus(200);
 
-    // public function test_show_Profession()
-    // {
-    //     /** @var Profession $profession */
-    //     $profession = factory(Profession::class)->create();
+        $this->patch(route('professions.update', $profession->id), $fields);
 
-    //     $response = $this->getJson("/api/professions/{$profession->getKey()}");
+        $this->assertDatabaseHas('professions', ['name' => 'New Profession']);
+    }
 
-    //     $response->assertSuccessful();
-    //     $response->assertHeader('content-type', 'application/json');
-    // }
+    public function test_if_profession_is_finded()
+    {
+        $profession = Profession::factory()->count(500)->create();
+        $searched = Profession::factory()->create([
+            'name' => 'Searched Profession'
+        ]);
 
-    // public function test_delete_profession()
-    // {
-    //     /** @var Profession $profession */
-    //     $profession = factory(Profession::class)->create();
+        $profession = Profession::factory()->create();
 
-    //     $response = $this->deleteJson("/api/professions/{$profession->getKey()}");
+        $this->get('/api/professions?search=Searched&orderBy=id&desc=true')
+             ->assertSuccessful()
+             ->assertSee($searched->name)
+             ->assertDontSee($profession->name);
 
-    //     $response->assertSuccessful();
-    //     $response->assertHeader('content-type', 'application/json');
-    //     $this->assertDeleted($profession);
-    // }
+    }
+
+    public function test_if_profession_can_be_deleted()
+    {
+        $this->get(route('professions.index'))->assertStatus(200);
+
+        $profession = Profession::factory()->create();
+
+        $this->delete(route('professions.destroy', $profession->id))
+            ->assertJson([
+                'message' => trans('app.profession.delete_message')
+            ]);
+
+        $this->assertDatabaseMissing('professions', [
+            'id' => $profession->id
+        ]);
+
+
+    }
+
+    public function test_if_profession_is_ordered_by_any_column()
+    {
+        $first = Profession::factory()->create([
+            'name' => 'AAAAAAAAAAAAAAAAA'
+        ]);
+
+
+        $professions = Profession::factory()->count(20)->create([
+            'name' => 'BBBBBBBBBBBBBBBBBB'
+        ]);
+
+        $last =  Profession::factory()->create([
+            'name' => 'ZZZZZZZZZZZZZZZ'
+        ]);
+
+        $this->get('/api/professions?orderBy=name&desc=false')
+            ->assertSuccessful()
+            ->assertSee($first->name)
+            ->assertDontSee($last->name);
+
+        $this->get('/api/professions?orderBy=name&desc=true')
+            ->assertSuccessful()
+            ->assertSee($last->name)
+            ->assertDontSee($first->name);
+
+        $this->get('/api/professions?orderBy=name&desc=false')
+            ->assertSuccessful()
+            ->assertSee($first->name)
+            ->assertDontSee($last->name);
+
+        $this->get('/api/professions?orderBy=name&desc=true')
+            ->assertSuccessful()
+            ->assertSee($last->name)
+            ->assertDontSee($first->name);
+    }
 }

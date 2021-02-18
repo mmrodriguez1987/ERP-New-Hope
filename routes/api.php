@@ -26,4 +26,3 @@ Route::post('/logout', 'App\Http\Controllers\UserController@logout');
 
 Route::apiResource('professions', ProfessionController::class)->middleware('auth:sanctum');
 
-
