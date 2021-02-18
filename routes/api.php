@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfessionController;
-use App\Http\Controllers\UserTokenController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::post('/login', 'UserController@login');
-// Route::post('/register', 'UserController@register');
-// Route::post('/logout', 'UserController@logout');
+Route::post('/login', 'App\Http\Controllers\UserController@login');
+Route::post('/register', 'App\Http\Controllers\UserController@register');
+Route::post('/logout', 'App\Http\Controllers\UserController@logout');
 
 Route::apiResource('professions', ProfessionController::class)->middleware('auth:sanctum');
 

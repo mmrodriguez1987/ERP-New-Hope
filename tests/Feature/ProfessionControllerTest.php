@@ -13,7 +13,7 @@ use Tests\TestCase;
 class ProfessionControllerTest extends TestCase
 {
     use RefreshDatabase;
-    private Response $profession;
+    protected $profession;
 
     protected function setUp(): void
     {
@@ -46,8 +46,8 @@ class ProfessionControllerTest extends TestCase
     {
         $this->get('/api/profession?page=1&search=&orderBy=id&desc=true')
              ->assertSuccessful()
-             ->assertSee($profession[19]->question)
-             ->assertDontSee($profession[0]->question);
+             ->assertSee($profession[19]->name)
+             ->assertDontSee($profession[0]->name);
     }
 
     // public function test_update_Profession()
