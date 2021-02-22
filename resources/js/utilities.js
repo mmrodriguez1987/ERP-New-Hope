@@ -1,5 +1,5 @@
-Vue.filter('dateFormat', function(value) {
-  return moment(value).format('MM-DD-YYYY');
+Vue.filter('dateFormat', function (value) {
+    return moment(value).format('MM-DD-YYYY');
 });
 
 //Localization
@@ -8,5 +8,5 @@ window.trans = string => _.get(window.i18n, string)
 
 // clone
 window.clone = function (obj) {
-  return JSON.parse(JSON.stringify(obj))
+    return JSON.parse(JSON.stringify(obj))
 }

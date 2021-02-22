@@ -1,12 +1,13 @@
-//import './polyfill'
+require('./bootstrap')
+
 import router from './router'
 import store from './store'
+import {
+    iconsSet as icons
+} from './icons/icons.js'
 
 
-require('./bootstrap');
-
-// Set Vue globally
-window.Vue = require('vue');
+window.Event = new Vue
 
 //3rd vue components
 require('./vendor_components')
@@ -19,6 +20,10 @@ require('./utilities.js')
 
 new Vue({
   el: '#app',
+  icons,
   router,
-  store
+  store,
+  beforeCreate() {
+      Vue.$snotify = this.$snotify;
+  },
 })

@@ -10,45 +10,57 @@ export default {
         login(context, payload) {
             return new Promise((resolve, reject) => {
                 context.state.loading = true
-                axios.post('/login', payload)
+                axios.get('/sanctum/csrf-cookie')
+                .then(response => {
+                    axios.post('/login', payload )
                     .then(response => {
+                        console.log('User signed in!');
                         context.state.loading = false
                         context.commit('login', response.data)
                         resolve(response)
-                    })
-                    .catch(error => {
+                    }).catch(error => {
                         Vue.toasted.show('Please, Make sure your email or password are correct', {
                             icon: 'exclamation-triangle',
                             type: 'error'
                         })
-                        context.state.loading = false
+                        console.log(error)
                         reject(error)
-                    })
+                    });
+                }).catch(error => {
+                    console.log('Error getting cookie')
+                    console.log(error)
+                     reject(error)
+                });
             })
         },
+
         register(context, payload) {
             return new Promise((resolve, reject) => {
                 context.state.loading = true
                 axios.post('/register', payload)
-                    .then(response => {
-                        context.commit('register', response.data)
-                        resolve(response)
+                .then(response => {
+                    context.commit('register', response.data)
+                    context.state.loading = false
+                    resolve(response)
+                })
+                .catch(error => {
+                    Vue.toasted.show('This email is already taken by another account, please login or use another email.', {
+                        icon: 'exclamation-triangle',
+                        type: 'error'
                     })
-                    .catch(error => {
-                        Vue.toasted.show('This email is already taken by another account, please login or use another email.', {
-                            icon: 'exclamation-triangle',
-                            type: 'error'
-                        })
-                        context.state.loading = false
-                        reject(error)
-                    })
+                    context.state.loading = false
+                    reject(error)
+                })
             })
         },
+
         updateAccount(context, payload) {
             return new Promise((resolve, reject) => {
+                context.state.loading = true
                 axios.put('/api/user/' + payload.id, payload)
                     .then(response => {
                         context.commit('updateAccount', response.data)
+                        context.state.loading = false
                         resolve(response)
                     })
                     .catch(error => {
