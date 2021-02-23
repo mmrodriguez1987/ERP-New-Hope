@@ -36,9 +36,6 @@ const mutations = {
 
 let store = new Vuex.Store({
     modules: {
-        Person,
-        //PersonType,
-       // Position,
         Profession
     },
     state,

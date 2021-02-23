@@ -1,10 +1,22 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/favicon.png": "/favicon.png",
-    "/logo-symbol.png": "/logo-symbol.png",
-    "/logo.png": "/logo.png",
-    "/newhope-back-2.jpg": "/newhope-back-2.jpg",
-    "/newhope-back.jpg": "/newhope-back.jpg",
-    "/nhcrm-background.jpg": "/nhcrm-background.jpg"
+    "/images/aws-glacier-service-icon-120-317771.png": "/images/aws-glacier-service-icon-120-317771.png",
+    "/images/aws-glacier-service-icon-144-317771.png": "/images/aws-glacier-service-icon-144-317771.png",
+    "/images/aws-glacier-service-icon-152-317771.png": "/images/aws-glacier-service-icon-152-317771.png",
+    "/images/aws-glacier-service-icon-16-317771.png": "/images/aws-glacier-service-icon-16-317771.png",
+    "/images/aws-glacier-service-icon-24-317771.png": "/images/aws-glacier-service-icon-24-317771.png",
+    "/images/aws-glacier-service-icon-32-317771.png": "/images/aws-glacier-service-icon-32-317771.png",
+    "/images/aws-glacier-service-icon-48-317771.png": "/images/aws-glacier-service-icon-48-317771.png",
+    "/images/aws-glacier-service-icon-512-317771.png": "/images/aws-glacier-service-icon-512-317771.png",
+    "/images/aws-glacier-service-icon-57-317771.png": "/images/aws-glacier-service-icon-57-317771.png",
+    "/images/aws-glacier-service-icon-64-317771.png": "/images/aws-glacier-service-icon-64-317771.png",
+    "/images/aws-glacier-service-icon-72-317771.png": "/images/aws-glacier-service-icon-72-317771.png",
+    "/images/favicon.ico": "/images/favicon.ico",
+    "/images/favicon.png": "/images/favicon.png",
+    "/images/logo-symbol.png": "/images/logo-symbol.png",
+    "/images/logo.png": "/images/logo.png",
+    "/images/newhope-back-2.jpg": "/images/newhope-back-2.jpg",
+    "/images/newhope-back.jpg": "/images/newhope-back.jpg",
+    "/images/nhcrm-background.jpg": "/images/nhcrm-background.jpg"
 }
