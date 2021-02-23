@@ -7,7 +7,7 @@ import {
     cibTumblr,
     cibXing,
     cibGithub,
-    cibStackOverflow,
+
     cibYoutube,
     cibDribbble,
     cibInstagram,
@@ -24,6 +24,7 @@ import {
     cibGooglePay,
     cibCcAmex
 } from '@coreui/icons'
+
 import {
     cifUs,
     cifBr,
@@ -32,6 +33,7 @@ import {
     cifEs,
     cifPl
 } from '@coreui/icons'
+
 import {
     cilAlignCenter,
     cilAlignLeft,

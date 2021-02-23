@@ -1,4 +1,10 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/favicon.png": "/favicon.png",
+    "/logo-symbol.png": "/logo-symbol.png",
+    "/logo.png": "/logo.png",
+    "/newhope-back-2.jpg": "/newhope-back-2.jpg",
+    "/newhope-back.jpg": "/newhope-back.jpg",
+    "/nhcrm-background.jpg": "/nhcrm-background.jpg"
 }

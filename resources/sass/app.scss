@@ -1,0 +1,38 @@
+
+@import "~@coreui/coreui-pro/scss/coreui";
+
+.card-header:not(.content-center)>.c-icon:first-child {
+    margin-right: 0.1rem;
+    margin-top: 0.1rem;
+    vertical-align: top;
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: 1.2rem;
+  }
+  
+
+/* Import Font Awesome Icons Set
+$fa-font-path: '../fonts/'; */
+@import '~font-awesome/scss/font-awesome.scss';
+
+
+/* Import Simple Line Icons Set 
+$simple-line-font-path: '~simple-line-icons/fonts/';
+@import '~simple-line-icons/scss/simple-line-icons.scss';*/
+
+
+/* Import Flag Icons Set 
+@import '~flag-icon-css/css/flag-icon.min.css';*/
+
+
+/* Import Bootstrap Vue Styles */
+@import '~bootstrap-vue/dist/bootstrap-vue.css';
+
+
+// If you want to add something do it here
+@import "custom";
+
+// ie fixes
+@import "ie-fix";
+
+//@import "toastr";
