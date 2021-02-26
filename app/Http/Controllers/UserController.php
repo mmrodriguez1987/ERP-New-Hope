@@ -47,11 +47,20 @@ class UserController extends Controller
     }
 
     public function login(Request $request) {
+        //chech if the user exist
+        $user = User::where('email', $request->email)->first();
 
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            return response()->json(['message' => trans('auth.login_successfully')], 200);
+        if(!$user) {
+            return response()->json([
+                'message' => 'Wrong username, your username doesnt exist',
+                'status' => 422
+            ], 422);
+        } else {
+            $credentials = $request->only('email', 'password');
+            if (Auth::attempt($credentials)) {
+                // Authentication passed...
+                return response()->json(['message' => trans('auth.login_successfully')], 200);
+            }
         }
     }
 

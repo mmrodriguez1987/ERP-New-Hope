@@ -21,67 +21,38 @@ let router = new Router({
     scrollBehavior: () => ({
         y: 0
     }),
-    routes: [{
-            path: '/',
-            name: 'login',
-            component: Login,
-            meta: {
-                middlewareAuth: false
-            }
-        },
-        {
-            path: '/register',
-            name: 'register',
-            component: Register,
-            meta: {
-                middlewareAuth: false
-            }
-        },
-        {
-            path: '/404',
-            name: 'Page404',
-            component: Page404,
-            meta: {
-                middlewareAuth: false
-            }
-        }, {
-            path: '/500',
-            name: 'Page500',
-            component: Page500,
-            meta: {
-                middlewareAuth: false
-            }
-        },
-        {
-            path: '/',
-            name: 'Home',
+    routes: [
+        { path: '/login',   name: 'login',      component: Login },
+        { path: '/register',name: 'register',   component: Register},
+        { path: '/404',     name: 'Page404',    component: Page404 }, 
+        { path: '/500',     name: 'Page500',    component: Page500 },
+        { 
+            path: '/',        
+            name: 'dasboard',   
             redirect: '/dashboard',
             component: TheContainer,
             meta: {
                 middlewareAuth: true
             },
             children: [{
-                    path: 'dashboard',
-                    name: 'Dashboard',
-                    component: Dashboard,
-                    meta: {
-                        middlewareAuth: true
-                    }
-                },{
-                    path: 'professions',
-                    name: 'professions',
-                    component: Profession,
-                    meta: {
-                        middlewareAuth: true
-                    }
+                path: '/dashboard',
+                name: 'Dashboard',
+                component: Dashboard,
+                meta: { middlewareAuth: true }
+            },{
+                path: '/professions',
+                name: 'professions',
+                component: Profession,
+                meta: {
+                    middlewareAuth: true
                 }
-            ]
+            }]
         }
     ]
 })
 
 router.beforeEach((to, from, next) => {
-    if (to.matched.some(record => record.meta.middlewareAuth)) {
+    if (to.matched.some(record => record.meta.middlewareAuth)) {      
         if (!auth.check()) {
             next({
                 path: '/login',

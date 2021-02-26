@@ -10,26 +10,22 @@ export default {
         login(context, payload) {
             return new Promise((resolve, reject) => {
                 context.state.loading = true
-                axios.get('/sanctum/csrf-cookie')
-                .then(response => {
-                    axios.post('/login', payload )
+                axios.get('/sanctum/csrf-cookie').then(response => {
+                    axios.post('api/login', payload)
                     .then(response => {
-                        console.log('User signed in!');
                         context.state.loading = false
                         context.commit('login', response.data)
                         resolve(response)
                     }).catch(error => {
-                        Vue.toasted.show('Please, Make sure your email or password are correct', {
-                            icon: 'exclamation-triangle',
-                            type: 'error'
-                        })
                         console.log(error)
+                        Vue.toasted.show('Invalid Credentials', {icon: 'exclamation-triangle',type: 'error'})
+                        context.state.loading = false
                         reject(error)
                     });
                 }).catch(error => {
                     console.log('Error getting cookie')
                     console.log(error)
-                     reject(error)
+                    reject(error)
                 });
             })
         },
@@ -37,7 +33,7 @@ export default {
         register(context, payload) {
             return new Promise((resolve, reject) => {
                 context.state.loading = true
-                axios.post('/register', payload)
+                axios.post('api/register', payload)
                 .then(response => {
                     context.commit('register', response.data)
                     context.state.loading = false

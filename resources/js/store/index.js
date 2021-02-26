@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Auth from './modules/auth.js'
 //import Person from './modules/person.js'
 import Profession from './modules/profession.js'
 //import PersonType from './modules/persontype.js'
@@ -36,6 +37,7 @@ const mutations = {
 
 let store = new Vuex.Store({
     modules: {
+        Auth,
         Profession
     },
     state,

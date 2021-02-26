@@ -8,15 +8,15 @@
               <CForm @submit.prevent="sendToken" method="POST">
                 <h1>Login</h1>
                 <p class="text-muted">Sign In to your account</p>
-                <CInput placeholder="Username" autocomplete="username email" v-model="username" >
+                <CInput placeholder="Username" autocomplete="username email" v-model="userCredential.email" >
                   <template #prepend-content><CIcon name="cil-user"/></template>
                 </CInput>
-                <CInput placeholder="Password" type="password" autocomplete="curent-password"  v-model="password">
+                <CInput placeholder="Password" type="password" autocomplete="curent-password"  v-model="userCredential.password">
                   <template #prepend-content><CIcon name="cil-lock-locked"/></template>
                 </CInput>
                 <CRow>
                   <CCol col="6" class="text-left">
-                    <CButton type="submit" color="primary" class="px-4">Login</CButton>
+                    <CButton type="submit" color="primary" class="px-4" :disabled="validForm"  >Login</CButton>
                   </CCol>
                   <CCol col="6" class="text-right">
                     <CButton color="link" class="px-0">Forgot password?</CButton>
@@ -33,64 +33,123 @@
             <CButton color="primary" class="active mt-3" @click="goRegister()" >
               Register Now!
             </CButton>
+             <atom-spinner :animation-duration="1000" :size="25" :color="'white'" class="pull-right" v-if="loading" />
           </CCard>
         </CCardGroup>
       </CCol>
     </CRow>
   </CContainer>
 </template>
-
-<style>
-.body {
-  background-image: "URL('/images/newhope-back.jpg')" !important;
-}
-</style>
-
 <script>
-  import VueRecaptcha from 'vue-recaptcha'
+import VueRecaptcha from 'vue-recaptcha'
+import {AtomSpinner} from 'epic-spinners'
 
-  export default {
-    components: { VueRecaptcha },
-    data() {
-      return {
-        username: '',
-        password: '',
-        sitekey: process.env.MIX_INVISIBLE_RECAPTCHA_SITEKEY,
-        badge: process.env.MIX_INVISIBLE_RECAPTCHA_BADGE,
-      }
+export default{
+  components: {
+    AtomSpinner, VueRecaptcha
+  },
+	data(){
+		return{
+			userCredential:{
+        email:'',
+        password:''
+      },
+			route: this.$router.history.current.path,
+      sitekey: process.env.MIX_INVISIBLE_RECAPTCHA_SITEKEY,
+      badge: process.env.MIX_INVISIBLE_RECAPTCHA_BADGE,
+		}
+	},
+	computed:{
+		validForm(){
+			return !this.userCredential.email ||  !this.userCredential.password
+		},
+		loading(){
+			return this.$store.state.Auth.loading
+		},
+	},
+	methods:{
+		onVerify: function (response) {
+			this.$store.dispatch('login', this.userCredential)
+			.then(response => {
+				this.$router.push(this.route)
+				location.reload()
+			})
+		},
+    sendToken: function () {
+      this.$refs.invisibleRecaptcha.execute()
     },
-
-    methods: {
-        onVerify: function (response) {
-            let data = {
-                username: this.username,
-                password: this.password
-            };
-
-            axios.post('/api/login', data)
-                .then(({data}) => {
-                    auth.login(data.token, data.user);
-                    Vue.toasted.show('Welcome '+ data.user.name, {icon: 'pencil', type: 'info'})
-                    this.$router.push('/dashboard');
-                })
-                .catch(({response}) => {
-                console.log(response.data);
-                Vue.toasted.show(response.data.message, {icon: 'exclamation-triangle', type: 'error'})
-            });
-
-    	},
-
-        sendToken: function () {
-            this.$refs.invisibleRecaptcha.execute()
-        },
-
-        onExpired: function () {
-            console.log('Captcha Expired')
-		},
-
-        resetRecaptcha () {
-            this.$refs.invisibleRecaptcha.reset()
-		},
-    }
+    onExpired: function () {
+      console.log('Captcha Expired')
+ 		},
+    resetRecaptcha () {
+      this.$refs.invisibleRecaptcha.reset()
+ 		}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export default {
+//     components: { VueRecaptcha },
+//     data() {
+//       return {
+//         username: '',
+//         password: '',
+//         sitekey: process.env.MIX_INVISIBLE_RECAPTCHA_SITEKEY,
+//         badge: process.env.MIX_INVISIBLE_RECAPTCHA_BADGE,
+//       }
+//     },
+
+//     methods: {
+//         onVerify: function (response) {
+//             let data = {
+//                 username: this.username,
+//                 password: this.password
+//             };
+
+//             if (this.password.length > 0 && this.password.length) {
+//                 //Initialize CSRF protection for the application
+//                 axios.get('/sanctum/csrf-cookie').then(response => {
+//                     axios.post('api/login', {
+
+//                     })
+//                 });
+//             }
+
+//             // axios.post('/sanctum/csrf-cookie', data)
+//             //     .then(({data}) => {
+//             //         auth.login(data.username, data.password);
+//             //         Vue.toasted.show('Welcome '+ data.user.name, {icon: 'pencil', type: 'info'})
+//             //         this.$router.push('/dashboard');
+//             //     })
+//             //     .catch( error => {
+//             //     console.log(error.data);
+//             //     Vue.toasted.show(error.message, {icon: 'exclamation-triangle', type: 'error'})
+//             // });
+
+//     	},
+
+//         sendToken: function () {
+//             this.$refs.invisibleRecaptcha.execute()
+//         },
+
+//         onExpired: function () {
+//             console.log('Captcha Expired')
+// 		},
+
+//         resetRecaptcha () {
+//             this.$refs.invisibleRecaptcha.reset()
+// 		},
+//     }
+// }
 </script>
