@@ -26,6 +26,6 @@ Route::post('/register', 'App\Http\Controllers\UserController@register');
 Route::post('/logout', 'App\Http\Controllers\UserController@logout');
 
 //Route::apiResource('professions', ProfessionController::class)->middleware('auth:sanctum');
-Route::post('/dashboard', Dashboard::class);
-Route::apiResource('professions', ProfessionController::class);
+Route::post('/dashboard', Dashboard::class)->middleware('auth:sanctum');
+Route::apiResource('professions', ProfessionController::class)->middleware('auth:sanctum');
 

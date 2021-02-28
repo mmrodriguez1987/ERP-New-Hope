@@ -15,10 +15,14 @@ export default {
                     .then(response => {
                         context.state.loading = false
                         context.commit('login', response.data)
+                        Vue.toasted.show( response.data.message, {
+                            icon: 'pencil',
+                            type: 'info'
+                        })
                         resolve(response)
                     }).catch(error => {
                         console.log(error)
-                        Vue.toasted.show('Invalid Credentials', {icon: 'exclamation-triangle',type: 'error'})
+                        Vue.toasted.show(error, {icon: 'exclamation-triangle',type: 'error'})
                         context.state.loading = false
                         reject(error)
                     });

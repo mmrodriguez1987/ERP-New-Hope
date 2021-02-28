@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Schema;
 
 class UserController extends Controller
 {
@@ -48,18 +49,27 @@ class UserController extends Controller
 
     public function login(Request $request) {
         //chech if the user exist
-        $user = User::where('email', $request->email)->first();
-
-        if(!$user) {
+        if (!Schema::hasTable('users')) {
             return response()->json([
-                'message' => 'Wrong username, your username doesnt exist',
+                'message' => 'La entidad usuarios no existe',
                 'status' => 422
             ], 422);
+        }
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return response()->json([
+                'message' => 'El usuario no existe',
+                'status' => 200
+            ], 500);
         } else {
             $credentials = $request->only('email', 'password');
             if (Auth::attempt($credentials)) {
-                // Authentication passed...
-                return response()->json(['message' => trans('auth.login_successfully')], 200);
+                return response()->json([
+                    'username' => Auth::User()->name,
+                    'message' => trans('auth.login_successfully')
+                ], 200);
             }
         }
     }

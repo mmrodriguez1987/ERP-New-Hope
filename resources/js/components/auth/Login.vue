@@ -53,8 +53,7 @@ export default{
 			userCredential:{
         email:'',
         password:''
-      },
-			route: this.$router.history.current.path,
+      },			
       sitekey: process.env.MIX_INVISIBLE_RECAPTCHA_SITEKEY,
       badge: process.env.MIX_INVISIBLE_RECAPTCHA_BADGE,
 		}
@@ -71,9 +70,8 @@ export default{
 		onVerify: function (response) {
 			this.$store.dispatch('login', this.userCredential)
 			.then(response => {
-				this.$router.push(this.route)
-				location.reload()
-			})
+				this.$router.push('/dashboard')			
+			})    
 		},
     sendToken: function () {
       this.$refs.invisibleRecaptcha.execute()

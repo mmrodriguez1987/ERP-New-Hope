@@ -22,14 +22,28 @@ let router = new Router({
         y: 0
     }),
     routes: [
-        { path: '/login',   name: 'login',      component: Login },
-        { path: '/register',name: 'register',   component: Register},
-        { path: '/404',     name: 'Page404',    component: Page404 }, 
-        { path: '/500',     name: 'Page500',    component: Page500 },
+        { 
+            path: '/login',   
+            name: 'login',      
+            component: Login 
+        },
+        { 
+            path: '/register',
+            name: 'register',   
+            component: Register},
+        { 
+            path: '/404',     
+            name: 'Page404',    
+            component: Page404 }, 
+        { 
+            path: '/500',    
+            name: 'Page500',    
+            component: Page500 
+        },
         { 
             path: '/',        
             name: 'dasboard',   
-            redirect: '/dashboard',
+            redirect: ' /dashboard',
             component: TheContainer,
             meta: {
                 middlewareAuth: true
@@ -51,19 +65,19 @@ let router = new Router({
     ]
 })
 
-router.beforeEach((to, from, next) => {
-    if (to.matched.some(record => record.meta.middlewareAuth)) {      
-        if (!auth.check()) {
-            next({
-                path: '/login',
-                query: {
-                    redirect: to.fullPath
-                }
-            });
-            return;
-        }
-    }
-    next();
-})
+// router.beforeEach((to, from, next) => {
+//     if (to.matched.some(record => record.meta.middlewareAuth)) {      
+//         if (!window.Laravel.isLoggedin) {
+//             next({
+//                 path: '/login',
+//                 query: {
+//                     redirect: to.fullPath
+//                 }
+//             });
+//             return;
+//         }
+//     }
+//     next();
+// })
 
 export default router

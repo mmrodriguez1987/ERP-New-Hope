@@ -1,11 +1,8 @@
 require('./bootstrap')
 
+
 import router from './router'
 import store from './store'
-import {
-    iconsSet as icons
-} from './icons/icons.js'
-
 
 window.Event = new Vue
 
@@ -18,12 +15,11 @@ require('./vue_components')
 //Functions Utilities & Filters
 require('./utilities.js')
 
+
+window.moment = require('moment');
+
 new Vue({
-  el: '#app',
-  icons,
+  el: '#app',  
   router,
-  store,
-  beforeCreate() {
-      Vue.$snotify = this.$snotify;
-  },
+  store
 })
