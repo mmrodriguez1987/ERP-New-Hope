@@ -10,11 +10,7 @@ class ProfessionController extends Controller
 
     public function index()
     {
-        return Profession::search(request()->search)
-            ->orderBy(
-                request()->orderBy == null ? 'id' : 'name',
-                request()->desc == 'true' ? 'DESC' : 'ASC')
-            ->paginate();
+        return Profession::all();
     }
 
 

@@ -21,15 +21,12 @@
         </form>
         <!-- :items="items" -->
         <div class="clearfix"></div>
-			<b-table ref="table" striped hover show-empty	responsive :items="position"
+			<b-table ref="table" striped hover show-empty	responsive :items="profession"
                 @sort-changed="sortingChanged"
-                :fields="fields"
-                stacked="md"
+                :fields="fields"              
                 :filter="filter"
-                :sort-by.sync="sortBy"
-                :sort-desc.sync="sortDesc"
                 empty-text="Cargando..."
-                :no-local-sorting="true"
+               
                 >
                 <template slot="status"  slot-scope="row">
                 {{row.item.status ? 'Active' : 'Inactive'}}
@@ -54,7 +51,7 @@
             align="center"
             v-model="currentPage"
             class="my-0"
-            @input="getPositions"
+            @input="getProfessions"
             />
       </div>
 		</div>
@@ -77,7 +74,7 @@
          sortBy: 'id',
          sortDesc: true,
          currentId: null,
- 			  pageOptions: [ 5, 10, 15 ],
+ 			   pageOptions: [ 5, 10, 15 ],
          draft:{},
          filter: null,
          fields: [
@@ -140,12 +137,12 @@
            this.sortBy = ctx.sortBy
            this.sortDesc = ctx.sortDesc
            this.currentPage = 1
-           this.getPositions()
+           this.getProfessions()
          }
        },
  		},
      computed:{
-       positions(){ return this.$store.state.Profession.professions },
+       profession(){ return this.$store.state.Profession.professions },
        current_page(){return this.$store.state.Profession.currentPage },
        totalRows(){ return this.$store.state.Profession.totalRows },
        perPage(){ return this.$store.state.Profession.perPage },

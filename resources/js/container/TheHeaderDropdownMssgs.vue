@@ -13,7 +13,7 @@
       <div class="message">
         <div class="pt-3 mr-3 float-left">
           <div class="c-avatar">
-            <img src="img/avatars/7.jpg" class="c-avatar-img" alt="admin@bootstrapmaster.com">
+            <img src="images/avatars/7.jpg" class="c-avatar-img" alt="admin@bootstrapmaster.com">
             <span class="avatar-status bg-success"></span>
           </div>
         </div>
@@ -32,7 +32,7 @@
       <div class="message">
         <div class="pt-3 mr-3 float-left">
           <div class="c-avatar">
-            <img src="img/avatars/6.jpg" class="c-avatar-img" alt="admin@bootstrapmaster.com"/>
+            <img src="images/avatars/6.jpg" class="c-avatar-img" alt="admin@bootstrapmaster.com"/>
             <span class="avatar-status bg-warning"></span>
           </div>
         </div>
@@ -48,7 +48,7 @@
       <div class="message">
         <div class="pt-3 mr-3 float-left">
           <div class="c-avatar">
-            <img src="img/avatars/5.jpg" class="c-avatar-img" alt="admin@bootstrapmaster.com"/>
+            <img src="images/avatars/5.jpg" class="c-avatar-img" alt="admin@bootstrapmaster.com"/>
             <span class="avatar-status bg-danger"></span>
           </div>
         </div>
@@ -64,7 +64,7 @@
       <div class="message">
         <div class="pt-3 mr-3 float-left">
           <div class="c-avatar">
-            <img src="img/avatars/4.jpg" class="c-avatar-img" alt="admin@bootstrapmaster.com"/>
+            <img src="images/avatars/4.jpg" class="c-avatar-img" alt="admin@bootstrapmaster.com"/>
             <span class="avatar-status bg-info"></span>
           </div>
         </div>

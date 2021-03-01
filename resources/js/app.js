@@ -3,6 +3,9 @@ require('./bootstrap')
 
 import router from './router'
 import store from './store'
+import {
+    iconsSet as icons
+} from './icons/icons.js'
 
 window.Event = new Vue
 
@@ -19,7 +22,8 @@ require('./utilities.js')
 window.moment = require('moment');
 
 new Vue({
-  el: '#app',  
+  el: '#app', 
+  icons,
   router,
   store
 })

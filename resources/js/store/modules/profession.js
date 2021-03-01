@@ -17,8 +17,8 @@ let getters = {
 }
 
 let actions = {
-    getProfession(context, params) {
-        axios.get('/professions?page=' + params.page + '&search=' + params.target)
+    getProfessions(context, params) {
+        axios.get('/professions')
             .then(response => {
                 context.commit('getProfession', { data: response.data })
                 context.state.loading = false

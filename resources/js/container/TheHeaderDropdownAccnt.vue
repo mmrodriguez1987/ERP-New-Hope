@@ -3,7 +3,7 @@
     <template #toggler>
       <CHeaderNavLink>
         <div class="c-avatar">
-          <img src="img/avatars/6.jpg" class="c-avatar-img " />
+          <img src="images/avatars/6.jpg" class="c-avatar-img " />
         </div>
       </CHeaderNavLink>
     </template>
@@ -48,7 +48,7 @@
       <CIcon name="cil-shield-alt" /> Lock Account
     </CDropdownItem>
     <CDropdownItem>
-      <CIcon name="cil-lock-locked" /> Logout
+      <CIcon name="cil-lock-locked" @click="$store.commit('Logout')"  /> Logout
     </CDropdownItem>
   </CDropdown>
 </template>
@@ -59,6 +59,12 @@ export default {
   data () {
     return { 
       itemsCount: 42
+    }
+  }, 
+  methods: {
+    goLogout () {
+      this.$store.dispatch('')
+
     }
   }
 }

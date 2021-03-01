@@ -10,12 +10,7 @@
         <CHeaderNavLink to="/dashboard">
           Dashboard
         </CHeaderNavLink>
-      </CHeaderNavItem>
-      <CHeaderNavItem class="px-3">
-        <CHeaderNavLink to="/users" exact>
-          Users
-        </CHeaderNavLink>
-      </CHeaderNavItem>
+      </CHeaderNavItem>   
       <CHeaderNavItem class="px-3">
         <CHeaderNavLink>
           Settings
