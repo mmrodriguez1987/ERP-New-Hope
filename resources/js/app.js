@@ -1,6 +1,5 @@
 require('./bootstrap')
 
-
 import router from './router'
 import store from './store'
 import {

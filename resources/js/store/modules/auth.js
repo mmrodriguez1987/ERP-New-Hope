@@ -5,6 +5,7 @@ export default {
         guest: false,
         switchingAccount: false,
         showRegisterModal: false,
+        userProfile: [],
     },
     actions: {
         login(context, payload) {
@@ -14,7 +15,7 @@ export default {
                     axios.post('api/login', payload)
                     .then(response => {
                         context.state.loading = false
-                        context.commit('login', response.data)
+                        context.commit('login', response.data)                        
                         Vue.toasted.show( response.data.message, {
                             icon: 'pencil',
                             type: 'info'
@@ -114,6 +115,7 @@ export default {
     mutations: {
         login(state, data) {
             state.user = true
+            Vue.set(state, 'userProfile', data)
         },
         logout(state) {
             state.user = false
@@ -139,6 +141,10 @@ export default {
         },
         getLoggedUser(state, payload) {
             Vue.set(state, 'user', payload)
+        },
+        createProfile(state, data) {
+            //state.userProfile = data.data;
+            Vue.set(state, 'userProfile', data)
         }
     },
     getters: {
@@ -147,7 +153,7 @@ export default {
         },
         getUser(state) {
             return state.user
-        },
+        },   
     }
 
 }

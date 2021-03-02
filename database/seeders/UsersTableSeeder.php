@@ -19,6 +19,14 @@ class UsersTableSeeder extends Seeder
             'email' => 'mrodriguez@nissienterprise.com',
             'password' => bcrypt('Pa$$w0rd'),
             'role_id' => 1,
+            'phone' => '7863550508',
+        ]);
+
+        User::create([
+            'name' => 'Michael Rodriguez',
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('123'),
+            'role_id' => 1,
             'phone' => '7863550502',
         ]);
 

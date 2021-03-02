@@ -26,58 +26,52 @@ let router = new Router({
             path: '/login',   
             name: 'login',      
             component: Login 
-        },
-        { 
+        },{ 
             path: '/register',
             name: 'register',   
-            component: Register},
-        { 
-            path: '/404',     
+            component: Register
+        },{ 
+            path: '*',
             name: 'Page404',    
-            component: Page404 }, 
-        { 
+            component: Page404 
+        },{ 
             path: '/500',    
             name: 'Page500',    
             component: Page500 
-        },
-        { 
-            path: '/',        
-            name: 'dasboard',   
-            redirect: ' /dashboard',
-            component: TheContainer,
-            meta: {
-                middlewareAuth: true
-            },
+        },{ 
+            path: '/admin/',         
+            component: TheContainer,           
             children: [{
-                path: '/dashboard',
+                path: 'dashboard',
                 name: 'Dashboard',
                 component: Dashboard,
                 meta: { middlewareAuth: true }
             },{
-                path: '/professions',
-                name: 'professions',
+                path: 'professions',
+                name: 'Professions',
                 component: Profession,
                 meta: {
                     middlewareAuth: true
                 }
             }]
         }
+        
     ]
 })
 
-// router.beforeEach((to, from, next) => {
-//     if (to.matched.some(record => record.meta.middlewareAuth)) {      
-//         if (!window.Laravel.isLoggedin) {
-//             next({
-//                 path: '/login',
-//                 query: {
-//                     redirect: to.fullPath
-//                 }
-//             });
-//             return;
-//         }
-//     }
-//     next();
-// })
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.middlewareAuth)) {      
+        if (!this.$storage.auth.user) {
+            next({
+                path: '/login',
+                query: {
+                    redirect: to.fullPath
+                }
+            });
+            return;
+        }
+    }
+    next();
+})
 
 export default router

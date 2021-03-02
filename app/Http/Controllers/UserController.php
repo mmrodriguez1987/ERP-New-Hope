@@ -51,9 +51,9 @@ class UserController extends Controller
         //chech if the user exist
         if (!Schema::hasTable('users')) {
             return response()->json([
-                'message' => 'La entidad usuarios no existe',
+                'message' => 'La entidad de datos aun no ha sido creada',
                 'status' => 422
-            ], 422);
+            ], 200);
         }
 
         $user = User::where('email', $request->email)->first();
@@ -61,18 +61,22 @@ class UserController extends Controller
         if (!$user) {
             return response()->json([
                 'message' => 'El usuario no existe',
-                'status' => 200
-            ], 500);
+                'status' => 422
+            ], 200);
         } else {
             $credentials = $request->only('email', 'password');
             if (Auth::attempt($credentials)) {
                 return response()->json([
-                    'username' => Auth::User()->name,
+                    'name' => Auth::User()->name,
+                    'id' => Auth::User()->id,
+                    'email' => Auth::User()->email,
                     'message' => trans('auth.login_successfully')
                 ], 200);
             }
         }
     }
+
+    
 
     public function logout()
     {
