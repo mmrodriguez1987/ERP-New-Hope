@@ -1,9 +1,7 @@
 export default {
     state: {
         loading: false,
-        user: false,
-        guest: false,
-        switchingAccount: false,
+        userLogged: false,    
         showRegisterModal: false,
         userProfile: [],
     },
@@ -22,13 +20,11 @@ export default {
                         })
                         resolve(response)
                     }).catch(error => {
-                        console.log(error)
-                        Vue.toasted.show(error, {icon: 'exclamation-triangle',type: 'error'})
+                        console.log(error)                        
                         context.state.loading = false
                         reject(error)
                     });
-                }).catch(error => {
-                    console.log('Error getting cookie')
+                }).catch(error => {                    
                     console.log(error)
                     reject(error)
                 });
@@ -86,13 +82,7 @@ export default {
                     })
             })
 
-        },
-        setGestSignUp(context) {
-            context.commit('setGestSignUp')
-        },
-        switchAccount(context) {
-            context.commit('switchAccount')
-        },
+        },      
         setShowRegisterModal(context, payload) {
             context.commit('setShowRegisterModal', payload)
         },
@@ -114,46 +104,29 @@ export default {
     },
     mutations: {
         login(state, data) {
-            state.user = true
+            state.userLogged = true
             Vue.set(state, 'userProfile', data)
         },
         logout(state) {
-            state.user = false
+            state.userLogged = false
             Vue.set(state, 'guest', false)
             location.reload();
         },
         register(state) {
             state.loading = false
             location.reload()
-        },
-        updateAccount(state) {
-            state.loading = false
-            location.reload();
-        },
-        setGestSignUp(state) {
-            Vue.set(state, 'guest', true)
-        },
-        switchAccount(state) {
-            Vue.set(state, 'switchingAccount', true)
-        },
-        setShowRegisterModal(state, payload) {
-            Vue.set(state, 'showRegisterModal', payload)
-        },
-        getLoggedUser(state, payload) {
-            Vue.set(state, 'user', payload)
-        },
-        createProfile(state, data) {
-            //state.userProfile = data.data;
-            Vue.set(state, 'userProfile', data)
         }
     },
     getters: {
         getShowRegisterModal(state) {
             return state.showRegisterModal
         },
-        getUser(state) {
-            return state.user
-        },   
+        isAuthenticated(state) {
+            return state.userLogged
+        },
+        getUserProfile() {
+            return state.userProfile
+        }
     }
 
 }

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '../store'
 import TheContainer from '../container/TheContainer.vue'
 import Dashboard from '../components/Dashboard.vue'
 //import Person from '../components/person/Index.vue'
@@ -40,7 +41,10 @@ let router = new Router({
             component: Page500 
         },{ 
             path: '/admin/',         
-            component: TheContainer,           
+            component: TheContainer,
+            meta: {
+                middlewareAuth: true
+            },
             children: [{
                 path: 'dashboard',
                 name: 'Dashboard',
@@ -61,7 +65,7 @@ let router = new Router({
 
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.middlewareAuth)) {      
-        if (!this.$storage.auth.user) {
+        if (!store.getters.isAuthenticated) {
             next({
                 path: '/login',
                 query: {

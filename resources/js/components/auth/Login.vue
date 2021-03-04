@@ -70,7 +70,7 @@ export default{
 		onVerify: function (response) {
 			this.$store.dispatch('login', this.userCredential)
 			.then(response => {
-				this.$router.push('/dashboard')			
+				this.$router.push('/admin/dashboard')			
 			})    
 		},
     sendToken: function () {
