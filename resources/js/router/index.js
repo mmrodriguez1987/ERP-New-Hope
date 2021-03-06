@@ -42,9 +42,7 @@ let router = new Router({
         },{ 
             path: '/admin/',         
             component: TheContainer,
-            meta: {
-                middlewareAuth: true
-            },
+            meta: { middlewareAuth: true },
             children: [{
                 path: 'dashboard',
                 name: 'Dashboard',
@@ -54,9 +52,7 @@ let router = new Router({
                 path: 'professions',
                 name: 'Professions',
                 component: Profession,
-                meta: {
-                    middlewareAuth: true
-                }
+                meta: { middlewareAuth: true }
             }]
         }
         

@@ -27,7 +27,7 @@
             <div class="c-avatar float-right">
               <img 
                 class="c-avatar-img" 
-                src="img/avatars/7.jpg" 
+                src="images/avatars/7.jpg" 
                 alt="admin@bootstrapmaster.com"
               >
             </div>
@@ -45,7 +45,7 @@
             <div class="c-avatar float-right">
               <img 
                 class="c-avatar-img" 
-                src="img/avatars/4.jpg" 
+                src="images/avatars/4.jpg" 
                 alt="admin@bootstrapmaster.com"
               >
             </div>
@@ -81,35 +81,35 @@
               <div class="c-avatar c-avatar-xs">
                 <img 
                   class="c-avatar-img" 
-                  src="img/avatars/2.jpg" 
+                  src="images/avatars/2.jpg" 
                   alt="admin@bootstrapmaster.com"
                 >
               </div>
               <div class="c-avatar c-avatar-xs">
                 <img 
                   class="c-avatar-img" 
-                  src="img/avatars/3.jpg" 
+                  src="images/avatars/3.jpg" 
                   alt="admin@bootstrapmaster.com"
                 >
               </div>
               <div class="c-avatar c-avatar-xs">
                 <img 
                   class="c-avatar-img" 
-                  src="img/avatars/4.jpg" 
+                  src="images/avatars/4.jpg" 
                   alt="admin@bootstrapmaster.com"
                 >
               </div>
               <div class="c-avatar c-avatar-xs">
                 <img 
                   class="c-avatar-img" 
-                  src="img/avatars/5.jpg" 
+                  src="images/avatars/5.jpg" 
                   alt="admin@bootstrapmaster.com"
                 >
               </div>
               <div class="c-avatar c-avatar-xs">
                 <img 
                   class="c-avatar-img" 
-                  src="img/avatars/6.jpg" 
+                  src="images/avatars/6.jpg" 
                   alt="admin@bootstrapmaster.com"
                 >
               </div>
@@ -141,49 +141,49 @@
             <div class="c-avatars-stack mt-2">
               <div class="c-avatar c-avatar-xs">
                 <img 
-                  src="img/avatars/2.jpg" 
+                  src="images/avatars/2.jpg" 
                   class="c-avatar-img" 
                   alt="admin@bootstrapmaster.com"
                 >
               </div>
               <div class="c-avatar c-avatar-xs">
                 <img 
-                  src="img/avatars/3.jpg" 
+                  src="images/avatars/3.jpg" 
                   class="c-avatar-img" 
                   alt="admin@bootstrapmaster.com"
                 >
               </div>
               <div class="c-avatar c-avatar-xs">
                 <img 
-                  src="img/avatars/4.jpg" 
+                  src="images/avatars/4.jpg" 
                   class="c-avatar-img" 
                   alt="admin@bootstrapmaster.com"
                 >
               </div>
               <div class="c-avatar c-avatar-xs">
                 <img 
-                  src="img/avatars/5.jpg" 
+                  src="images/avatars/5.jpg" 
                   class="c-avatar-img" 
                   alt="admin@bootstrapmaster.com"
                 >
               </div>
               <div class="c-avatar c-avatar-xs">
                 <img 
-                  src="img/avatars/6.jpg" 
+                  src="images/avatars/6.jpg" 
                   class="c-avatar-img" 
                   alt="admin@bootstrapmaster.com"
                 >
               </div>
               <div class="c-avatar c-avatar-xs">
                 <img 
-                  src="img/avatars/7.jpg" 
+                  src="images/avatars/7.jpg" 
                   class="c-avatar-img" 
                   alt="admin@bootstrapmaster.com"
                 >
               </div>
               <div class="c-avatar c-avatar-xs">
                 <img 
-                  src="img/avatars/8.jpg" 
+                  src="images/avatars/8.jpg" 
                   class="c-avatar-img" 
                   alt="admin@bootstrapmaster.com"
                 >
@@ -201,7 +201,7 @@
             <div class="py-3 pb-5 mr-3 float-left">
               <div class="c-avatar">
                 <img 
-                  src="img/avatars/7.jpg" 
+                  src="images/avatars/7.jpg" 
                   class="c-avatar-img" 
                   alt="admin@bootstrapmaster.com"
                 >
@@ -222,7 +222,7 @@
             <div class="py-3 pb-5 mr-3 float-left">
               <div class="c-avatar">
                 <img 
-                  src="img/avatars/7.jpg" 
+                  src="images/avatars/7.jpg" 
                   class="c-avatar-img" 
                   alt="admin@bootstrapmaster.com"
                 >
@@ -243,7 +243,7 @@
             <div class="py-3 pb-5 mr-3 float-left">
               <div class="c-avatar">
                 <img 
-                  src="img/avatars/7.jpg" 
+                  src="images/avatars/7.jpg" 
                   class="c-avatar-img" 
                   alt="admin@bootstrapmaster.com"
                 >
@@ -264,7 +264,7 @@
             <div class="py-3 pb-5 mr-3 float-left">
               <div class="c-avatar">
                 <img 
-                  src="img/avatars/7.jpg" 
+                  src="images/avatars/7.jpg" 
                   class="c-avatar-img" 
                   alt="admin@bootstrapmaster.com"
                 >
@@ -285,7 +285,7 @@
             <div class="py-3 pb-5 mr-3 float-left">
               <div class="c-avatar">
                 <img 
-                  src="img/avatars/7.jpg" 
+                  src="images/avatars/7.jpg" 
                   class="c-avatar-img" 
                   alt="admin@bootstrapmaster.com"
                 >

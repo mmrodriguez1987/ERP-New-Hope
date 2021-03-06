@@ -124,7 +124,7 @@ export default {
         isAuthenticated(state) {
             return state.userLogged
         },
-        getUserProfile() {
+        getUserProfile(state) {
             return state.userProfile
         }
     }

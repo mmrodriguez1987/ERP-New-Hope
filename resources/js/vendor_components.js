@@ -13,7 +13,7 @@ Vue.use(BootstrapVue)
 Vue.use(CoreuiVue)
 Vue.use(icons)
 Vue.use(Toasted, {
-    duration: 10000,
+    duration: 3000,
     iconPack: 'fontawesome',
     theme: 'outline'
 })

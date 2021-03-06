@@ -18,7 +18,7 @@ let getters = {
 
 let actions = {
     getProfessions(context, params) {
-        axios.get('/professions')
+        axios.get('api/professions')
             .then(response => {
                 context.commit('getProfession', { data: response.data })
                 context.state.loading = false
@@ -41,7 +41,7 @@ let actions = {
 
     createProfession({ commit, state }, payload) {
         state.loading = true
-        axios.post('/professions/', payload)
+        axios.post('api/professions/', payload)
             .then(response => {
                 Vue.toasted.show(response.data.message, { icon: 'plus', type: 'success' })
                 commit('createProfession', response.data.data)
@@ -65,7 +65,7 @@ let actions = {
 
     updateProfession({ commit, state }, payload) {
         state.loading = true
-        axios.put('/professions/' + payload.id, payload)
+        axios.put('api/professions/' + payload.id, payload)
             .then(response => {
                 Vue.toasted.show(response.data.message, { icon: 'pencil', type: 'info' })
                 commit('updateProfession', response.data.data)
@@ -89,7 +89,7 @@ let actions = {
 
     removeProfession(context, id) {
         context.state.loading = true
-        axios.delete('/professions/' + id)
+        axios.delete('api/professions/' + id)
             .then(response => {
                 context.commit('removeProfession', id)
                 Vue.toasted.show(response.data.message, { icon: 'trash-o', type: 'error' })
@@ -112,7 +112,7 @@ let actions = {
     },
 
     listProfession(context) {
-        axios.get('/professionList')
+        axios.get('api/professionList')
             .then(response => {
                 context.commit('listProfession', { data: response.data })
             })

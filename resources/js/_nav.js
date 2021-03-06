@@ -1,19 +1,16 @@
 export default [{
     _name: 'CSidebarNav',
-    _children: [{
+    _children: [
+        {
             _name: 'CSidebarNavItem',
             name: 'Dashboard',
-            to: '/dashboard',
-            icon: 'cil-speedometer',
-            badge: {
-                color: 'primary',
-                text: 'NEW'
-            }
+            to: '/admin/dashboard',
+            icon: 'cil-speedometer',            
         },{
             _name: 'CSidebarNavItem',
             name: 'Professions',
-            to: '/professions',
-            icon: 'cil-badge'
+            to: '/admin/professions',
+            icon: 'cil-puzzle'
         }
     ]
 }]
