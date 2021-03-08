@@ -1,8 +1,14 @@
 <template>
-  <div class="box box-solid box-primary" :class="loading ? 'box-loading' : ''">
-    <div class="box-header with-border">
-      <h3 class="box-title">{{ trans('bck.person.title') }}</h3>
-    </div>
+  <CCard>
+        <CCardHeader>
+          <strong>Persons</strong> 
+          <small class="ml-1">Persons database list</small>
+        </CCardHeader>
+        <CCardBody>
+            <!-- <div class="box box-solid box-primary" :class="loading ? 'box-loading' : ''">
+              <div class="box-header with-border">
+              <h3 class="box-title">{{ trans('bck.person.title') }}</h3>
+          </div>
 
     <div class="box-body">
       <button type="button" class="btn btn-success mb-2" @click="create">
@@ -58,7 +64,11 @@
         :positions="positions" 
         :professions="professions" >
       </person-edit>
-  </div>
+  </div> -->
+        </CCardBody>
+  </CCard>
+
+
 </template>
 
 <script>

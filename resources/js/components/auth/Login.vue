@@ -4,6 +4,9 @@
       <CCol>
         <CCardGroup>
           <CCard class="p-4">
+            <CCardHeader>              
+              <img src="/images/nh-logo.png" class="img-fluid" alt="New Hope Logo">
+            </CCardHeader>
             <CCardBody>
               <CForm @submit.prevent="sendToken" method="POST">
                 <h1>Login</h1>
@@ -16,7 +19,7 @@
                 </CInput>
                 <CRow>
                   <CCol col="6" class="text-left">
-                    <CButton type="submit" color="primary" class="px-4" :disabled="validForm"  >Login</CButton>
+                    <CButton type="submit" class="px-4 nh-background" :disabled="validForm"  >Login</CButton>
                   </CCol>
                   <CCol col="6" class="text-right">
                     <CButton color="link" class="px-0">Forgot password?</CButton>
@@ -27,13 +30,11 @@
               </CForm>
             </CCardBody>
           </CCard>
-          <CCard color="primary" text-color="white" class="text-center py-5 d-md-down-none" body-wrapper >
-            <h2>Sign up</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <CButton color="primary" class="active mt-3" @click="goRegister()" >
-              Register Now!
-            </CButton>
-             <atom-spinner :animation-duration="1000" :size="25" :color="'white'" class="pull-right" v-if="loading" />
+          <CCard text-color="white" class="text-center py-5 d-md-down-none nh-background" body-wrapper >
+              <h2>NH ERP System</h2>              
+              <p>Sistema de Gestion tipo ERP para la planeacion de recursos empresariales de la Iglesia New Hope</p>
+              <CButton class="active mt-3 nh-background-white" href="/register" >Register Now!</CButton>
+              <atom-spinner :animation-duration="1000" :size="25" :color="'white'" class="pull-right" v-if="loading" />
           </CCard>
         </CCardGroup>
       </CCol>
@@ -84,70 +85,7 @@ export default{
  		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export default {
-//     components: { VueRecaptcha },
-//     data() {
-//       return {
-//         username: '',
-//         password: '',
-//         sitekey: process.env.MIX_INVISIBLE_RECAPTCHA_SITEKEY,
-//         badge: process.env.MIX_INVISIBLE_RECAPTCHA_BADGE,
-//       }
-//     },
-
-//     methods: {
-//         onVerify: function (response) {
-//             let data = {
-//                 username: this.username,
-//                 password: this.password
-//             };
-
-//             if (this.password.length > 0 && this.password.length) {
-//                 //Initialize CSRF protection for the application
-//                 axios.get('/sanctum/csrf-cookie').then(response => {
-//                     axios.post('api/login', {
-
-//                     })
-//                 });
-//             }
-
-//             // axios.post('/sanctum/csrf-cookie', data)
-//             //     .then(({data}) => {
-//             //         auth.login(data.username, data.password);
-//             //         Vue.toasted.show('Welcome '+ data.user.name, {icon: 'pencil', type: 'info'})
-//             //         this.$router.push('/dashboard');
-//             //     })
-//             //     .catch( error => {
-//             //     console.log(error.data);
-//             //     Vue.toasted.show(error.message, {icon: 'exclamation-triangle', type: 'error'})
-//             // });
-
-//     	},
-
-//         sendToken: function () {
-//             this.$refs.invisibleRecaptcha.execute()
-//         },
-
-//         onExpired: function () {
-//             console.log('Captcha Expired')
-// 		},
-
-//         resetRecaptcha () {
-//             this.$refs.invisibleRecaptcha.reset()
-// 		},
-//     }
-// }
 </script>
+<style scoped>
+
+</style>

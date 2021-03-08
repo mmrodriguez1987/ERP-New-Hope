@@ -1,5 +1,28 @@
 <template>
-    <div class="box box-solid box-primary" :class="loading ? 'box-loading' : ''">
+  <CRow>
+    <CCol sm="12">
+      <CCard>
+        <CCardHeader>
+          <strong>Professions</strong> 
+          <small class="ml-1">Professions database list</small>
+        </CCardHeader>
+        <CCardBody>
+          <CDataTable 
+            :hover="hover" :striped="striped" :bordered="bordered" 
+            :fields="fields" :small="small" :fixed="fixed" :items="profession_data"
+            :items-per-page="small ? 10 : 5" :dark="dark" pagination >           
+          </CDataTable>
+        </CCardBody>
+        <CCardFooter>
+            <CButton  size="sm" color="primary"><CIcon name="cil-check-circle"/> Submit</CButton>
+            <CButton size="sm" color="danger"><CIcon name="cil-ban"/> Reset</CButton>
+          </CCardFooter>
+      </CCard>
+    </CCol>
+  </CRow>
+
+
+    <!-- <div class="box box-solid box-primary" :class="loading ? 'box-loading' : ''">
         <div class="box-header with-border">
         <h3 class="box-title">Professions</h3>
     </div>
@@ -19,7 +42,7 @@
                 <input v-model="target"  class="form-control" placeholder="Type to Search" />
             </div>
         </form>
-        <!-- :items="items" -->
+      
         <div class="clearfix"></div>
 			<b-table ref="table" striped hover show-empty	responsive :items="profession"
                 @sort-changed="sortingChanged"
@@ -41,7 +64,7 @@
                     </button>
                 </template>
 			</b-table>
-      <!-- <position-edit :show="showEdit" :draft="draft" @close="close"></position-edit> -->
+      <position-edit :show="showEdit" :draft="draft" @close="close"></position-edit>
 
       </div>
       <div class="box-footer text-center">
@@ -54,11 +77,47 @@
             @input="getProfessions"
             />
       </div>
-		</div>
+		</div> -->
 
 </template>
  <script>
- 	export default{
+export default {
+  watch:{
+ 		target(){
+      this.getProfessions()
+    }
+ 	},
+  data(){
+ 		return{
+      currentPage: null,
+      target: '',
+      draft: {},
+      currentIndex: null,
+      showEdit: false,
+      sortBy: 'id',
+      sortDesc: true,
+      currentId: null,
+ 			pageOptions: [ 5, 10, 15 ],
+      draft:{},
+      filter: null,
+      fields: [
+        {	key: 'name', label: 'Name', sortable: true,	},
+        {	key: 'Actions', label: trans('app.common.actions'), 'class': 'pull-right'	}
+      ],
+ 		}
+ 	},
+  computed:{
+    profession_data(){ return this.$store.state.Profession.professions },
+    current_page(){return this.$store.state.Profession.currentPage },
+    totalRows(){ return this.$store.state.Profession.totalRows },
+    perPage(){ return this.$store.state.Profession.perPage },
+    loading(){ return this.$store.state.Profession.loading }
+  }
+  
+}
+
+
+ /*	export default{
  		watch:{
  			target(){
          this.getProfessions()
@@ -148,5 +207,5 @@
        perPage(){ return this.$store.state.Profession.perPage },
        loading(){ return this.$store.state.Profession.loading }
      }
- 	}
+ 	}*/
 </script>
