@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Position extends Model
 {
     use HasFactory;
+    protected $table = 'positions';
+    protected $fillable = ['name'];
+
+    //Scopes
+    public function scopeSearch($query, $target)
+    {
+        if ($target != '') {
+            return $query->
+                where('name', 'like', "%$target%")
+                ->orWhere('id', $target);
+        }
+    }
 }

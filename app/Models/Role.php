@@ -10,5 +10,15 @@ class Role extends Model
     use HasFactory;
     protected $table = "roles";
     protected $fillable = ['name'];
+
+    //Scopes
+    public function scopeSearch($query, $target)
+    {
+        if ($target != '') {
+            return $query->
+                where('name', 'like', "%$target%")
+                ->orWhere('id', $target);
+        }
+    }
     
 }

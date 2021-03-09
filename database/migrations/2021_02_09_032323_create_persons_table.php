@@ -21,7 +21,7 @@ class CreatePersonsTable extends Migration
             $table->string('last_name');
             $table->unsignedInteger('maritalstatus_id')->reference('id')->on('marital_statuses');
             $table->unsignedInteger('gender_id')->reference('id')->on('genders');
-            $table->unsignedInteger('familyrole_id')->refrence('id')->on('familyroles');
+            $table->unsignedInteger('familyrole_id')->refrence('id')->on('family_roles');
             $table->unsignedInteger('family_id')->refrence('id')->on('families');
             $table->date('birthdate');
             $table->string('cid');

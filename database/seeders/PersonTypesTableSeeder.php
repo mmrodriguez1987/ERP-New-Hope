@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Persontype;
+use App\Models\PersonType;
 
 class PersonTypesTableSeeder extends Seeder
 {
@@ -14,6 +14,6 @@ class PersonTypesTableSeeder extends Seeder
      */
     public function run()
     {
-        Persontype::factory()->count(50)->create();
+        PersonType::factory()->count(50)->create();
     }
 }

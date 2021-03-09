@@ -22,7 +22,7 @@ class GenderFactory extends Factory
     public function definition()
     {
         return [
-            'gender'=> $this->faker->firstName,           
+            'name'=> $this->faker->firstName,           
         ];
     }
 }

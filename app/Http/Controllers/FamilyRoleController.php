@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Persontype;
+use App\Models\FamilyRole;
 use Illuminate\Http\Request;
 
-class PersontypeController extends Controller
+class FamilyRoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class PersontypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Persontype  $persontype
+     * @param  \App\Models\Familyrole  $familyrole
      * @return \Illuminate\Http\Response
      */
-    public function show(Persontype $persontype)
+    public function show(Familyrole $familyrole)
     {
         //
     }
@@ -52,10 +52,10 @@ class PersontypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Persontype  $persontype
+     * @param  \App\Models\Familyrole  $familyrole
      * @return \Illuminate\Http\Response
      */
-    public function edit(Persontype $persontype)
+    public function edit(Familyrole $familyrole)
     {
         //
     }
@@ -64,10 +64,10 @@ class PersontypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Persontype  $persontype
+     * @param  \App\Models\Familyrole  $familyrole
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Persontype $persontype)
+    public function update(Request $request, Familyrole $familyrole)
     {
         //
     }
@@ -75,10 +75,10 @@ class PersontypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Persontype  $persontype
+     * @param  \App\Models\Familyrole  $familyrole
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Persontype $persontype)
+    public function destroy(Familyrole $familyrole)
     {
         //
     }

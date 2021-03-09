@@ -9,9 +9,8 @@ class Person extends Model
 {
     use HasFactory;
 
-    protected $table = 'persons';
-
-      protected $fillable = [
+    protected $table = 'persons';    
+    protected $fillable = [
         'title',
         'first_name',
         'middle_name',
@@ -86,9 +85,6 @@ class Person extends Model
     public function family() {
         return $this->BelongsTo(family::class, 'family_id');
     }
-
-
-
 
     /**
      * Method to search by any column

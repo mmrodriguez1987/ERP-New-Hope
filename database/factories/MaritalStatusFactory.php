@@ -22,7 +22,7 @@ class MaritalStatusFactory extends Factory
     public function definition()
     {
         return [
-            'status_name'=> $this->faker->cityPrefix
+            'name'=> $this->faker->cityPrefix
         ];
     }
 }
