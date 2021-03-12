@@ -1573,8 +1573,9 @@ input[type=color].form-control:disabled {
     max-height: none !important;
   }
 }
-@supports (position: sticky) {
+@supports ((position: -webkit-sticky) or (position: sticky)) {
   .b-table-sticky-header > .table.b-table > thead > tr > th {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 2;
@@ -1589,6 +1590,7 @@ input[type=color].form-control:disabled {
 [class*=table-responsive-] > .table.b-table > thead > tr > .b-table-sticky-column,
 [class*=table-responsive-] > .table.b-table > tbody > tr > .b-table-sticky-column,
 [class*=table-responsive-] > .table.b-table > tfoot > tr > .b-table-sticky-column {
+    position: -webkit-sticky;
     position: sticky;
     left: 0;
   }
@@ -21887,6 +21889,7 @@ html:not([dir=rtl]) .c-multi-select-option::after {
   position: relative;
 }
 .c-wrapper:not(.c-wrapper-fluid) .c-header-fixed {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
 }
@@ -21900,6 +21903,7 @@ html:not([dir=rtl]) .c-multi-select-option::after {
   }
 }
 .c-wrapper:not(.c-wrapper-fluid) .c-footer-fixed {
+  position: -webkit-sticky;
   position: sticky;
   bottom: 0;
 }
@@ -24319,6 +24323,7 @@ html:not([dir=rtl]) .float-right {
 }
 
 .position-sticky {
+  position: -webkit-sticky !important;
   position: sticky !important;
 }
 
@@ -24338,8 +24343,9 @@ html:not([dir=rtl]) .float-right {
   z-index: 1030;
 }
 
-@supports (position: sticky) {
+@supports ((position: -webkit-sticky) or (position: sticky)) {
   .sticky-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;

@@ -18,22 +18,13 @@ let getters = {
 
 let actions = {
     getProfessions(context, params) {
+        state.loading = true
         axios.get('api/professions')
             .then(response => {
                 context.commit('getProfession', { data: response.data })
                 context.state.loading = false
             })
-            .catch(error => {
-                Vue.toasted.show(error.message, { icon: 'exclamation-triangle', type: 'error' })
-                if (error.response) {
-                    console.log(error.response.data);
-                    console.log(error.response.status);
-                    console.log(error.response.headers);
-                } else if (error.request) {
-                    console.log(error.request);
-                } else {
-                    console.log('Error', error.message);
-                }
+            .catch(error => {              
                 console.log(error.config);
                 context.state.loading = false
             })

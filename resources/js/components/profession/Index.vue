@@ -8,13 +8,12 @@
         </CCardHeader>
         <CCardBody>
           <CDataTable 
-            :hover="hover" :striped="striped" :bordered="bordered" 
-            :fields="fields" :small="small" :fixed="fixed" :items="profession_data"
-            :items-per-page="small ? 10 : 5" :dark="dark" pagination >           
+            hover sorter column-filter  table-filter pagination
+            :fields="fields" :items="profession_data" >           
           </CDataTable>
         </CCardBody>
         <CCardFooter>
-            <CButton  size="sm" color="primary"><CIcon name="cil-check-circle"/> Submit</CButton>
+            <CButton size="sm" color="primary"><CIcon name="cil-check-circle"/> Submit</CButton>
             <CButton size="sm" color="danger"><CIcon name="cil-ban"/> Reset</CButton>
           </CCardFooter>
       </CCard>
@@ -82,6 +81,10 @@
 </template>
  <script>
 export default {
+  name: 'ProfessionIndex',
+  props: {
+
+  },
   watch:{
  		target(){
       this.getProfessions()
@@ -106,6 +109,21 @@ export default {
       ],
  		}
  	},
+  created() {
+    this.getProfessions()
+  },
+  methods: {
+    getProfessions(){
+      let params = {
+        page: this.currentPage,
+        target: this.target,
+        orderBy: this.sortBy,
+        desc: this.sortDesc
+      }
+      this.$store.dispatch('getProfessions', params)
+    },
+  },
+
   computed:{
     profession_data(){ return this.$store.state.Profession.professions },
     current_page(){return this.$store.state.Profession.currentPage },
