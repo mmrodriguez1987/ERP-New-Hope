@@ -33,7 +33,7 @@ let router = new Router({
             component: Register
         },{ 
             path: '*',
-            name: 'Page404',    
+            name: '/Page404',    
             component: Page404 
         },{ 
             path: '/500',    
