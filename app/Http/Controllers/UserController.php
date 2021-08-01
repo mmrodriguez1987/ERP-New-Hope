@@ -60,9 +60,9 @@ class UserController extends Controller
 
         if (!$user) {
             return response()->json([
-                'message' => 'El usuario no existe',
-                'status' => 422
-            ], 200);
+                'message' => 'El usuario solicitado no existe',
+                'status' => 422               
+            ], 422);
         } else {
             $credentials = $request->only('email', 'password');
             if (Auth::attempt($credentials)) {
@@ -72,6 +72,11 @@ class UserController extends Controller
                     'email' => Auth::User()->email,
                     'message' => trans('auth.login_successfully')
                 ], 200);
+            } else {
+               return response()->json([
+                    'message' => 'Credenciales de accesso no coinciden',
+                    'status' => 401   
+                ], 401);
             }
         }
     }

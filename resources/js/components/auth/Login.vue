@@ -72,8 +72,8 @@ export default{
 			this.$store.dispatch('login', this.userCredential)
 			.then(response => {
 				this.$router.push('/admin/dashboard')			
-			}).catch( response =>  {
-        this.$router.push('/500')
+			}).catch( response =>  {        
+        console.log(error)
       })     
 		},
     sendToken: function () {
@@ -88,6 +88,3 @@ export default{
 	}
 }
 </script>
-<style scoped>
-
-</style>

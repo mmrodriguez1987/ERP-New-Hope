@@ -7,28 +7,37 @@ export default {
     },
     actions: {
         login(context, payload) {
-            return new Promise((resolve, reject) => {
+            return new Promise((resolve, reject) => { 
                 context.state.loading = true
                 axios.get('/sanctum/csrf-cookie').then(response => {
-                    axios.post('api/login', payload)
-                    .then(response => {
+                    axios.post('api/login', payload).then(response => {
                         context.state.loading = false
-                        context.commit('login', response.data)                        
-                        Vue.toasted.show( response.data.message, {
-                            icon: 'pencil',
-                            type: 'info'
+                        context.commit('login', response.data)
+                        Vue.toasted.show(response.data.message, {
+                            icon: 'pencil', type: 'info'
                         })
                         resolve(response)
-                    }).catch(error => {
-                        console.log(error)                        
+                    }).catch(error => {                        
+                        Vue.toasted.show(response.data.message, {
+                            icon: 'exclamation-triangle', type: 'error'
+                        })
+                        console.log(error)
                         context.state.loading = false
                         reject(error)
                     });
-                }).catch(error => {                    
-                    console.log(error)
-                    reject(error)
+                }).catch(r => {                   
+                    Vue.toasted.show(r.message, {
+                        icon: 'exclamation-triangle', type: 'error'
+                    })
+                    console.log(r)
+                    reject(r)
                 });
-            })
+            }).catch(error =>{
+                Vue.toasted.show(error.message, {
+                    icon: 'exclamation-triangle',
+                    type: 'error'
+                })
+            })                  
         },
 
         register(context, payload) {

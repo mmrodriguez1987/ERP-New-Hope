@@ -19,72 +19,9 @@
       </CCard>
     </CCol>
   </CRow>
-
-
-    <!-- <div class="box box-solid box-primary" :class="loading ? 'box-loading' : ''">
-        <div class="box-header with-border">
-        <h3 class="box-title">Professions</h3>
-    </div>
-
-    <div class="box-body">
-        <div class="form-inline pull-left ">
-            <button class="btn btn-info " @click="create">
-                <i class="fa fa-plus ">  </i>
-		    </button>
-        </div>
-
-        <spinner v-if="loading" :size="200" color="#dd4b39"/>
-
-        <form class="form-inline pull-right">
-            <div class="form-group mx-sm-6 mb-2">
-                <label class="sr-only">Search</label>
-                <input v-model="target"  class="form-control" placeholder="Type to Search" />
-            </div>
-        </form>
-      
-        <div class="clearfix"></div>
-			<b-table ref="table" striped hover show-empty	responsive :items="profession"
-                @sort-changed="sortingChanged"
-                :fields="fields"              
-                :filter="filter"
-                empty-text="Cargando..."
-               
-                >
-                <template slot="status"  slot-scope="row">
-                {{row.item.status ? 'Active' : 'Inactive'}}
-                </template>
-
-                <template slot="Actions" slot-scope="row">
-                    <button class="btn btn-success" @click="edit(row.item, row.index)" :title="trans('app.common.edit')">
-                        <i class="fa fa-edit"></i>
-                    </button>
-                    <button class="btn btn-warning" @click="remove(row.item, row.index)" :title="trans('app.common.delete')">
-                        <i class="fa fa-trash-o"></i>
-                    </button>
-                </template>
-			</b-table>
-      <position-edit :show="showEdit" :draft="draft" @close="close"></position-edit>
-
-      </div>
-      <div class="box-footer text-center">
-          <b-pagination
-            :total-rows="totalRows"
-            :per-page="perPage"
-            align="center"
-            v-model="currentPage"
-            class="my-0"
-            @input="getProfessions"
-            />
-      </div>
-		</div> -->
-
 </template>
  <script>
 export default {
-  name: 'ProfessionIndex',
-  props: {
-
-  },
   watch:{
  		target(){
       this.getProfessions()
