@@ -19,6 +19,7 @@ class CreatePersonsTable extends Migration
             $table->string('first_name');
             $table->string('middle_name');
             $table->string('last_name');
+            $table->string('picture_profile');
             $table->unsignedInteger('maritalstatus_id')->reference('id')->on('marital_statuses');
             $table->unsignedInteger('gender_id')->reference('id')->on('genders');
             $table->unsignedInteger('familyrole_id')->refrence('id')->on('family_roles');
@@ -33,10 +34,10 @@ class CreatePersonsTable extends Migration
             $table->string('state');
             $table->unsignedInteger('profession_id')->reference('id')->on('professions');
             $table->string('email')->unique();
-            $table->string('linkedin');
-            $table->string('twitter');
-            $table->string('facebook');
-            $table->string('instagram');
+            $table->string('url_linkedin');
+            $table->string('url_twitter');
+            $table->string('url_facebook');
+            $table->string('url_instagram');
             $table->string('phone')->unique();
             $table->string('cnt_emerg_name');
             $table->string('cnt_emerg_phone');
