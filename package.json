@@ -33,7 +33,11 @@
         "bootstrap-vue": "^2.21.2",
         "epic-spinners": "^1.1.0",
         "font-awesome": "^4.7.0",
+        "html5shiv": "^3.7.3",
+        "lightbox": "^0.5.0",
+        "ng-bootstrap-lightbox": "^1.0.1",
         "perfect-scrollbar": "^1.5.0",
+        "smoothscroll": "^0.4.0",
         "toastr": "^2.1.4",
         "vue-chartjs": "^3.5.1",
         "vue-moment": "^4.1.0",
@@ -45,6 +49,7 @@
         "vue-sweetalert2": "^4.2.0",
         "vue-toasted": "^1.1.28",
         "vuex": "^3.6.2",
-        "vuex-persistedstate": "^4.0.0-beta.3"
+        "vuex-persistedstate": "^4.0.0-beta.3",
+        "wowjs": "^1.1.3"
     }
 }
