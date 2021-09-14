@@ -1,7 +1,7 @@
 
 # New Hope CRM
 
-NHCRM is an Open Source Web Application with many modules that help with the Administration of a Church. The architecture of this software has its bases in the North American Culture for all the areas in which it was manufactured, but this is not a requirement for this software to be implemented in Latin America and another nation where it will be used.
+NHCRM is an Open Source Web Application with many modules that help with the Administration of a Church.
 
 
 ## Modulos
@@ -29,13 +29,13 @@ NHCRM is an Open Source Web Application with many modules that help with the Adm
 
 ## Website
 
-[http://nhic.io](http://nhic.io)
+[https://application.newhopeinchrist.church](https://application.newhopeinchrist.church)
 
 ## Installation, Upgrades and Documentation
 
 * [Download the lastest release](https://github.com/mmrodriguez1987/nhcrm/releases/latest)
 
-* [Checkout our online Docs](http://docs.churchcrm.io)
+* [Checkout our online Docs](http://docs.application.newhopeinchrist.church)
 
 ## Project Metrics 
 
