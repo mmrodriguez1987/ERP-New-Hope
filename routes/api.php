@@ -25,7 +25,10 @@ Route::post('/login', 'App\Http\Controllers\UserController@login');
 Route::post('/register', 'App\Http\Controllers\UserController@register');
 Route::post('/logout', 'App\Http\Controllers\UserController@logout');
 
-//Route::apiResource('professions', ProfessionController::class)->middleware('auth:sanctum');
-Route::post('/dashboard', Dashboard::class)->middleware('auth:sanctum');
-Route::apiResource('professions', ProfessionController::class)->middleware('auth:sanctum');
 
+Route::middleware(['auth:sanctum'])->group(function () {  
+    Route::post('/dashboard', Dashboard::class);
+    //Route::apiResource('professions', ProfessionController::class);
+    Route::get('/professions', [ProfessionController::class, 'index']);
+    Route::get('getProfessions', [ProfessionController::class, 'index'])->name('get.getProfessions');
+});

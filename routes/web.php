@@ -20,7 +20,9 @@ Route::get('/', function () {
 Route::get('/app', function () {
     return view('app');
 });
-
+/*
+Route::get('/test', [ProfessionController::class, 'index']);
+*/
 Route::get('/{any?}', function (){
     return view('app');
 })->where('any', '^(?!api\/)[\/\w\.-]*');

@@ -21,7 +21,7 @@ let actions = {
         state.loading = true
         axios.get('api/professions')
             .then(response => {
-                context.commit('getProfession', { data: response.data })
+                context.commit('getProfessions', { data: response.data })
                 context.state.loading = false
             })
             .catch(error => {              
@@ -124,7 +124,7 @@ let actions = {
 }
 
 let mutations = {
-    getProfession(state, { data }) {
+    getProfessions(state, { data }) {
         state.currentPage = data.current_page
         state.lastPage = data.last_page
         state.totalRows = data.total
