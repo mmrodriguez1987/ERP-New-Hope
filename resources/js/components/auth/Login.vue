@@ -3,7 +3,7 @@
     <CRow>
       <CCol>
         <CCardGroup>
-          <CCard class="p-4">
+          <CCard>
             <CCardHeader>              
               <img src="/images/nh-logo.png" class="img-fluid" alt="New Hope Logo">
             </CCardHeader>
@@ -29,13 +29,7 @@
                 <vue-recaptcha  ref="invisibleRecaptcha" @verify="onVerify" @expired="onExpired" size="invisible" :badge="badge" :sitekey="sitekey" :loadRecaptchaScript="true"></vue-recaptcha>
               </CForm>
             </CCardBody>
-          </CCard>
-          <CCard text-color="white" class="text-center py-5 d-md-down-none nh-background" body-wrapper >
-              <h2>NH ERP System</h2>              
-              <p>Sistema de Gestion tipo ERP para la planeacion de recursos empresariales de la Iglesia New Hope</p>
-              <CButton class="active mt-3 nh-background-white" href="/register" >Register Now!</CButton>
-              <atom-spinner :animation-duration="1000" :size="25" :color="'white'" class="pull-right" v-if="loading" />
-          </CCard>
+          </CCard>          
         </CCardGroup>
       </CCol>
     </CRow>

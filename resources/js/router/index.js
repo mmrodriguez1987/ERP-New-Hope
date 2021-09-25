@@ -1,16 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import store from '../store'
-import TheContainer from '../container/TheContainer.vue'
-import Dashboard from '../components/Dashboard.vue'
-//import Person from '../components/person/Index.vue'
-//import Position from '../components/position/Index.vue'
-import Profession from '../components/profession/Index.vue'
-//import PersonType from '../components/person_type/Index.vue'
-import Login from '../components/auth/Login.vue'
-import Register from '../components/auth/Register.vue'
-import Page404 from '../components/pages/404.vue'
-import Page500 from '../components/pages/500.vue'
 
 window.Vue = Vue
 
@@ -26,32 +16,32 @@ let router = new Router({
         { 
             path: '/login',   
             name: 'login',      
-            component: Login 
+            component: () => import('../components/auth/Login.vue') 
         },{ 
             path: '/register',
             name: 'register',   
-            component: Register
+            component: () => import('../components/auth/Register.vue')
         },{ 
             path: '*',
-            name: '/Page404',    
-            component: Page404 
+            name: 'Page404',    
+            component: () => import('../components/pages/404.vue') 
         },{ 
             path: '/500',    
             name: 'Page500',    
-            component: Page500 
+            component: () => import('../components/pages/500.vue') 
         },{ 
             path: '/admin/',         
-            component: TheContainer,
+            component: () => import('../container/TheContainer.vue'),
             meta: { middlewareAuth: true },
             children: [{
                 path: 'dashboard',
                 name: 'Dashboard',
-                component: Dashboard,
+                component: () => import('../components/Dashboard.vue'),
                 meta: { middlewareAuth: true }
             },{
                 path: 'professions',
                 name: 'Professions',
-                component: Profession,
+                component: () => import('../components/profession/Index.vue'),
                 meta: { middlewareAuth: true }
             }]
         }

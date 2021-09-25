@@ -18,21 +18,23 @@ let getters = {
 
 let actions = {
     getProfessions(context, params) {
-        state.loading = true
-        axios.get('api/professions')
-            .then(response => {
-                context.commit('getProfessions', { data: response.data })
+        context.state.loading = true
+        axios.get('/api/profession?page='  + params.page + '&search=' + params.target + '&orderBy=' + params.orderBy + '&desc=' + params.desc)
+            .then(response => {  
+                context.commit('getProfessions', {data: response.data} )
                 context.state.loading = false
+                           
             })
-            .catch(error => {              
-                console.log(error.config);
+            .catch(error => {  
+                Vue.toasted.show('Error en action vue: ' + error.message, { icon: 'exclamation-triangle', type: 'error' }) 
+              
                 context.state.loading = false
             })
     },
 
     createProfession({ commit, state }, payload) {
         state.loading = true
-        axios.post('api/professions/', payload)
+        axios.post('/api/professions/', payload)
             .then(response => {
                 Vue.toasted.show(response.data.message, { icon: 'plus', type: 'success' })
                 commit('createProfession', response.data.data)
@@ -56,7 +58,7 @@ let actions = {
 
     updateProfession({ commit, state }, payload) {
         state.loading = true
-        axios.put('api/professions/' + payload.id, payload)
+        axios.put('/api/professions/' + payload.id, payload)
             .then(response => {
                 Vue.toasted.show(response.data.message, { icon: 'pencil', type: 'info' })
                 commit('updateProfession', response.data.data)
@@ -124,7 +126,7 @@ let actions = {
 }
 
 let mutations = {
-    getProfessions(state, { data }) {
+    getProfessions(state, data) {
         state.currentPage = data.current_page
         state.lastPage = data.last_page
         state.totalRows = data.total

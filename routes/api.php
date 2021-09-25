@@ -27,8 +27,8 @@ Route::post('/logout', 'App\Http\Controllers\UserController@logout');
 
 
 Route::middleware(['auth:sanctum'])->group(function () {  
-    Route::post('/dashboard', Dashboard::class);
-    //Route::apiResource('professions', ProfessionController::class);
-    Route::get('/professions', [ProfessionController::class, 'index']);
-    Route::get('getProfessions', [ProfessionController::class, 'index'])->name('get.getProfessions');
+    Route::post('/dashboard', Dashboard::class);    
+    //Route::get('profession', [ProfessionController::class, 'index'])->name('api.professions.index');
+    Route::get('profession', [ProfessionController::class, 'index'])->name('api.professions.index');
 });
+
