@@ -14,7 +14,9 @@ class FamilyController extends Controller
      */
     public function index()
     {
-        //
+        return Family::search(request()->search)
+            ->orderBy(request()->orderBy, request()->desc == 'true' ? 'DESC' : 'ASC')
+            ->paginate(10);
     }
 
     /**

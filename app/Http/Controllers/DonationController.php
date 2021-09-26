@@ -14,7 +14,9 @@ class DonationController extends Controller
      */
     public function index()
     {
-        //
+        return Donayion::search(request()->search)
+            ->orderBy(request()->orderBy, request()->desc == 'true' ? 'DESC' : 'ASC')
+            ->paginate(5);
     }
 
     /**

@@ -14,7 +14,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        return Event::search(request()->search)
+            ->orderBy(request()->orderBy, request()->desc == 'true' ? 'DESC' : 'ASC')
+            ->paginate(10);
     }
 
     /**
