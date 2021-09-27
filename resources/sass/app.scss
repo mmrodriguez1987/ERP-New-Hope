@@ -1,33 +1,18 @@
+//Override the variables
+@import "variables";
 
+// Import styles with default layout.
+// If you are going to use dark layout please comment next line
 @import "~@coreui/coreui-pro/scss/coreui";
 
-.card-header:not(.content-center)>.c-icon:first-child {
-    margin-right: 0.1rem;
-    margin-top: 0.1rem;
-    vertical-align: top;
-    width: 1.2rem;
-    height: 1.2rem;
-    font-size: 1.2rem;
-  }
-
-.nh-background  {  
-  background-color: #005F9B !important;
-  color: white !important;
-}
-
-.nh-background-white {
-  background-color: white !important;
-  color: #18184C !important;
-  
-}
 
 /* Import Font Awesome Icons Set
 $fa-font-path: '../fonts/'; */
-@import '~font-awesome/scss/font-awesome.scss';
+//@import '~font-awesome/scss/font-awesome.scss';
 
 
 /* Import Simple Line Icons Set 
-$simple-line-font-path: '~simple-line-icons/fonts/';
+$simple-line-font-path: '~simple-line-icons/fonts/';CLS
 @import '~simple-line-icons/scss/simple-line-icons.scss';*/
 
 
@@ -36,7 +21,7 @@ $simple-line-font-path: '~simple-line-icons/fonts/';
 
 
 /* Import Bootstrap Vue Styles */
-@import '~bootstrap-vue/dist/bootstrap-vue.css';
+//@import '~bootstrap-vue/dist/bootstrap-vue.css';
 
 
 // If you want to add something do it here
@@ -45,4 +30,3 @@ $simple-line-font-path: '~simple-line-icons/fonts/';
 // ie fixes
 @import "ie-fix";
 
-//@import "toastr";

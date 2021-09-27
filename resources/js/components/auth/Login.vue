@@ -1,11 +1,11 @@
 <template>
   <CContainer class="d-flex align-items-center min-vh-100">
-    <CRow>
-      <CCol>
+    <CRow class="justify-content-center">
+      <CCol class="col-md-8">
         <CCardGroup>
           <CCard>
             <CCardHeader>              
-              <img src="/images/nh-logo.png" class="img-fluid" alt="New Hope Logo">
+              <CImg fluid align="center" src="/images/nh-logo.png"  alt="New Hope Logo" />
             </CCardHeader>
             <CCardBody>
               <CForm @submit.prevent="sendToken" method="POST">
@@ -19,7 +19,7 @@
                 </CInput>
                 <CRow>
                   <CCol col="6" class="text-left">
-                    <CButton type="submit" class="px-4 nh-background" :disabled="validForm"  >Login</CButton>
+                    <CButton type="submit" class="btn btn-info px-4" :disabled="validForm"  >Login</CButton>
                   </CCol>
                   <CCol col="6" class="text-right">
                     <CButton color="link" class="px-0">Forgot password?</CButton>
@@ -29,7 +29,14 @@
                 <vue-recaptcha  ref="invisibleRecaptcha" @verify="onVerify" @expired="onExpired" size="invisible" :badge="badge" :sitekey="sitekey" :loadRecaptchaScript="true"></vue-recaptcha>
               </CForm>
             </CCardBody>
-          </CCard>          
+          </CCard> 
+          <CCard color="info" text-color="white" class="text-center py-5 d-md-down-none" body-wrapper>
+            <h2>Sign up</h2>
+            <p>Todo usuario debe estar debidamente autorizado por el adminsitrador del sistema para poder ser dado de alta. Cualquier intento no autorizado de ingreso a la base de datos de la compania estara penalizado por las autoridades correspondientes.</p>
+            <CButton  color="primary" class="active mt-3">
+              Register Now!
+            </CButton>
+          </CCard>         
         </CCardGroup>
       </CCol>
     </CRow>
