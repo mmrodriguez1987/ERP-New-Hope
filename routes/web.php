@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,16 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
+/*
 Route::get('/app', function () {
     return view('app');
 });
-/*
+
 Route::get('/test', [ProfessionController::class, 'index']);
-*/
+
 Route::get('/{any?}', function (){
     return view('app');
 })->where('any', '^(?!api\/)[\/\w\.-]*');
+*/
