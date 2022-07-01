@@ -11,6 +11,5 @@
             <router-view> </router-view>
         </div>
         {!! Html::script('js/app.js') !!}
-        {!! Html::script('js/lang.js') !!}
     </body>
 </html>

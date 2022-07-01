@@ -7,22 +7,15 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SocialMediaFactory extends Factory
 {
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
+
     protected $model = SocialMedia::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->text,
+            'url' => $this->faker->text,
+            'icon' => $this->faker->text,
         ];
     }
 }

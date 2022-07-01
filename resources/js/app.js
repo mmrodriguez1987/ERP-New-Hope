@@ -21,8 +21,8 @@ require('./utilities.js')
 window.moment = require('moment');
 
 new Vue({
-  el: '#app', 
-  icons,
-  router,
-  store
+    el: '#app',
+    icons,
+    router,
+    store
 })

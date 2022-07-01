@@ -12,12 +12,13 @@ use Artesaos\SEOTools\Facades\JsonLdMulti;
 
 // OR
 use Artesaos\SEOTools\Facades\SEOTools;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
     public function index() {
 
-        SEOMeta::setTitle('Home');
+        SEOMeta::setTitle('New Hope In Christ Ministry');
         SEOMeta::setDescription('This is my page description');
         SEOMeta::setCanonical('https://codecasts.com.br/lesson');
 
@@ -37,6 +38,23 @@ class HomeController extends Controller
         SEOTools::twitter()->setSite('@LuizVinicius73');
         SEOTools::jsonLd()->addImage('https://codecasts.com.br/img/logo.jpg');
 
-        return view('site.index');
+      
+        $sundayService = Carbon::parse('next sunday');
+        $sundayService->hour = 10;
+        $sundayService->minute = 30;
+        $sundayService->second = 0;   
+        $sundayService->format('Y-m-d h:m:s');
+
+        $thursdayService = Carbon::parse('next thursday');
+        $thursdayService->hour = 20;
+        $thursdayService->minute = 30;
+        $thursdayService->second = 0;   
+        $thursdayService->format('Y-m-d h:m:s');        
+
+        $nextService = ($sundayService->greaterThan($thursdayService)) ? $thursdayService : $sundayService;
+
+        return view('site.index')
+        ->with('nextService', $nextService)
+        ->with('nextServiceDayName',$nextService->dayName);
     }
 }

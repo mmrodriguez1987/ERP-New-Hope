@@ -14,14 +14,9 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-/*
-Route::get('/app', function () {
+Route::get('/login', function () {
     return view('app');
 });
 
-Route::get('/test', [ProfessionController::class, 'index']);
-
-Route::get('/{any?}', function (){
-    return view('app');
-})->where('any', '^(?!api\/)[\/\w\.-]*');
-*/
+Route::get('stripe', [StripeController::class, 'stripe']);
+Route::post('stripe', [StripeController::class, 'stripePost'])->name('stripe.post');

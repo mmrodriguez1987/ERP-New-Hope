@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\PostCategory;
 
 class PostCategorySeeder extends Seeder
 {
@@ -13,6 +15,6 @@ class PostCategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        PostCategory::factory()->count(50)->create();
     }
 }

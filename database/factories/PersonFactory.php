@@ -6,19 +6,9 @@ use App\Models\Person;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PersonFactory extends Factory
-{
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
+{    
     protected $model = Person::class;
-
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
+    
     public function definition()
     {
         return [
@@ -27,18 +17,18 @@ class PersonFactory extends Factory
             'middle_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
             'picture_profile' => $this->faker->url,
-            'maritalstatus_id' => 1,
-            'gender_id' => 1,
-            'familyrole_id' => 1,
-            'family_id' => 1,
+            'maritalstatus_id' => $this->faker->numberBetween(1,10),
+            'gender_id' => $this->faker->numberBetween(1,10),
+            'familyrole_id' => $this->faker->numberBetween(1,10),
+            'family_id' => $this->faker->numberBetween(1,10),
             'birthdate' => $this->faker->dateTime,
             'sex' => 'M',
             'cid' => $this->faker->ssn,
             'address'=> $this->faker->streetAddress,
             'street'=> $this->faker->streetName,
             'state'=> $this->faker->stateAbbr,
-            'profession_id'=> 1 ,
-            'postal_code'=> '33015',
+            'profession_id'=> $this->faker->numberBetween(1,10),
+            'postal_code'=> $this->faker->postCode,
             'city'=> $this->faker->city,
             'email' => $this->faker->unique->safeEmail,
             'url_linkedin' => $this->faker->url,
@@ -52,8 +42,8 @@ class PersonFactory extends Factory
             'crt_employer_name' => $this->faker->name,
             'crt_employer_address' => $this->faker->streetAddress,
             'crt_employer_phone' => $this->faker->phoneNumber,
-            'position_id' =>  1,
-            'person_type_id' =>  1,
+            'position_id' =>  $this->faker->numberBetween(1,10),
+            'person_type_id' =>  $this->faker->numberBetween(1,10),
         ];
     }
 }

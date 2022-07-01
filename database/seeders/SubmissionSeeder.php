@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Submission;
 
 class SubmissionSeeder extends Seeder
 {
@@ -13,6 +15,6 @@ class SubmissionSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Submission::factory()->count(50)->create();
     }
 }

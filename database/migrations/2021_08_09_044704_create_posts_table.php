@@ -15,6 +15,18 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('author_id')->constrained('users');
+            $table->foreignId('category_id')->constrained();
+            $table->integer('votes');
+            $table->string('intro_image');
+            $table->string('post_image');
+            $table->text('parentID');
+            $table->text('metaTitle');
+            $table->text('slug',50);
+            $table->text('contentHtml');
+            $table->text('summary');
+            $table->boolean('published');
+            $table->dateTime('published_date', $precision = 0);
             $table->timestamps();
         });
     }
