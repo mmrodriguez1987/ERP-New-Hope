@@ -15,6 +15,6 @@ class PostMetaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        PostMeta::factory()->count(10)->create();
     }
 }

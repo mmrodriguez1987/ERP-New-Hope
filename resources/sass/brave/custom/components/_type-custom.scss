@@ -1,0 +1,214 @@
+/** @section Typography */
+
+// Body
+body {
+	font-family: $font-family-base;
+	font-weight: $font-weight-base;
+	font-size: 15px;
+	line-height: 1.6;
+	color: $body-color;
+	background-color: $body-bg;
+	-webkit-text-size-adjust: none;
+	-webkit-font-smoothing: subpixel-antialiased;
+
+	@include media-breakpoint-up(lg) {
+		font-size: 16px;
+		line-height: $line-height-body;
+	}
+	@include media-breakpoint-up(xxl) {
+		font-size: $font-size-body;
+	}
+}
+
+// Headings
+
+#{headings()} {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-family: $headings-font-family;
+	font-weight: $headings-font-weight;
+	text-transform: uppercase;
+	color: $headings-color;
+
+	a {
+		display: inline;
+		color: inherit;
+		transition: .3s all ease;
+
+		&:hover {
+			color: $primary;
+		}
+	}
+}
+
+// {0 - 768px} <= 40px
+// {768px - 992px} <= 62px
+h1,
+.heading-1 {
+	font-size: 34px;
+	line-height: 1.2;
+	letter-spacing: $spacing-lg;
+	@include media-breakpoint-up(md) {
+		font-size: 42px;
+		line-height: $h1-line-height;
+	}
+	@include media-breakpoint-up(xl) {
+		font-size: 60px;
+	}
+	@include media-breakpoint-up(xxl) {
+		font-size: $h1-font-size;
+	}
+}
+
+// {0 - 768px} <= 36px
+// {768px - 992px} <= 52px
+h2,
+.heading-2 {
+	font-family: $font-family-base;
+	font-size: 28px;
+	line-height: 1.2;
+	text-transform: none;
+
+	@include media-breakpoint-up(md) {
+		font-size: 34px;
+		line-height: $h2-line-height;
+	}
+	@include media-breakpoint-up(xl) {
+		font-size: 36px;
+	}
+	@include media-breakpoint-up(xxl) {
+		font-size: $h2-font-size;
+	}
+}
+
+.heading-2 {
+	font-weight: 300;
+}
+
+// {0 - 768px} <= 32px
+// {768px - 992px} <= 44px
+h3,
+.heading-3 {
+	font-size: 24px;
+	line-height: 1.45;
+	letter-spacing: $spacing-md;
+
+	@include media-breakpoint-up(md) {
+		font-size: 28px;
+	}
+	@include media-breakpoint-up(xl) {
+		font-size: 34px;
+		line-height: $h3-line-height;
+	}
+	@include media-breakpoint-up(xxl) {
+		font-size: $h3-font-size;
+	}
+}
+
+.h3-alternate {
+	font-size: 24px;
+	line-height: 1.45;
+	color: $gray-700;
+
+	@include media-breakpoint-up(md) {
+		font-size: 28px;
+	}
+
+	@include media-breakpoint-up(xxl) {
+		font-size: 42px;
+	}
+}
+
+// {0 - 768px} <= 26px
+// {768px - 992px} <= 36px
+h4,
+.heading-4 {
+	font-size: 21px;
+	line-height: 1.35;
+	letter-spacing: $spacing-md;
+
+	@include media-breakpoint-up(md) {
+		font-size: 26px;
+		line-height: $h4-line-height;
+	}
+	@include media-breakpoint-up(xxl) {
+		font-size: $h4-font-size;
+	}
+}
+
+// {0 - 768px} <= 22px
+// {768px - 992px} <= 28px
+h5,
+.heading-5 {
+	font-family: $font-family-base;
+	font-weight: 400;
+	font-size: 19px;
+	line-height: 1.5;
+	text-transform: none;
+
+	@include media-breakpoint-up(md) {
+		line-height: $h5-line-height;
+	}
+	@include media-breakpoint-up(xxl) {
+		font-size: $h5-font-size;
+	}
+}
+
+.heading-5 {
+	font-weight: 300;
+}
+
+// {0 - 768px} <= 18px
+// {768px - 992px} <= 22px
+h6,
+.heading-6 {
+	font-size: 17px;
+	line-height: 1.5;
+	letter-spacing: $spacing-lg;
+
+	@include media-breakpoint-up(md) {
+		font-size: 19px;
+		line-height: $h6-line-height;
+	}
+	@include media-breakpoint-up(xxl) {
+		font-size: $h6-font-size;
+	}
+}
+
+// Big text
+.big,
+.custom-subtitle {
+	font-size: 18px;
+
+	@include media-breakpoint-up(md) {
+		font-size: 19px;
+	}
+	@include media-breakpoint-up(xxl) {
+		font-size: $font-size-body-lg;
+	}
+}
+
+.bigger {
+	font-weight: 400;
+	@include media-breakpoint-up(lg) {
+		font-size: 20px;
+	}
+	@include media-breakpoint-up(xl) {
+		font-size: 24px;
+	}
+}
+
+// Small text
+small,
+.small {
+	display: block;
+	font-size: $font-size-sm;
+}
+
+mark,
+.mark {
+	color: $white;
+	background-color: $primary;
+	padding: .1em .5em;
+}
+

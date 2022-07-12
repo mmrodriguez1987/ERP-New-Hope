@@ -1,0 +1,134 @@
+/** @section Time Circles */
+
+.countdown-wrap {
+	max-width: 770px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 20px;
+}
+
+* + .countdown-wrap {
+	margin-top: 35px;
+}
+
+.time-circles {
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	line-height: 1.2;
+	text-align: center;
+}
+
+.countdown-block {
+	position: relative;
+}
+
+.countdown-block-seconds {
+	display: none;
+
+	// Medium ≥ 576px
+	@include media-breakpoint-up(sm) {
+		display: block;
+	}
+}
+
+.countdown-content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	margin-top: -4px;
+	text-align: center;
+}
+
+.countdown-counter {
+	display: block;
+	text-align: center;
+	font-family: $font-family-sec;
+	font-size: 24px !important;
+	font-weight: 400;
+	line-height: 1 !important;
+	letter-spacing: $spacing-md;
+	color: $gray-700;
+
+	@include media-breakpoint-up(md) {
+		font-size: 28px !important;
+	}
+}
+
+.countdown-title {
+	position: absolute;
+	left: 0;
+	top: calc(100% + 20px);
+	right: 0;
+	transform: translateY(-100%);
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-family: $font-family-base;
+	font-weight: $font-weight-base;
+	font-size: 16px !important;
+	letter-spacing: 0;
+	line-height: 1.2 !important;
+	text-transform: none;
+	color: $gray-500;
+
+	& + * {
+		margin-top: 0;
+	}
+
+	@include media-breakpoint-up(md) {
+		font-size: 20px !important;
+	}
+
+	@include media-breakpoint-up(xxl) {
+		font-size: 24px !important;
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	* + .countdown-wrap {
+		margin-top: 60px;
+	}
+}
+
+.countdown-circle {
+	fill: transparent;
+
+	html:not(.ie-11):not(.ie-10) & {
+		width: 100%;
+		height: auto;
+	}
+}
+
+.countdown-circle-bg {
+	stroke: #e8e8e8;
+	stroke-width: 1px;
+}
+
+.countdown-circle-fg {
+	stroke: $secondary;
+	stroke-width: 4px;
+}
+
+.bg-gradient-3 {
+
+	.countdown-circle-fg {
+		stroke: $secondary-1;
+	}
+
+	.countdown-counter,
+	.countdown-title {
+		color: $white;
+	}
+}
+
+

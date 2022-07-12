@@ -13,10 +13,10 @@ class SubmissionDataFactory extends Factory
     {
         return [
             'submission_id' => $this->faker->numberBetween(1,10),
-            'visitor' => $this->faker->text,
-            'name' => $this->faker->text,
-            'email' => $this->faker->text,
-            'phone' => $this->faker->text,
+            'visitor' => $this->faker->ipv4(),
+            'name' => $this->faker->firstName(),
+            'email' => $this->faker->companyEmail(),
+            'phone' => $this->faker->phoneNumber(),
             'message' => $this->faker->text
         ];
     }

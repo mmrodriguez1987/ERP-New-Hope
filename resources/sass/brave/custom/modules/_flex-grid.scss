@@ -1,0 +1,284 @@
+/** @section Flex Grid system */
+
+// Base Grid Styles
+// --------------------------------------------------
+
+.container,
+.container-wide,
+.container-fluid {
+	@include make-shell($grid-gutter-width);
+}
+
+.container,
+.container-wide {
+	max-width: map-get($container-max-widths, sm);
+
+	@include media-breakpoint-up(md) {
+		max-width: map-get($container-max-widths, md);
+	}
+
+	@include media-breakpoint-up(lg) {
+		max-width: map-get($container-max-widths, lg);
+	}
+
+	@include media-breakpoint-up(xl) {
+		max-width: map-get($container-max-widths, xl);
+	}
+}
+
+.container-bigger {
+	@include media-breakpoint-up(xxl) {
+		max-width: 1500px;
+	}
+}
+
+.container-wide {
+	@include media-breakpoint-up(xxl) {
+		max-width: map-get($container-max-widths, xxl);
+	}
+
+	@include media-breakpoint-up(xxxl) {
+		max-width: map-get($container-max-widths, xxxl);
+	}
+}
+
+.container-custom {
+	padding: 0;
+	width: 100%;
+
+	.gallery-item {
+		width: 100%;
+		max-width: 100%;
+
+		.gallery-item-image {
+			width: 100%;
+		}
+	}
+
+	.container-custom-inner {
+		padding: 0 15px;
+	}
+
+	[class*='col'] [class*='section']:empty {
+		min-height: 300px;
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+
+	@include media-breakpoint-up(sm) {
+		.row {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		min-height: 350px;
+	}
+
+	@include media-breakpoint-between(lg, lg) {
+		.container-custom-inner-1 {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+	}
+
+	@include media-breakpoint-up(xl) {
+		&,
+		[class*='col'] {
+			padding: 0;
+		}
+
+		[class*='col']:first-child .container-custom-inner {
+			margin-left: auto;
+			margin-right: 0;
+
+			.section-reverse & {
+				margin-left: 0;
+				margin-right: auto;
+			}
+		}
+
+		[class*='col']:last-child .container-custom-inner {
+			margin-left: 0;
+			margin-right: auto;
+
+			.section-reverse & {
+				margin-left: auto;
+				margin-right: 0;
+			}
+		}
+	}
+
+	.container-custom-inner {
+		[class*='section-'] {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			> * {
+				width: 100%;
+			}
+		}
+
+		@include media-breakpoint-up(xl) {
+			padding: 0 40px;
+		}
+
+		@include media-breakpoint-up(xxl) {
+			max-width: map-get($container-max-widths, xxl) / 2;
+			padding: 0 125px;
+		}
+
+		@include media-breakpoint-up(xxxl) {
+			max-width: map-get($grid-breakpoints, xxxl) / 2 + 60px;
+			padding: 0 150px;
+		}
+	}
+
+	.container-custom-inner-right {
+		@include media-breakpoint-up(xl) {
+			margin-left: 0;
+			margin-right: auto;
+
+			.section-reverse & {
+				margin-left: auto;
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+.container-no-gutter {
+	width: 100%;
+	max-width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.container-fullwidth {
+	width: 100%;
+	max-width: map-get($grid-breakpoints, xxxl);
+}
+
+@include media-breakpoint-up(xl) {
+	.container-fluid-inset-lg-50 {
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+}
+
+.row-spacer {
+	flex-basis: 100%;
+}
+
+// Create IE 9 and below degradation styles
+html.lt-ie-10 * + .row,
+* + .row {
+	margin-top: 30px;
+	@include media-breakpoint-up(lg) {
+		margin-top: 35px;
+	}
+	@include media-breakpoint-up(xxl) {
+		margin-top: $range-ws;
+	}
+}
+
+html.lt-ie-10 * + .row-50,
+* + .row-50 {
+	margin-top: 50px;
+}
+
+html.lt-ie-10 * + .row-md,
+* + .row-md {
+	margin-top: $range-ws-sm;
+}
+
+html.lt-ie-10 * + .row-lg,
+* + .row-lg {
+	@include media-breakpoint-up(xl) {
+		margin-top: $range-ws-md;
+	}
+}
+
+html.lt-ie-10 * + .row-xl,
+* + .row-xl {
+	@include media-breakpoint-up(xxl) {
+		margin-top: $range-ws-lg;
+	}
+}
+
+html.tablet.lt-ie-10 * + .row-xl.row-100,
+.tablet * + .row-xl.row-100,
+.mobile * + .row-xl.row-100 {
+	margin-top: 70px;
+}
+
+html.lt-ie-10 * + .row-xxl,
+* + .row-xxl {
+	@include media-breakpoint-up(lg) {
+		margin-top: $range-ws;
+	}
+	@include media-breakpoint-up(xl) {
+		margin-top: $range-ws-xl;
+	}
+}
+
+html.lt-ie-10 .no-gutters,
+.no-gutters {
+	margin-left: 0;
+	margin-right: 0;
+
+	> [class*='col'] {
+		padding-left: 0;
+		padding-right: 0;
+		margin-top: -1px;
+	}
+}
+
+html.lt-ie-10 .row-narrow,
+.row-narrow {
+	@include make-range($grid-gutter-width-narrow);
+
+	> [class*='col'] {
+		@include make-cell-spacing($grid-gutter-width-narrow);
+	}
+
+	> * + [class*='col'] {
+		@include make-cell-spacing($grid-gutter-width-narrow);
+	}
+}
+
+html.lt-ie-10 .row-narrow-md,
+.row-narrow-md {
+	@include make-range($grid-gutter-width-narrow-md);
+
+	> [class*='col'] {
+		@include make-cell-spacing($grid-gutter-width-narrow-md);
+	}
+
+	> * + [class*='col'] {
+		@include make-cell-spacing($grid-gutter-width-narrow-md);
+	}
+}
+
+// Flex Grid Styles
+// --------------------------------------------------
+.row-vertical {
+	flex-direction: column;
+}
+
+// Framework grid generation
+//
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `$grid-columns`.
+.row-ten {
+	@include make-grid-columns-custom($grid-columns-ten);
+}
+
+html.lt-ie-10 {
+	.row > {
+		@include make-fallback($grid-columns);
+	}
+}

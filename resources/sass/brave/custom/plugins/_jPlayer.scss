@@ -1,0 +1,1002 @@
+/** @section jPlayer */
+
+.jp-custom-playlist {
+	text-align: left;
+
+	li {
+		margin: 2px 0;
+		padding: 3px 12px;
+		background-color: #e4e4e4;
+
+		a:before {
+			display: inline-block;
+			margin-right: 6px;
+			font-family: "Material Design Icons";
+			content: "\f4f9";
+		}
+
+		&.playing {
+			a:before {
+				content: "\f4d3";
+			}
+
+			a {
+				color: $primary;
+			}
+		}
+	}
+}
+
+.jp-player-init {
+
+	&.jp-player-fixed {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 9999;
+
+		.jp-audio {
+			max-width: none;
+			padding: 0;
+			transition: .3s;
+			transform: translateY(100%);
+
+			&.jp-state-playing {
+				transform: translateY(0);
+			}
+		}
+
+		.jp-interface {
+			border-radius: 0;
+		}
+
+		.jp-no-solution,
+		.jp-playlist {
+			display: none;
+		}
+	}
+
+	/**
+	 * Player
+	 * -----------------------------------------------------------------------------
+	 */
+	.jp-jplayer {
+		height: 0 !important;
+		width: 0 !important;
+	}
+
+	.jp-audio {
+		font-size: 25px;
+		font-size: 1.6rem;
+		margin: 0 auto;
+		max-width: 100%;
+		padding: 0 1.25em;
+	}
+
+	.jp-audio a {
+		color: #d2d6db;
+		text-decoration: none;
+	}
+
+	.jp-audio a:hover {
+		color: #ffffff;
+	}
+
+	.jp-interface {
+		display: flex;
+		background-color: #2b2d2d;
+		background-repeat: repeat-x;
+		background-image: linear-gradient(#4a4c4d, #2b2d2d);
+		border-radius: 3px 3px 0 0;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+		height: 30px;
+		position: relative;
+		width: 100%;
+		font-size: 15px;
+	}
+
+	@media (min-width: 480px) {
+		.jp-audio {
+			max-width: 35em;
+		}
+		.jp-interface {
+			border-radius: 3px;
+		}
+	}
+	/* jPlayer: Cotrols
+	----------------------------------------------- */
+	.jp-button {
+		float: left;
+	}
+
+	.jp-btn {
+		background: transparent;
+		border: 0;
+		border-radius: 0;
+		color: #d2d6db;
+		cursor: pointer;
+		display: block;
+		height: 30px;
+		margin: 0;
+		outline: none;
+		overflow: hidden;
+		padding: 0;
+		position: relative;
+		text-indent: 110%;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+		-webkit-transition: none;
+		transition: none;
+		white-space: nowrap;
+		width: 2.125em;
+	}
+
+	.jp-btn:before {
+		font-family: "Material Design Icons";
+		font-size: 25px;
+		font-size: 1rem;
+		line-height: 1.875em;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		text-align: center;
+		text-indent: 0;
+	}
+
+	.jp-btn:hover {
+		color: #ffffff;
+	}
+
+	.jp-play:before {
+		content: "\f4f9";
+		text-indent: 0.1875em;
+	}
+
+	.jp-mute:before {
+		content: "\f66b";
+	}
+
+	.jp-state-playing .jp-play:before {
+		content: "\f4d3";
+		text-indent: 0;
+	}
+
+	.jp-state-muted .jp-mute:before {
+		content: "\f66e";
+	}
+
+	.jp-previous:before {
+		content: "\f59d";
+	}
+
+	.jp-next:before {
+		content: "\f59c";
+	}
+
+	.jp-controls {
+		display: flex;
+		padding: 0 10px;
+
+		.jp-play {
+			left: -2px;
+		}
+
+		.jp-btn {
+			width: 20px;
+		}
+	}
+
+	/* jPlayer: Progress Bar
+	----------------------------------------------- */
+	.jp-time-rail {
+		flex: 1;
+		border-left: 1px solid rgba(255, 255, 255, 0.05);
+		border-right: 1px solid rgba(0, 0, 0, 0.25);
+		float: left;
+		height: 1.875em;
+		padding: 0.75em;
+		position: relative;
+		width: calc(100% - 165px);
+	}
+
+	.jp-time-rail:before,
+	.jp-time-rail:after {
+		border-left: 1px solid;
+		content: " ";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+	}
+
+	.jp-time-rail:before {
+		border-color: rgba(0, 0, 0, 0.25);
+		right: 100%;
+		margin-right: 1px;
+	}
+
+	.jp-time-rail:after {
+		border-color: rgba(255, 255, 255, 0.05);
+		left: 100%;
+		margin-left: 1px;
+	}
+
+	.jp-progress {
+		background: #262929;
+		border: 1px solid;
+		border-color: #212424 #262929 #262929;
+		border-radius: 1px;
+		box-shadow: 0 1px 1px rgba(255, 255, 255, 0.05);
+		height: 0.4375em;
+		width: 100%;
+	}
+
+	.jp-seek-bar,
+	.jp-play-bar {
+		border-radius: 1px;
+		height: 0.3125em;
+		width: 0;
+	}
+
+	.jp-seek-bar {
+		background: #464849;
+		cursor: pointer;
+		position: relative;
+	}
+
+	.jp-play-bar {
+		animation: progress-bar 0.75s linear infinite;
+	}
+
+	/* jPlayer: Volume Bar
+	----------------------------------------------- */
+	.jp-volume-bar {
+		float: left;
+		z-index: 99;
+		position: relative;
+		margin: 0.75em 1em 0 -0.3125em;
+		width: 2.5em;
+		height: 0.4375em;
+		cursor: pointer;
+		background: #262929;
+		box-shadow: 0 1px 1px rgba(255, 255, 255, 0.05);
+		border-radius: 1px;
+	}
+
+	.jp-volume-bar-value {
+		width: 0;
+		height: 0.3125em;
+		margin: 1px;
+		border-radius: 1px;
+	}
+
+	/* Diagonal Background Bars */
+	.jp-play-bar,
+	.jp-volume-bar-value {
+		box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3);
+		background-size: 0.4375em 0.4375em;
+		background-color: darken($primary, 10%);
+		background-repeat: repeat-x;
+		background-image: -khtml-gradient(linear, left top, left bottom, from($primary), to(darken($primary, 10%)));
+		background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $primary), color-stop(100%, darken($primary, 10%)));
+		background-image: -webkit-linear-gradient($primary, darken($primary, 10%));
+		background-image: -o-linear-gradient($primary, darken($primary, 10%));
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$primary', endColorstr='darken($primary, 10%)', GradientType=0);
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='$primary', endColorstr='darken($primary, 10%)', GradientType=0)";
+		background-image: linear-gradient($primary, darken($primary, 10%));
+		background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 75%, transparent 75%, transparent);
+		background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 75%, transparent 75%, transparent);
+	}
+
+	/* jPlayer: Playlist
+	----------------------------------------------- */
+	.jp-playlist {
+		text-align: left;
+		background-color: #4a4c4d;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+		border-radius: 0 0 3px 3px;
+		font-size: 19px;
+		font-size: 1.2rem;
+		margin: 0 auto;
+
+		&.jp-playlist--hidden {
+			display: none;
+		}
+	}
+
+	.jp-playlist {
+		.jp-playlist-current {
+			background-color: rgba(0, 0, 0, 0.1);
+
+			a {
+				color: $white;
+			}
+		}
+
+		a {
+			display: block;
+			padding: 0.58333333em 1em;
+		}
+	}
+
+	.jp-playlist ul {
+		box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		font-size: 16px;
+	}
+
+	.jp-playlist li {
+		border-top: 1px solid rgba(0, 0, 0, 0.25);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+		width: 100%;
+	}
+
+	.jp-playlist li:hover {
+		background-color: rgba(0, 0, 0, 0.2);
+	}
+
+	.jp-playlist li:first-child {
+		border-top: none;
+	}
+
+	.jp-playlist li:last-child {
+		border-bottom: none;
+	}
+
+	.jp-free-media {
+		display: block;
+		float: right;
+		font-size: 0.83333333em;
+		letter-spacing: 0.05em;
+		line-height: 2em;
+		margin-right: 1em;
+		padding: 0.58333333em 0;
+		text-transform: uppercase;
+	}
+
+	.jp-free-media a {
+		display: inline;
+		padding: 0;
+	}
+
+	.jp-free-media a:first-child:before,
+	.jp-free-media a:last-child:after {
+		content: " ";
+	}
+
+	.jp-state-playing .jp-playlist-current {
+		border-top-color: rgba(0, 0, 0, 0.35);
+	}
+
+	.jp-state-playing .jp-playlist-current a {
+		background-color: rgba(0, 0, 0, 0.2);
+		color: #ffffff;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+	}
+
+	.jp-state-playing .jp-playlist-current .jp-free-media a {
+		background-color: transparent;
+	}
+
+	.jp-playlist-item-remove {
+		display: none;
+		padding: 0;
+	}
+
+	@media (min-width: 480px) {
+		.jp-playlist {
+			width: 94%;
+		}
+	}
+}
+
+// ================================
+
+/*
+ * Project: CirclePlayer
+ * http://www.jplayer.org
+ *
+ * Copyright (c) 2012 Happyworm Ltd
+ *
+ * Author: Silvia Benvenuti
+ * Edited by: Mark J Panaghiston
+ * Date: 2nd October 2012
+ * Artwork inspired by: http://forrst.com/posts/Untitled-CJz
+ */
+
+.cp-container {
+	position: relative;
+	width: 104px; /* 200 - (2 * 48) */
+	height: 104px;
+	background: url("../images/bgr.jpg") 0 0 no-repeat;
+	padding: 48px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	box-sizing: content-box;
+	margin-bottom: 20px;
+}
+
+.prototype-wrapper {
+	@media (min-width: 480px) {
+		display: flex;
+		justify-content: space-around;
+	}
+}
+
+.cp-container :focus {
+	border: none;
+	outline: 0;
+}
+
+.cp-buffer-1,
+.cp-buffer-2,
+.cp-progress-1,
+.cp-progress-2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 104px;
+	height: 104px;
+	clip: rect(0px, 52px, 104px, 0px);
+	-moz-border-radius: 52px;
+	border-radius: 52px;
+}
+
+.cp-buffer-1,
+.cp-buffer-2 {
+	//background:url("../images/buffer.png") 0 0 no-repeat;
+}
+
+/* FALLBACK for .progress
+ * (24 steps starting from 1hr filled progress, Decrease second value by 104px for next step)
+ * (It needs the container selector to work. Or use div)
+ */
+
+.cp-container .cp-fallback {
+	background: url("../images/progress_sprite.jpg") no-repeat;
+	background-position: 0 104px;
+}
+
+.cp-progress-1,
+.cp-progress-2 {
+	background: url("../images/progress.png") 0 0 no-repeat;
+}
+
+.cp-buffer-holder,
+.cp-progress-holder,
+.cp-circle-control {
+	position: absolute;
+	width: 104px;
+	height: 104px;
+}
+
+.cp-circle-control {
+	cursor: pointer;
+}
+
+.cp-buffer-holder,
+.cp-progress-holder {
+	clip: rect(0px, 104px, 104px, 52px);
+	display: none;
+}
+
+/* This is needed when progress is greater than 50% or for fallback */
+
+.cp-buffer-holder.cp-gt50,
+.cp-progress-holder.cp-gt50,
+.cp-progress-1.cp-fallback {
+	clip: rect(auto, auto, auto, auto);
+}
+
+.cp-controls {
+	margin: 0;
+	padding: 26px;
+}
+
+.cp-controls li {
+	list-style-type: none;
+	display: block;
+
+	/*IE Fix*/
+	position: absolute;
+}
+
+.cp-controls li a {
+	position: relative;
+	display: block;
+	width: 50px;
+	height: 50px;
+	text-indent: -9999px;
+	z-index: 1;
+	cursor: pointer;
+	transition: 0s;
+}
+
+.cp-controls .cp-play {
+	background: url("../images/controls.jpg") 0 0 no-repeat;
+}
+
+.cp-controls .cp-play:hover {
+	background: url("../images/controls.jpg") -50px 0 no-repeat;
+}
+
+.cp-controls .cp-pause {
+	background: url("../images/controls.jpg") 0 -50px no-repeat;
+}
+
+.cp-controls .cp-pause:hover {
+	background: url("../images/controls.jpg") -50px -50px no-repeat;
+}
+
+.cp-jplayer {
+	width: 0;
+	height: 0;
+}
+
+// ==================================================
+
+.jp-video-full {
+	width: 480px;
+	height: 270px;
+	position: static !important;
+}
+
+.jp-video.jp-state-full-screen {
+	.jp-jplayer,
+	.jp-jplayer {
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+	&:not(.jp-state-playing) {
+		.jp-playlist {
+			pointer-events: all;
+			opacity: 1;
+		}
+	}
+
+	.jp-playlist {
+		position: fixed;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 1000;
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity .2s ease-in-out .4s;
+		display: inline-block;
+		min-width: 400px;
+		background: rgba(0, 0, 0, .7);
+		border-radius: 8px;
+		padding: 12px 5px;
+
+		li {
+			&.jp-playlist-current {
+				a {
+					color: $primary;
+				}
+			}
+
+			a {
+				color: #ffffff;
+			}
+		}
+
+		li + li {
+			border-top: 1px solid rgba(255, 255, 255, .12);
+		}
+	}
+}
+
+.jp-video-full .jp-jplayer {
+	top: 0;
+	left: 0;
+	position: fixed !important;
+	position: relative; /* Rules for IE6 (full-screen) */
+	overflow: hidden;
+	z-index: 1000;
+}
+
+.jp-video-full .jp-gui {
+	position: fixed !important;
+	position: static; /* Rules for IE6 (full-screen) */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+}
+
+.jp-video-full .jp-interface {
+	position: absolute !important;
+	position: relative; /* Rules for IE6 (full-screen) */
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+}
+
+.jp-video {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	position: relative;
+	background: #000000;
+
+	.jp-interface {
+		position: relative;
+		width: 100%;
+		height: 35px;
+		background-color: #f2f2f2;
+		box-shadow: inset 0px 1px 0px #f7f7f7,
+		inset 0px -1px 0px #e2e2e2;
+	}
+
+	div.jp-controls-holder {
+		clear: both;
+		margin: 0 auto;
+		display: flex;
+		position: relative;
+		overflow: hidden;
+	}
+
+	a.jp-play,
+	a.jp-pause {
+		width: 40px;
+		height: 35px;
+		float: left;
+		text-indent: 110%;
+		outline: none;
+	}
+
+	a.jp-previous {
+		&:before {
+			content: "\f59d";
+			font-family: "Material Design Icons";
+		}
+	}
+
+	a.jp-next {
+		&:before {
+			content: "\f59c";
+			font-family: "Material Design Icons";
+		}
+	}
+
+	a.jp-previous,
+	a.jp-next {
+		position: relative;
+		align-items: center;
+		justify-content: center;
+		width: 30px;
+		color: #706d6d;
+		display: none;
+
+		@media (min-width: 480px) {
+			display: flex;
+		}
+	}
+
+	a.jp-play {
+		background: url(../images/sprite.png) 0 0 no-repeat;
+	}
+
+	a.jp-pause {
+		background: url(../images/sprite.png) -40px 0 no-repeat;
+		display: none;
+	}
+
+	#seperator {
+		background-image: url(../images/seperator.png);
+		background-repeat: no-repeat;
+		width: 2px;
+		height: 35px;
+		float: left;
+		margin-top: 7px;
+		margin-right: 10px;
+	}
+
+	.jp-progress {
+		background: #706d6d;
+		border-radius: 5px;
+		box-shadow: inset 0px 1px 4px rgba(0, 0, 0, .4),
+		0px 1px 0px rgba(255, 255, 255, .4);
+		flex: 1;
+		height: 10px;
+		float: left;
+		margin-top: 13px;
+		margin-right: 10px;
+		margin-left: 10px;
+	}
+
+	.jp-time-wrapper {
+		display: none;
+
+		@media (min-width: 480px) {
+			display: block;
+		}
+	}
+
+	.jp-seek-bar {
+		width: 0px;
+		height: 100%;
+		cursor: pointer;
+	}
+
+	.jp-seeking-bg {
+		background: #575555;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+	}
+
+	.jp-play-bar {
+		width: 0px;
+		height: 10px;
+		position: relative;
+		z-index: 9;
+		background-size: 12px 12px;
+		background-color: darken($primary, 10%);
+		background-repeat: repeat-x;
+		border-radius: 5px;
+		background-image: linear-gradient($primary, darken($primary, 10%));
+		background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 75%, transparent 75%, transparent);
+		background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 75%, transparent 75%, transparent);
+	}
+
+	.jp-play-bar span {
+		position: absolute;
+		top: -3px;
+		right: -12px;
+		background: url(../images/handle.png) no-repeat center;
+		width: 16px;
+		height: 17px;
+	}
+
+	.jp-current-time,
+	.jp-duration {
+		font-size: 11px;
+		font-family: Arial;
+		color: #444444;
+		margin-top: 12px;
+		float: left;
+	}
+
+	.jp-current-time {
+		float: left;
+		display: inline;
+	}
+
+	.jp-duration {
+		float: left;
+		display: inline;
+		text-align: right;
+	}
+
+	.jp-current-time {
+		margin-left: 10px;
+	}
+
+	.jp-duration {
+		margin-right: 10px;
+	}
+
+	.time-sep {
+		float: left;
+		margin: 13px 3px 0 3px;
+		font-size: 11px;
+		font-family: Arial;
+		color: #444444;
+	}
+
+	a.jp-mute,
+	a.jp-unmute {
+		text-indent: -9999px;
+		float: left;
+		height: 35px;
+		outline: none;
+	}
+
+	.jp-mute {
+		float: left;
+		background: url(../images/sprite.png) -80px 0 no-repeat;
+		margin-top: 1px;
+		margin-left: -10px;
+		width: 35px;
+	}
+
+	a.jp-unmute {
+		background: url(../images/sprite.png) -115px 0 no-repeat;
+		margin-top: 1px;
+		margin-left: -13px;
+		display: none;
+		width: 38px;
+	}
+
+	.jp-volume-bar {
+		float: left;
+		margin-top: 13px;
+		margin-right: 10px;
+		overflow: hidden;
+		width: 70px;
+		height: 10px;
+		cursor: pointer;
+		background: #706d6d;
+		border-radius: 5px;
+		box-shadow: inset 0px 1px 4px rgba(0, 0, 0, .4),
+		0px 1px 0px rgba(255, 255, 255, .4);
+	}
+
+	.jp-volume-bar-value {
+		background: rgba(112, 109, 109, .01);
+		width: 0px;
+		height: 10px;
+		position: relative;
+	}
+
+	.jp-volume-bar-value span {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		background: url(../images/volume.png) no-repeat center;
+		width: 11px;
+		height: 10px;
+	}
+
+	.jp-full-screen {
+		background: url(../images/sprite.png) -150px 0 no-repeat;
+		float: left;
+		width: 40px;
+		height: 35px;
+		text-indent: -9999px;
+		margin-left: -15px;
+		outline: none;
+	}
+
+	.jp-restore-screen {
+		background: url(../images/sprite.png) -150px 0 no-repeat;
+		float: left;
+		width: 40px;
+		height: 35px;
+		text-indent: -9999px;
+		margin-left: -15px;
+		outline: none;
+	}
+
+	.jp-playlist {
+		li {
+			padding: 3px 0;
+
+			&.jp-playlist-current {
+				a {
+					color: #ffffff;
+				}
+			}
+		}
+	}
+
+	.jp-jplayer {
+		cursor: pointer;
+		font-size: 0;
+		overflow: hidden;
+	}
+}
+
+/**
+* Custom Style
+*/
+
+.jp-video {
+	&.jp-video-single {
+		.jp-playlist,
+		.jp-gui {
+			display: none !important;
+		}
+	}
+}
+
+.jp-video {
+	position: relative;
+
+	&:before {
+		content: '\f4fb';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-family: $mdi;
+		font-size: 50px;
+		line-height: 100px;
+		color: $gray-100;
+		z-index: 1;
+		pointer-events: none;
+		border-radius: 50%;
+		transition: .3s ease-out all;
+		transform-origin: 50% 50%;
+
+		@extend .animated;
+
+	}
+
+	&:hover {
+		&:before {
+			color: $gray-200;
+			@extend .fadeIn;
+		}
+	}
+
+	&.jp-state-playing {
+		&:before {
+			z-index: -100;
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.jp-video {
+		&:before {
+			font-size: 70px;
+		}
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.jp-video {
+		&:before {
+			font-size: 100px;
+		}
+	}
+}
+
+/**
+* Build Video
+*/
+
+.build-video {
+	position: relative;
+}
+
+.build-video-inner {
+	img {
+		pointer-events: none;
+	}
+}
+
+.build-video-element {
+	position: absolute;
+	overflow: hidden;
+	top: 7.2%;
+	bottom: 10.9%;
+	left: 12.4%;
+	right: 12.4%;
+
+	.jp-video {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+.jp-video {
+	.jp-jplayer {
+		img {
+			display: block !important;
+		}
+
+		video {
+			display: none;
+		}
+	}
+
+	&.jp-state-playing {
+		.jp-jplayer {
+			img {
+				display: none !important;
+			}
+
+			video {
+				display: block;
+			}
+		}
+	}
+}

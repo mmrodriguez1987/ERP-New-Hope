@@ -10,50 +10,7 @@ class Person extends Model
     use HasFactory;
 
     protected $table = 'persons';    
-    protected $fillable = [
-        'title',
-        'first_name',
-        'middle_name',
-        'last_name',
-        'maritalstatus_id',
-        'gender_id',
-        'familyrole_id',
-        'family_id',
-        'birthdate',
-        'cid',
-        'sex',
-        'address',
-        'street',
-        'postal_code',
-        'city',
-        'state',
-        'profession_id',
-        'email',
-        'linkedin',
-        'twitter',
-        'facebook',
-        'instagram',
-        'phone',
-        'cnt_emerg_name',
-        'cnt_emerg_phone',
-        'cnt_emerg_address',
-        'crt_employer_name',
-        'crt_employer_phone',
-        'crt_employer_address',
-        'position_id',
-        'person_type_id',
-    ];
-
-    protected $appends = [
-        'position_name',
-        'profession_name',
-        'person_type_name',
-        'marital_status_name',
-        'gender_name',
-        'family_role_name',
-        'family_name'
-    ];
-
+   
     /**
      * Relationships
      */
@@ -109,11 +66,13 @@ class Person extends Model
             ->orWhere('state', 'like', "%$target%")
             ->orWhere('street', 'like', "%$target%")
             ->orWhere('email', 'like', "%$target%")
-            ->orWhere('linkedin', 'like', "%$target%")
-            ->orWhere('twitter', 'like', "%$target%")
-            ->orWhere('facebook', 'like', "%$target%")
-            ->orWhere('instagram', 'like', "%$target%")
-            ->orWhere('phone', 'like', "%$target%")
+            ->orWhere('url_linkedin', 'like', "%$target%")
+            ->orWhere('url_twitter', 'like', "%$target%")
+            ->orWhere('url_facebook', 'like', "%$target%")
+            ->orWhere('url_instagram', 'like', "%$target%")
+            ->orWhere('mobile_phone', 'like', "%$target%")
+            ->orWhere('work_phone', 'like', "%$target%")
+            ->orWhere('home_phone', 'like', "%$target%")
             ->orWhere('city', 'like', "%$target%")
             ->orWhere('cnt_emerg_name', 'like', "%$target%")
             ->orWhere('cnt_emerg_phone', 'like', "%$target%")

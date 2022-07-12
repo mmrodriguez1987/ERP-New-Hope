@@ -1,0 +1,55 @@
+/** @section ToTop */
+
+.ui-to-top {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: $border-sm;
+  right: 15px;
+  bottom: 15px;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  z-index: 120;
+  transition: .45s all ease-in-out;
+  will-change: transform;
+  transform: translateY(100px);
+
+  &::before {
+    content: '\f239';
+    font-family: $mdi;
+    line-height: 50px;
+  }
+  
+  &,
+  &:active,
+  &:focus {
+    color: $white;
+    background-color: $secondary;
+  }
+  
+  &:hover {
+    color: $white;
+    background-color: $primary;
+    text-decoration: none;
+  }
+
+  &.active {
+    transform: translateY(0);
+  }
+}
+
+html.mobile .ui-to-top,
+html.tablet .ui-to-top {
+  display: none !important;
+}
+
+@include media-breakpoint-up(sm) {
+  .ui-to-top {
+    right: 40px;
+    bottom: 40px;
+  }
+}
+
+

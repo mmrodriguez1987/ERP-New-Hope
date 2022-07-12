@@ -1,0 +1,295 @@
+/** @section Footers */
+
+
+/**
+* Base Style
+*/
+.page-footer {
+	.thumbnail-instafeed .caption .list-inline {
+		font-size: 16px;
+
+		span {
+			max-width: 50px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			@include media-breakpoint-up(xxxl) {
+				max-width: 70px;
+			}
+		}
+	}
+}
+
+.page-footer-extended,
+.page-footer-default,
+.page-footer-alternative {
+	.thumbnail-instafeed .caption .icon {
+		font-size: 16px;
+	}
+
+	.thumbnail-instafeed-minimal .caption .list-inline > li + li {
+		margin-top: 5px;
+	}
+}
+
+/**
+* Footer Default Style
+*/
+[class*='bg-'] + .page-footer-default,
+* + .page-footer-default,
+.page-footer-default {
+	padding: 60px 0 20px;
+}
+
+.page-footer-default {
+	.instafeed {
+		max-width: 470px;
+		margin-right: auto;
+	}
+
+	h6 + * {
+		margin-top: 22px;
+	}
+
+	@include media-breakpoint-up(xxl) {
+		h6 + * {
+			margin-top: 30px;
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.page-footer-default {
+		text-align: left;
+	}
+	[class*='bg-'] + .page-footer-default,
+	* + .page-footer-default,
+	.page-footer-default {
+		padding: 90px 0 30px;
+	}
+}
+
+/**
+* Footer Alternative Style
+*/
+.page-footer-alternative {
+	padding: 60px 0 40px;
+	text-align: left;
+
+	.twitter-feed-minimal-content {
+		font-size: 18px;
+	}
+
+	.divider-xl {
+		margin: 50px auto 40px;
+	}
+
+	.instafeed {
+		max-width: 320px;
+	}
+
+	.list-xs {
+		letter-spacing: $spacing-sm;
+
+		> li + li {
+			margin-top: 21px;
+		}
+	}
+
+	.list-comma {
+		> li {
+			display: block;
+		}
+	}
+
+	* + .instafeed {
+		margin-top: 30px;
+	}
+
+	* + .twitter {
+		margin-top: 30px;
+	}
+
+	* + .list-xs {
+		margin-top: 30px;
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.page-footer-alternative {
+		padding: 90px 0 40px;
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.page-footer-alternative {
+		padding: 90px 0 50px;
+
+		.divider-xl {
+			margin: 70px auto 40px;
+		}
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	.divider-xl {
+		margin: 120px auto 40px;
+	}
+}
+
+/**
+* Footer Minimal Style
+*/
+.page-footer-minimal {
+	padding: 55px 0;
+}
+
+/**
+* Footer Extended Style
+*/
+.page-footer-extended {
+	position: relative;
+	overflow: hidden;
+	padding: 70px 0 30px;
+
+	* + h6 {
+		margin-top: 30px;
+	}
+
+	* + .instafeed {
+		margin-top: 25px;
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.page-footer-extended {
+		* + h6 {
+			margin-top: 40px;
+		}
+
+		* + .flickr {
+			margin-top: 40px;
+		}
+
+		* + .instafeed {
+			margin-top: 40px;
+		}
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.page-footer-extended {
+		padding: 60px 0 40px;
+
+		* + h6 {
+			margin-top: 65px;
+		}
+
+		.google-map-wrap {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: calc(50% + 250px);
+		}
+
+		.google-map-container,
+		.google-map {
+			height: 100%;
+			max-width: none;
+		}
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	.page-footer-extended {
+		padding: 160px 0 60px;
+
+		* + h6 {
+			margin-top: 115px;
+		}
+
+		.google-map-wrap {
+			right: calc(50% + 330px);
+		}
+	}
+}
+
+@include media-breakpoint-up(xxxl) {
+	.page-footer-extended {
+		p.rights {
+			margin-left: 15px;
+		}
+	}
+}
+
+
+// Icon List
+.page-footer-icon-list {
+	@include list-inline(5px, 15px);
+	@include media-breakpoint-up(xxl) {
+		@include list-inline(5px, 35px);
+	}
+}
+
+// Inline List
+.page-footer-inline-list {
+	color: $gray-700;
+	font-family: $font-family-sec;
+	@include list-inline(10px, 20px);
+	@include media-breakpoint-up(md) {
+		@include list-inline(10px, 59px);
+	}
+	@include media-breakpoint-up(xl) {
+		@include list-inline(10px, 25px);
+	}
+	@include media-breakpoint-up(xxl) {
+		@include list-inline(10px, 59px);
+	}
+
+	a {
+		color: inherit;
+		text-transform: uppercase;
+		letter-spacing: .1em;
+
+		&:hover {
+			color: $secondary;
+		}
+	}
+}
+
+p.rights {
+	letter-spacing: $spacing-sm;
+
+	a {
+		&, &:focus, &:active {
+			color: inherit;
+		}
+
+		&:hover {
+			color: $secondary;
+		}
+	}
+}
+
+* + .page-footer-icon-list {
+	margin-top: 30px;
+}
+
+* + p.rights {
+	margin-top: 40px;
+}
+
+@include media-breakpoint-up(md) {
+	* + .page-footer-icon-list {
+		margin-top: 35px;
+	}
+	* + p.rights {
+		margin-top: 50px;
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	* + p.rights {
+		margin-top: 90px;
+	}
+}

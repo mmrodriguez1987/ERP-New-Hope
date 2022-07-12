@@ -1,0 +1,71 @@
+/** @section Parallax text */
+.parallax-text-wrap {
+	position: relative;
+
+	h3 {
+		position: relative;
+		z-index: 1;
+	}
+
+	& + * {
+		position: relative;
+	}
+}
+
+.parallax-text {
+	position: absolute;
+	bottom: -20%;
+	left: 0;
+	display: none;
+	font: 900 36px/1 $font-family-sans-serif-3;
+	letter-spacing: .28em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	color: $gray-100;
+}
+
+@include media-breakpoint-up(md) {
+	.parallax-text {
+		font-size: 70px;
+		bottom: -60%;
+		display: block;
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.parallax-text {
+		font-size: 100px;
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.parallax-text {
+		font-size: 110px;
+		left: -95px;
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	.parallax-text {
+		font-size: 150px;
+		left: -145px;
+	}
+}
+
+@include media-breakpoint-up(xxxl) {
+	.parallax-text {
+		font-size: 170px;
+	}
+}
+
+.some-wrap {
+	.heading-group {
+		will-change: transform;
+		transform: translateY(var(--ty, 0)) rotateX(var(--rx, 0)) rotateY(var(--ry, 0));
+	}
+
+	.button-group {
+		will-change: transform;
+		transform: translateY(var(--ty, 0)) rotateX(var(--rx, 0)) rotateY(var(--ry, 0));
+	}
+}

@@ -1,0 +1,422 @@
+/** @section Modals */
+
+body.modal-open[style*='visible'] {
+	padding-right: 0 !important;
+}
+
+.modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: $zindex-modal;
+	display: none;
+	overflow: hidden;
+	width: auto;
+	height: auto;
+	outline: 0;
+}
+
+.modal-dialog {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.modal-backdrop {
+	z-index: $zindex-rd-navbar;
+}
+
+.modal-custom {
+	padding-left: 20px;
+	padding-right: 20px;
+	z-index: 9999;
+
+	.modal-dialog {
+		width: 100%;
+		max-width: 830px;
+	}
+
+	.modal-header {
+		border-bottom: 0;
+		padding: 0;
+	}
+
+	.modal-content {
+		padding: 10px;
+		margin: 10px;
+		border: 0;
+		box-shadow: 0 0 24px rgba($gray-400, .42);
+	}
+
+	.modal-body {
+		padding-top: 5px;
+	}
+
+	.close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 0;
+		opacity: 1;
+		text-shadow: none;
+		z-index: 2;;
+
+		> span {
+			color: $secondary;
+			transition: $transition-base;
+
+			&:before {
+				content: "\f24c";
+				font: 400 40px/1 'Material Design Icons';
+				display: inline-block;
+			}
+
+			&:hover {
+				color: $primary;
+			}
+		}
+	}
+
+	* + form {
+		margin-top: 30px;
+	}
+}
+
+// photo modal
+.modal-photo {
+	.modal-content {
+		background-image: url(../images/sale-modal-01-1170x600.jpg);
+		background-size: cover;
+		color: $white;
+	}
+
+	.modal-title {
+		color: $white;
+	}
+
+	.close {
+		background-color: rgba($black, .2);
+	}
+}
+
+// account modal
+.modal-account {
+	.modal-dialog {
+		max-width: 1170px;
+	}
+
+	.modal-content {
+		flex-direction: row;
+	}
+}
+
+.modal-account-image {
+	display: none;
+}
+
+// modal product
+.modal-product {
+	.modal-dialog {
+		max-width: 450px;
+		margin: 10px auto;
+	}
+
+	.modal-body {
+		display: flex;
+		flex-wrap: wrap;
+		transform: translateY(-30px);
+		margin-bottom: -30px;
+		margin-left: -15px;
+		margin-right: -15px;
+
+		> * {
+			flex-grow: 1;
+			margin-top: 30px;
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+	}
+}
+
+.modal-product-image {
+	max-width: 200px;
+
+	img {
+		box-shadow: 5px 15px 30px rgba($black, .35);
+	}
+}
+
+.modal-price {
+	font: 400 24px/1 $font-family-sans-serif-2;
+	letter-spacing: 0.12em;
+	color: $gray-700;
+}
+
+
+// modal sale
+.modal-sale {
+	.modal-dialog {
+		max-width: 1170px;
+	}
+}
+
+.sale-body-subtitle {
+	font-size: 18px;
+}
+
+.sale-body-title {
+	font-size: 30px;
+	line-height: 1;
+	font-weight: 900;
+}
+
+// Notifications
+//--------------------------------------
+
+.notification {
+	.modal-content {
+		border: 0;
+	}
+
+	.modal-dialog {
+		margin: 10px;
+	}
+
+	.modal-dialog {
+
+	}
+
+	&-open {
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+}
+
+//notification dark
+.notification-dark {
+	.modal-content {
+		background-color: $gray-700;
+		color: $white;
+	}
+}
+
+//Animation slide in left
+.modal.fade.slideRight .modal-dialog {
+	transition: 650ms ease-in-out;
+	transform: translate3d(0, 0, 0);
+}
+
+.modal.fade.slideRight:not(.in) .modal-dialog {
+	transform: translate3d(100%, 0, 0);
+}
+
+.modal.fade.slideRight.show .modal-dialog {
+	transform: translate3d(0, 0, 0);
+}
+
+@include media-breakpoint-up(md) {
+	//.modal-custom {
+	//	.modal-dialog {
+	//		position: absolute;
+	//		top: 50%;
+	//		left: 50%;
+	//	}
+	//
+	//	&.fade .modal-dialog {
+	//		transform: translate(-50%, -50%);
+	//	}
+	//
+	//	&.in .modal-dialog {
+	//		transform: translate(-50%, -50%);
+	//	}
+	//}
+	.notification {
+		top: auto;
+		left: auto;
+		padding: 20px;
+
+		.modal-dialog {
+			position: static;
+			top: auto;
+			left: auto;
+			width: 100%;
+			max-width: 830px;
+			margin: 0;
+		}
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.modal-custom {
+		.modal-content {
+			position: relative;
+			overflow: hidden;
+			padding: 30px 115px 30px 40px;
+
+			&:before {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				width: 70px;
+				content: "";
+				display: inline-block;
+				background-color: $gray-100;
+			}
+		}
+
+		.close {
+			padding: 15px;
+		}
+	}
+
+	// photo modal
+	.modal-photo {
+		.modal-content {
+			&:before {
+				background-color: rgba($black, .2);
+			}
+		}
+
+		.close {
+			background-color: transparent;
+		}
+	}
+
+	// account modal
+	.modal-account {
+		.modal-account-image {
+			display: block;
+			margin: 0 auto;
+		}
+
+		.modal-header {
+			padding: 0;
+		}
+
+		.modal-content {
+			padding-left: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+
+		.modal-body {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0;
+		}
+
+		.modal-body-inner {
+			flex-grow: 1;
+
+			&:first-of-type {
+				max-width: 410px;
+			}
+
+			&:last-of-type {
+				max-width: 370px;
+				margin-left: auto;
+				margin-right: auto;
+				padding-top: 15px;
+				padding-bottom: 15px;
+			}
+		}
+	}
+
+	// modal product
+	.modal-product {
+		.modal-dialog {
+			max-width: 1170px;
+		}
+
+		.modal-content {
+			padding: 55px 115px 80px 40px;
+		}
+
+		.modal-body {
+			flex-wrap: nowrap;
+		}
+
+		.modal-body-inner {
+			padding-left: 70px;
+		}
+
+		* + .divider {
+			margin-top: 30px;
+		}
+
+		* + p,
+		p + p {
+			margin-top: 30px;
+		}
+
+		* + .button {
+			margin-top: 40px;
+		}
+	}
+	.modal-product-image {
+		max-width: 100%;
+		width: 100%;
+		text-align: center;
+	}
+
+	// modal sale
+	.modal-sale {
+		.modal-content {
+			min-height: 600px;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			padding-left: 95px;
+
+			.ie-10 &,
+			.ie-11 &,
+			.ie-edge & {
+				height: 600px;
+			}
+		}
+
+		* + .button {
+			margin-top: 45px;
+		}
+	}
+	.sale-body-subtitle {
+		font-size: 24px;
+	}
+	.sale-body-title {
+		font-size: 52px;
+	}
+
+	// Notification
+	.notification {
+		.modal-dialog {
+			margin: 30px;
+			width: auto;
+		}
+
+		.rd-mailform {
+			width: 100%;
+			min-width: 370px;
+		}
+	}
+
+	// notification dark
+	.notification-dark {
+		.modal-content:before {
+			background: rgba($black, .3);
+		}
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	// account modal
+	.modal-account {
+		.modal-body-inner {
+			&:first-of-type {
+				max-width: 470px;
+			}
+		}
+	}
+}

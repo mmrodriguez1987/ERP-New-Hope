@@ -15,7 +15,7 @@ class CreatePersonHistoriesTable extends Migration
     {
         Schema::create('person_histories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('event_id')->reference('id')->on('events');
+            $table->foreignId('event_id')->constrained('persons');
             $table->string('title');
             $table->longtext('event_description');
             $table->longtext('results');

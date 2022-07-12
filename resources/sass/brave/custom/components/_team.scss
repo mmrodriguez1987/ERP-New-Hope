@@ -1,0 +1,144 @@
+/** @section Team */
+.team-classic {
+  max-width: 270px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  
+  .list-inline {
+    margin-left: -6px;
+    margin-right: -6px;
+    > li {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+  }
+  @include media-breakpoint-up(md) {
+    .list-inline {
+      margin-left: -8px;
+      margin-right: -8px;
+      > li {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+    }
+  }
+}
+
+.team-classic-circle {
+  text-align: center;
+  @include media-breakpoint-up(xxl) {
+    max-width: 300px;
+  }
+}
+
+.team-classic-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.team-classic-image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background-color: rgba($primary,.7);
+  border-radius: 0 0 8px 8px;
+}
+
+.team-classic-caption {
+  margin-top: 22px;
+  
+  * + .button {
+    margin-top: 20px;
+  }
+  
+  * + .list-inline {
+    margin-top: 15px;
+  }
+}
+
+.team-classic-title {
+  color: $secondary;
+  font-weight: 400;
+  
+  &:hover{
+    color: $primary;   
+  }
+}
+
+.team-classic-job-position {
+  font-size: 18px;
+  font-style: italic;
+  color: $gray-500;
+  
+  * + & {
+    margin-top: 0;
+  }
+}
+
+// Team inline
+.team-inline {
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  * + .team-inline-text {
+    margin-top: 20px;
+  }
+  
+  * + .list-inline {
+    margin-top: 20px;
+  }
+  @include media-breakpoint-up(md) {
+    max-width: 100%;
+    
+    .team-classic-image {
+      max-width: 300px;
+    }
+    * + .team-classic-job-position {
+      margin-top: 15px;
+    }
+    * + .team-inline-text {
+      margin-top: 40px;
+    }
+    * + .list-inline {
+      margin-top: 40px;
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    .team-classic-image {
+      max-width: 100%;
+    }
+  }
+}
+
+
+.team-inline-title {
+  text-transform: uppercase;
+  font-family: $font-family-sans-serif-2;
+  letter-spacing: .12em;
+}
+
+.desktop {
+
+  .team-classic-image-caption {
+    transition: 450ms ease-in-out;
+    opacity: 0;
+    transform: rotate3d(1, 0, 0, 90deg);
+    transform-origin: 0 100%;
+  }
+
+  .team-classic{
+    perspective: 1200px;
+    
+    &:hover {
+      .team-classic-image-caption {
+        opacity: 1;
+        transform: rotate3d(1, 0, 0, 0deg);
+      }
+    }
+  }
+}

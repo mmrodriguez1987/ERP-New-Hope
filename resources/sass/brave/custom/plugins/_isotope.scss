@@ -1,0 +1,354 @@
+/** @section Isotope */
+
+// Isotope animations
+
+@keyframes sprite-animation {
+	from {
+		background-position: 0 0;
+	}
+}
+
+[data-isotope-layout] {
+	display: block;
+	transition: .4s all ease;
+	min-height: 160px;
+	z-index: 0;
+
+	.row {
+		margin-bottom: -30px;
+
+		> [class*="col-"] {
+			margin-top: 30px;
+		}
+	}
+
+	.row-narrow {
+		margin-bottom: -$grid-gutter-width-narrow;
+
+		> [class*="col-"] {
+			margin-top: $grid-gutter-width-narrow;
+		}
+	}
+
+	.row-condensed {
+		margin-bottom: 0;
+
+		> [class*="col-"] {
+			margin-top: 0;
+		}
+	}
+
+	[class*="col-lg-3"]:not([class*='col-xxl']):not([class*='col-xl']) {
+		@include media-breakpoint-up(xl) {
+			width: 24.8%;
+		}
+	}
+
+	[class*="col-"] {
+		display: block;
+		will-change: transform;
+		backface-visibility: hidden;
+	}
+
+	&.isotope-titled-gallery {
+		.row {
+			margin-bottom: -50px;
+
+			> [class*="col-"] {
+				margin-top: 50px;
+			}
+		}
+	}
+
+
+	&.isotope-default {
+		top: -20px;
+
+		.row {
+			margin-bottom: -30px;
+
+			> [class*="col-"] {
+				margin-top: 30px;
+			}
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+		&.isotope-md {
+			.row {
+				margin-bottom: -60px;
+
+				> [class*="col-"] {
+					margin-top: 60px;
+				}
+			}
+		}
+	}
+
+	@include media-breakpoint-up(xxl) {
+		.col-xxl-2 {
+			width: (99% / 6);
+		}
+	}
+}
+
+[data-isotope-layout='masonry'] {
+	.gallery-item {
+		max-height: 350px;
+	}
+
+	@include media-breakpoint-up(md) {
+		.gallery-item {
+			max-height: 480px;
+		}
+	}
+	@include media-breakpoint-up(xxl) {
+		.gallery-item {
+			max-height: none;
+		}
+	}
+}
+
+.isotope-sizer {
+	height: 0;
+	margin-top: -1px !important;
+	margin-bottom: 0;
+}
+
+// Isotope filter base styles
+.isotope-filters {
+	position: relative;
+	display: inline-block;
+
+	&-list {
+		display: none;
+		position: absolute;
+		top: 100%;
+		right: 0;
+		left: 0;
+		margin: 10px 0;
+		z-index: 10;
+		float: left;
+		min-width: 130px;
+		font-size: 16px;
+		text-align: left;
+		background-color: $white;
+		border-radius: 5px;
+		box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+		overflow: hidden;
+
+		> li {
+			display: block;
+
+			> a {
+				display: block;
+				position: relative;
+				clear: both;
+				color: $gray-700;
+				white-space: nowrap;
+				line-height: 1.3;
+				padding: 7px 12px;
+				font-weight: 400;
+
+				&.active, &:hover {
+					color: $primary;
+					background-color: $gray-100;
+				}
+			}
+		}
+
+		&.active {
+			display: block;
+		}
+	}
+
+	&-toggle {
+		&.active:focus {
+			outline: none;
+		}
+	}
+
+	&-title {
+		display: none;
+	}
+
+	@include media-breakpoint-up(sm) {
+		&-list {
+			right: 0;
+			left: 0;
+		}
+	}
+}
+
+// Isotope filter horizontal styles
+
+.isotope-filters-horizontal,
+.isotope-filters-vertical {
+	&:not(.isotope-filter-collapse-lg) {
+		.desktop & {
+			@include media-breakpoint-up(lg) {
+				.isotope-filters-list {
+					position: static;
+					display: inline-block;
+					float: none;
+					padding: 0;
+					background-color: transparent;
+					border-radius: 0;
+					box-shadow: none;
+					margin-bottom: 0;
+					border-bottom: 1px solid $gray-100;
+					overflow: visible;
+
+					> li {
+						display: inline-block;
+
+						+ li {
+							margin-left: 28px;
+						}
+
+						@include media-breakpoint-up(xl) {
+							+ li {
+								margin-left: 55px;
+							}
+						}
+					}
+
+					a {
+						display: inline-block;
+						padding: 0 5px 13px;
+						color: $gray-700;
+						font-size: 20px;
+						transition: 0.3s all ease-in;
+
+						&:after {
+							content: '';
+							position: absolute;
+							bottom: -1px;
+							left: 50%;
+							width: 0;
+							height: 1px;
+							background: $primary;
+							transition: .4s;
+						}
+
+						&.active,
+						&:hover {
+							color: $primary;
+							background-color: transparent;
+
+							&:after {
+								left: 0;
+								width: 100%;
+							}
+						}
+					}
+
+					&.isotope-filters-list-buttons {
+						@include group(10px);
+						border-bottom: 0;
+
+						> li {
+							padding: 0;
+						}
+
+						a {
+							position: relative;
+							display: inline-block;
+							max-width: 100%;
+							padding: 11px 25px;
+							font-family: $btn-font-family;
+							font-weight: $btn-font-weight;
+							font-size: 14px;
+							letter-spacing: $btn-letter-spacing;
+							text-transform: $btn-text-transform;
+							border: $btn-border-width solid;
+							border-radius: $btn-border-radius;
+							text-align: center;
+							vertical-align: middle;
+							cursor: pointer;
+							user-select: none;
+							white-space: pre-wrap;
+							transition: initial;
+							@include btn-variant($gray-700, $white, $gray-110, $white, $primary, $primary);
+
+							&::after {
+								display: none;
+							}
+
+							&.active {
+								color: $white;
+								background: $primary;
+								border-color: $primary;
+							}
+						}
+					}
+				}
+
+				.isotope-filters-toggle,
+				.block-top-level .big {
+					display: none;
+				}
+
+			}
+			@include media-breakpoint-up(xl) {
+				.isotope-filters-list {
+					a {
+						font-size: 24px;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+// Isotope filter vertical styles
+
+html .page .isotope-filters.isotope-filters-vertical {
+	@include media-breakpoint-up(xl) {
+		margin-top: 30px;
+		.isotope-filters-list {
+			margin-bottom: -30px;
+			padding: 0;
+			border-bottom: none;
+			border-right: 1px solid rgba($gray-700, .1);
+
+			> li {
+				display: block;
+				margin-top: 0;
+				text-align: right;
+
+				> a {
+					padding: 0 25px;
+
+					&:after {
+						bottom: 50%;
+						right: -1px;
+						left: auto;
+						width: 1px !important;
+						height: 0;
+						background: $primary;
+					}
+
+					&.active {
+						&:after {
+							bottom: 0;
+							width: 1px;
+							height: 100%;
+							right: -1px;
+							left: auto;
+						}
+					}
+				}
+
+				& + li {
+					margin-left: 0;
+					margin-top: 20px;
+				}
+			}
+		}
+		.isotope-filters-title {
+			display: block;
+		}
+	}
+}

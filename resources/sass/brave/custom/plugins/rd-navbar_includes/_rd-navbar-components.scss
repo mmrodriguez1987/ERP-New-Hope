@@ -1,0 +1,118 @@
+/*
+* Navbar components
+*/
+
+// RD Navbar
+.rd-navbar {
+  display: none;
+  background: $rd-navbar-background;
+}
+
+// RD Navbar Toggle
+.rd-navbar-toggle,
+.rd-navbar-sidebar-toggle{
+  @include make-toggle(
+          $rd-navbar-toggle-preset,
+          $rd-navbar-min-line-height,
+          $rd-navbar-min-font-size,
+          $rd-navbar-fixed-toggle-color
+  );
+  background-color: transparent;
+  border: none;
+  display: none;
+
+  &:focus{
+    outline: none;
+  }
+}
+
+// RD Navbar Brand
+.rd-navbar-brand {
+  a{
+    display: inline-block;
+  }
+  
+  .logo-inverse {
+    display: none;
+  }
+
+  .breadcrumbs-custom-light & {
+    .logo-inverse {
+      display: inline-block;
+    }
+    .logo-default {
+      display: none;
+    }
+  }
+}
+
+// RD Navbar Dropdown
+.rd-navbar-dropdown {
+  display: none;
+}
+
+// dropdown, megamenu
+.rd-navbar-dropdown,
+.rd-navbar-megamenu {
+  li + li {
+    border-top: 1px solid $gray-100;
+  }
+}
+
+.rd-navbar-search .rd-search-form-submit {
+  font-size: 26px;
+  color: $gray-700;
+
+  &:hover{
+    color: $secondary;
+  }
+}
+
+.rd-navbar-shop {
+  .rd-navbar-shop-icon {
+    span {
+      font-family: $font-family-sans-serif-2;
+    }
+  }
+}
+
+.rd-navbar-search-toggle {
+  transition: none;
+}
+
+// RD Navbar Nav
+.rd-navbar-nav {
+  > li {
+    > a {
+      font-family: $font-family-sans-serif-2;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+  }
+}
+
+// collapse
+.rd-navbar-fixed{
+  
+}
+
+.rd-navbar-aside-right {
+  .button {
+    margin-top: 0;
+  }
+}
+
+// RD top panel
+.rd-navbar-top-panel {
+  * + .box-inline {
+    margin-top: 0;
+  }
+}
+
+.rd-navbar-login {
+  .rd-navbar-shop-icon span {
+    padding-left: 5px;
+    font: 300 18px/1.2 $font-family-sans-serif;
+  }
+}

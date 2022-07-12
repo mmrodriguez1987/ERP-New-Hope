@@ -1,0 +1,34 @@
+/** @section Way Point */
+.section-way-point {
+  position: relative;
+  z-index: 20;
+}
+.way-point {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(100% - 2px);
+  display: flex;
+  cursor: pointer;
+  .icon {
+    font-size: 30px;
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $white;
+    transition: .4s cubic-bezier(0.68, -0.55, 0.27, 1.55) all;
+  }
+  
+  &:hover {
+    .icon {
+      bottom: -8px;
+    }
+  }
+  
+  svg {
+    path {
+      fill: inherit;
+    }
+  }
+}

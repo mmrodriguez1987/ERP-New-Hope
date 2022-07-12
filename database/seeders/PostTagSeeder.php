@@ -15,6 +15,6 @@ class PostTagSeeder extends Seeder
      */
     public function run()
     {
-        //
+        PostTag::factory()->count(50)->create();
     }
 }

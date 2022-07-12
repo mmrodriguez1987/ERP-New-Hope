@@ -1,0 +1,222 @@
+// RD navbar default
+
+.rd-navbar-shop-header {
+  .rd-navbar {
+    
+  }
+  .rd-navbar-nav {
+    position: relative;
+  }
+  
+  .rd-navbar-panel {
+  }
+
+  .rd-navbar-top-panel {
+    padding: 0;
+  }
+
+  .rd-navbar-search {
+    .rd-search {
+      margin-top: 0;
+    }
+    .button {
+      display: none;
+    }
+    .form-wrap {
+      margin-right: 0;
+    }
+  }
+  
+  .rd-navbar-fixed {
+    .rd-navbar-shop,
+    .rd-navbar-search {
+      position: fixed;
+      top: ($rd-navbar-fixed-height - $rd-navbar-fixed-line-height) / 2;
+      right: 3px;
+    }
+    
+    .rd-navbar-search {
+      right: 48px;
+      .form-wrap-icon {
+        &:before{
+          content: none;
+        }
+      }
+      .form-label {
+        left: 15px;
+      }
+      .form-input {
+        padding-left: 20px;
+        padding-right: 40px;
+      }
+    }
+  }
+  .rd-navbar-fixed,
+  .rd-navbar-fullwidth,
+  .rd-navbar-static {
+    .rd-navbar-search {
+      .form-input {
+        box-shadow: none;
+      }
+    }
+  }
+  
+  .rd-navbar-fullwidth,
+  .rd-navbar-static {
+    .rd-navbar-inner {
+      padding-top: 37px;
+      padding-bottom: 37px;
+    }
+
+    .rd-navbar-nav-wrap {
+      max-width: $rd-navbar-width;
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+
+      @include media-breakpoint-up(xxxl) {
+        padding-left: 70px;
+        padding-right: 70px;
+      }
+    }
+    
+    .rd-navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      
+      > * {
+        display: block;
+        &:nth-child(1) {
+          width: 25%;
+          text-align: left;
+        }
+        &:nth-child(2) {
+          width: 50%;
+        }
+        &:nth-child(3) {
+          width: 25%;
+          text-align: right;
+        }
+      }
+    }
+
+    .rd-navbar-nav {
+      > li {
+        > a {
+          padding: 25px 0;
+          color: $white;
+          &:before{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 100%;
+            height: 3px;
+            content: "";
+            display: inline-block;
+            opacity: 0;
+            transition: 250ms;
+            background: $rd-navbar-nav-hover-color;
+          }
+          &:hover {
+            &:before {
+              right: 0;
+              opacity: 1;
+              background-color: $secondary-1;
+            }
+          }
+        }
+        > .rd-navbar-submenu-toggle {
+          color: $white;
+        }
+        &.focus,
+        &.opened {
+          > a {
+            color: $white;
+            &:before {
+              right: 0;
+              opacity: 1;
+              background-color: $secondary-1;
+            }
+          }
+        }
+
+        &.active {
+          > a {
+            color: $white;
+            &:before {
+              right: 0;
+              opacity: 1;
+              background-color: $secondary-1;
+            }
+          }
+        }
+      }
+    }
+    
+    .rd-navbar-search {
+      width: 100%;
+      margin-left: 0;
+      .rd-search {
+        position: relative;
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .rd-search-form-submit {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: auto;
+        border: $btn-border-width solid;
+      }
+
+      .rd-search-form-submit-icon { display: none; }
+
+      .button { display: block; }
+      
+      .button-secondary {
+        @include btn-variant($white, $secondary, $secondary, $white, $primary, $primary);
+      }
+      
+      .button-sm {
+        @include btn-size(nth($sizing-sm, 1), nth($sizing-sm, 2), 16px, 24px);
+      }
+    }
+
+    .rd-navbar-search-toggle { display: none; }
+    .rd-navbar-aside-right { margin-top: 0; }
+    
+    &.rd-navbar--is-stuck {
+      .rd-navbar-top-panel {
+        display: block;
+      }
+      .rd-navbar-inner {
+        display: none;
+      }
+    }
+  }
+  
+  
+  .rd-navbar-fullwidth {
+    .rd-navbar-inner{
+      
+    }
+    .rd-navbar-dropdown {
+      margin-top: 0;
+    }
+  }
+  
+  .rd-navbar-static {
+
+  }
+
+  @include media-breakpoint-up(xxxl) {
+    .rd-navbar-static {
+      
+    }
+  }
+}

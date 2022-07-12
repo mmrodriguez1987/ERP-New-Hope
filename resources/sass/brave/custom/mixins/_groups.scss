@@ -1,0 +1,57 @@
+// Element-groups
+@mixin group($offset-x, $offset-y: $offset-x) {
+	margin-bottom: -$offset-y;
+	margin-left: -$offset-x;
+
+	&:empty {
+		margin-bottom: 0;
+		margin-left: 0;
+	}
+
+	> * {
+		display: inline-block;
+		margin-top: 0;
+		margin-bottom: $offset-y;
+		margin-left: $offset-x;
+	}
+}
+
+@mixin group-media($offset-x, $offset-y: $offset-x) {
+	margin-bottom: -$offset-y;
+	margin-left: -$offset-x;
+
+	> * {
+		margin-bottom: $offset-y;
+		margin-left: $offset-x;
+	}
+}
+
+@mixin groupX($offset-x) {
+	margin-left: -$offset-x;
+
+	> * {
+		margin-left: $offset-x;
+	}
+}
+
+@mixin groupY($offset-y) {
+	margin-bottom: -$offset-y;
+
+	> * {
+		margin-bottom: $offset-y;
+	}
+}
+
+
+@mixin list-inline($spacing-top, $spacing-left) {
+	margin-bottom: -$spacing-top;
+	transform: translateY(-$spacing-top);
+	margin-left: -$spacing-left / 2;
+	margin-right: -$spacing-left / 2;
+	> li {
+		display: inline-block;
+		margin-top: $spacing-top;
+		margin-left: $spacing-left / 2;
+		margin-right: $spacing-left / 2;
+	}
+}

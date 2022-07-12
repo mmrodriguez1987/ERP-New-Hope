@@ -1,0 +1,337 @@
+/** @section Gallery Item */
+.gallery-item {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	max-width: 570px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	overflow: hidden;
+	width: 100.1%;
+	-webkit-mask-image: -webkit-radial-gradient(white, black);
+
+	> * {
+		width: 100%;
+	}
+
+	figure {
+		width: 100%;
+		transition: .55s all ease-in-out;
+	}
+
+	img {
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+		width: auto;
+		height: auto;
+		max-width: none;
+		min-width: 101.5%;
+	}
+
+	.caption {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 20px;
+		transition: .33s all ease-in-out;
+		pointer-events: none;
+		background: rgba($black, .7);
+
+		> * {
+			pointer-events: auto;
+			position: relative;
+			z-index: 2;
+		}
+
+		&:before {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			transform-origin: 0 100%;
+			transform: rotate(45deg);
+			content: "";
+			display: inline-block;
+			width: 100px;
+			height: 160px;
+			background-color: $secondary;
+		}
+
+		&:after {
+			position: absolute;
+			bottom: 0;
+			right: 10px;
+			content: '\f504';
+			font-family: "Material Design Icons";
+			font-size: 36px;
+			color: $white;
+		}
+	}
+
+	.caption-title,
+	.caption-text {
+		color: $white;
+	}
+
+	.caption-title {
+		position: relative;
+		font-size: 24px;
+		line-height: 1.25;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		font-family: $font-family-sans-serif-2;
+		font-weight: 400;
+	}
+
+	.caption-text {
+		max-width: 100%;
+		margin-top: 25px;
+		padding: 0 15px;
+		color: $white;
+		opacity: .6;
+	}
+}
+
+.gallery-album-item {
+	cursor: pointer;
+}
+
+// titled gallery
+.titled-gallery-item {
+	.caption {
+		background: transparent;
+
+		&:before {
+			content: none;
+		}
+
+		&:after {
+			content: none;
+		}
+	}
+}
+
+
+.titled-gallery-caption {
+	width: 100%;
+	padding-top: 15px;
+	text-align: left;
+	color: $secondary;
+	transition: 550ms ease-in-out;
+	font-weight: 400;
+}
+
+// Title inside gallery
+.title-inside-gallery-item {
+
+}
+
+.title-inside-gallery-text {
+	margin-top: 15px;
+	color: $gray-110;
+	transition: .33s all ease-in-out;
+}
+
+.title-inside-gallery-title {
+	font-size: 24px;
+	line-height: 1.25;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	font-family: $font-family-sans-serif-2;
+	font-weight: 400;
+	color: $white;
+
+	&:hover {
+		color: $secondary-1;
+	}
+}
+
+.title-inside-gallery-caption {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-end;
+	padding: 15px 15px 25px;
+
+	text-align: left;
+	pointer-events: none;
+
+	> * {
+		position: relative;
+		pointer-events: auto;
+	}
+
+	&:before {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		content: '';
+		transition: .33s all ease-in-out;
+		pointer-events: none;
+		background: rgba($black, .7);
+	}
+}
+
+.title-inside-gallery-text {
+
+}
+
+
+// Fullwidth gallery
+.gallery-item-fullwidth {
+	max-width: 100.1%;
+	max-height: 300px;
+
+	@include media-breakpoint-up(lg) {
+		max-height: 100%;
+	}
+}
+
+
+.desktop {
+	@include media-breakpoint-up(lg) {
+		//gallery item
+		.gallery-item {
+			.caption {
+				transition: .4s all ease;
+				opacity: 0;
+
+				&:before {
+					transform: rotate(90deg);
+					transition: 350ms 250ms transform;
+				}
+
+				&:after {
+					transition: 350ms 450ms transform, 350ms 450ms opacity;
+					transform: translateX(100%);
+					opacity: 0;
+				}
+			}
+
+			.caption-title,
+			.caption-text {
+				transition: 300ms 50ms ease-in-out;
+				transform: scale3d(0.7, 0.7, 0);
+			}
+
+			.caption-text {
+				max-width: 340px;
+			}
+
+			&:hover {
+				figure {
+					transform: scale3d(1.05, 1.05, 1.05);
+				}
+
+				.caption {
+					opacity: 1;
+
+					&:before {
+						transform: rotate(45deg);
+					}
+
+					&:after {
+						transform: translateX(0);
+						opacity: 1;
+					}
+				}
+
+				.caption-title,
+				.caption-text {
+					transform: scale3d(1, 1, 1);
+				}
+			}
+		}
+
+		//titled gallery
+		.titled-gallery-caption {
+			font-size: 24px;
+		}
+		.titled-gallery-item {
+			.caption {
+				-webkit-mask-image: -webkit-radial-gradient(white, black);
+				background: rgba($secondary, .6);
+
+				&:after {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					right: auto;
+					bottom: auto;
+					//transform: translate3d(-50%,-50%,0);
+					content: '\f504';
+					font-family: "Material Design Icons";
+					//font-size: 36px;
+					color: $white;
+					z-index: 2;
+					font-size: 60px;
+					transform: translate3d(-50%, -50%, -100px);
+					transition: 550ms ease-in-out;
+				}
+			}
+
+			&:hover {
+				& ~ .titled-gallery-caption {
+					color: $primary;
+				}
+
+				.caption {
+					&:after {
+						transform: translate3d(-50%, -50%, 0);
+					}
+				}
+			}
+		}
+
+		// Title inside gallery
+		.title-inside-gallery-text {
+			opacity: 0;
+			margin-bottom: -66px;
+			max-width: 350px;
+		}
+		.title-inside-gallery-caption {
+			&:before {
+				opacity: 0;
+			}
+		}
+
+		.title-inside-gallery-item {
+			&:hover {
+				.title-inside-gallery-text {
+					opacity: 1;
+					margin-bottom: 0;
+				}
+
+				.title-inside-gallery-caption {
+					&:before {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	.title-inside-gallery-caption {
+		padding: 35px;
+	}
+}

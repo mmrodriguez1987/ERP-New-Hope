@@ -1,0 +1,166 @@
+/** @section Event lightbox */
+
+.event-default {
+	position: relative;
+
+	max-width: 570px;
+	margin-left: auto;
+	margin-right: auto;
+
+	overflow: hidden;
+	border-radius: 8px;
+	-webkit-mask-image: -webkit-radial-gradient(white, black);
+
+	&-title {
+		color: $primary;
+
+		&:hover {
+			color: $secondary;
+		}
+	}
+}
+
+.event-default-wrap {
+	text-align: left;
+}
+
+.event-default-inner {
+	margin-top: 25px;
+	color: $gray-500;
+
+	> * + * {
+		margin-top: 12px;
+	}
+
+	.event-default-link {
+		color: $gray-500;
+
+		&:hover {
+			color: $secondary;
+		}
+	}
+}
+
+.event-default-date-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1;
+
+	padding: 5px 15px;
+
+	background-color: $primary;
+	color: $white;
+
+	time {
+		display: flex;
+		align-items: baseline;
+		justify-content: center;
+	}
+}
+
+.event-default-date,
+.event-default-time,
+.event-default-month {
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 18px;
+}
+
+.event-default-date {
+	font-family: $font-family-sans-serif-2;
+	font-weight: 400;
+}
+
+.event-default-month {
+	text-transform: uppercase;
+	letter-spacing: .02em;
+}
+
+.event-default-time {
+	font-weight: 300;
+}
+
+.event-default-caption {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+
+	background-color: rgba($black, .4);
+	transition: 550ms ease-in-out;
+
+	> * {
+		pointer-events: auto;
+	}
+
+	.button {
+		margin-top: 15px;
+	}
+}
+
+.desktop {
+	@include media-breakpoint-up(lg) {
+		.event-default-date-wrap {
+			width: auto;
+			padding: 5px 5px 10px;
+
+			time {
+				align-items: center;
+				flex-direction: column;
+			}
+		}
+		.event-default-date {
+			font-size: 22px;
+		}
+		.event-default-month {
+			font-weight: 700;
+		}
+
+		.event-default-caption {
+			opacity: 0;
+
+			.button {
+				transition: 350ms 200ms opacity, 350ms 200ms transform;
+				opacity: 0;
+				transform: scale3d(.8, .8, .8);
+				margin-top: 0;
+			}
+		}
+
+		.event-default-image {
+			transition: 550ms ease-in-out;
+		}
+
+		.event-default:hover {
+			.event-default-caption {
+				opacity: 1;
+			}
+
+			.button {
+				opacity: 1;
+				transform: scale3d(1, 1, 1);
+			}
+
+			.event-default-image {
+				transform: scale3d(1.05, 1.05, 1.05);
+			}
+		}
+	}
+	@include media-breakpoint-up(xxl) {
+		.event-default-date-wrap {
+			padding: 10px 15px 10px;
+		}
+		.event-default-date {
+			font-size: 28px;
+		}
+
+	}
+}

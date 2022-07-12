@@ -1,0 +1,90 @@
+/** @section Stepper Plugin */
+
+.form-wrap-modern {
+  
+  .stepper { min-width: 100%; }
+  
+}
+
+.stepper {
+  position: relative;
+  display: inline-block;
+  max-width: 70px;
+  min-width: 220px;
+  
+  input[type="number"] {
+    width: 100%;
+    padding-left: 55px;
+    padding-right: 55px;
+    text-align: center;
+    -moz-appearance: textfield;
+  }
+  
+  .shop-input & {
+    min-width: 130px;
+    .stepper-arrow {
+      font-size: 22px;
+    }
+    // Large < 991px
+    @include media-breakpoint-down(md) {
+      input[type="number"] {
+        padding-left: 40px;
+        padding-right: 50px;
+      }
+    }
+    @include media-breakpoint-up(lg) {
+      min-width: 180px;
+      
+      .stepper-arrow {
+        font-size: 28px;
+      }
+    }
+  }
+  
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  
+  &-arrow {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 28px;
+    font-family: $mdi;
+    cursor: pointer;
+    color: $secondary;
+    transition: .3s all ease;
+    
+    &:hover {
+      color: $primary
+    }
+    
+    &.up {
+      right: 28px;
+      text-align: left;
+      
+      &:before {
+        content: '\f504';
+      }
+    }
+    
+    &.down {
+      left: 19px;
+      text-align: right;
+      
+      &:before {
+        content: '\f465';
+      }
+    }
+  }
+  
+  &.disabled {
+    .stepper-arrow {
+      pointer-events: none;
+      opacity: .5;
+    }
+  }
+}

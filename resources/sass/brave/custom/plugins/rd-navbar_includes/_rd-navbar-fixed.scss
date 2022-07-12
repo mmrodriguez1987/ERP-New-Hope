@@ -1,0 +1,400 @@
+/*
+* Fixed Layout
+*/
+.rd-navbar-fixed {
+	display: block;
+
+	// Reveal nav panel toggle
+	.rd-navbar-toggle {
+		display: inline-block;
+	}
+
+	// RD Navbar Brand
+	.rd-navbar-brand {
+		position: relative;
+		margin-left: 6px;
+
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		text-align: left;
+
+		font-size: 22px;
+		line-height: 1;
+
+		img {
+			max-width: 100px;
+			height: auto;
+		}
+	}
+
+
+	// RD Navbar Panel
+	.rd-navbar-panel {
+		display: flex;
+		align-items: center;
+
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+
+		padding: ($rd-navbar-fixed-height - $rd-navbar-fixed-line-height) / 2;
+		height: $rd-navbar-fixed-height;
+		color: $rd-navbar-fixed-panel-color;
+		z-index: $zindex-rd-navbar;
+
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			box-shadow: $rd-navbar-fixed-shadow;
+			background: $rd-navbar-fixed-panel-background;
+		}
+
+		> * {
+			z-index: 1;
+		}
+	}
+
+	// RD navbar top panel
+	.rd-navbar-top-panel {
+		&.rd-navbar-collapse {
+			.box-inline {
+				display: table;
+
+				> * {
+					display: table-cell;
+					vertical-align: top;
+				}
+			}
+		}
+	}
+
+	// RD navbar aside right
+	.rd-navbar-aside-right-inner {
+		position: fixed;
+		top: ($rd-navbar-fixed-height - $rd-navbar-fixed-line-height) / 2;
+		right: 8px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: $zindex-rd-navbar + 1;
+	}
+
+	// Base search style
+	.rd-navbar-search,
+	.rd-navbar-search-1 {
+		display: inline-flex;
+		z-index: $zindex-rd-navbar + 1;
+		position: relative;
+
+		.rd-search {
+			position: absolute;
+			right: 4px;
+			top: calc(100% + 12px);
+			width: 240px;
+
+			opacity: 0;
+			visibility: hidden;
+			transition: .3s;
+			transform: translateX(-10px);
+		}
+
+		.rd-search-results-live {
+			display: none;
+		}
+
+		.form-input {
+			padding-right: 50px;
+			box-shadow: 0 1px 6px rgba($black, .07);
+		}
+
+		.rd-search-form-submit {
+			position: absolute;
+			top: 17px;
+			right: 0;
+
+			width: 50px;
+			padding: 0;
+			border: none;
+
+			background-color: transparent;
+			color: $black;
+
+			&:hover {
+				color: $primary;
+			}
+		}
+
+		&.active {
+			.rd-search {
+				opacity: 1;
+				visibility: visible;
+				transform: none;
+			}
+		}
+	}
+
+	.rd-navbar-shop {
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 48px;
+		height: 48px;
+		z-index: $zindex-rd-navbar + 1;
+
+		.rd-navbar-shop-icon {
+			font-size: 22px;
+
+			span {
+				font-size: 16px;
+				padding-left: 5px;
+			}
+		}
+	}
+
+	// Search toggle
+	.rd-navbar-search-toggle {
+		display: inline-flex;
+
+		@include toggle-icons-via-rotation(48px, 48px, 26px, '\f43b', '\f24c', 'Material Design Icons', 'Material Design Icons');
+	}
+
+
+	// Nav wrap and Search into nav wrap styles
+	.rd-navbar-nav-wrap {
+		@extend %rd-navbar-transition;
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		top: 0;
+		color: $rd-navbar-fixed-nav-color;
+		background: $rd-navbar-fixed-nav-background;
+		transform: translateX(-120%);
+
+		&.active {
+			transform: translateX(0);
+		}
+	}
+
+
+	// RD Navbar nav
+	.rd-navbar-nav {
+		display: block;
+		font-size: 16px;
+		line-height: 26px;
+		text-align: left;
+
+		&:before, &:after {
+			content: '';
+			display: block;
+			height: 8px;
+		}
+
+		li {
+			> a {
+				display: block;
+				padding: 11px 56px 11px 16px;
+				color: $rd-navbar-fixed-nav-color;
+
+				&:first-letter {
+					text-transform: uppercase;
+				}
+			}
+
+			&:hover,
+			&.active,
+			&.opened {
+				> a {
+					background: $rd-navbar-fixed-nav-active-background;
+					color: $rd-navbar-fixed-nav-active-color;
+				}
+
+				> .rd-navbar-submenu-toggle {
+					color: $rd-navbar-fixed-nav-active-color;
+				}
+			}
+
+			&.opened {
+				> .rd-navbar-submenu-toggle {
+					&:after {
+						transform: rotate(180deg);
+					}
+				}
+			}
+		}
+
+		.rd-navbar-submenu-toggle {
+			cursor: pointer;
+			color: $rd-navbar-fixed-nav-color;
+
+			&::after {
+				content: '\f236';
+				position: absolute;
+				top: 22px;
+				right: 0;
+				margin-top: -22px;
+				width: 65px;
+				height: 48px;
+				font: 400 28px "Material Design Icons";
+				line-height: 48px;
+				text-align: center;
+				transition: 0.3s transform ease;
+				z-index: 2;
+			}
+		}
+	}
+
+
+	// RD navbar submenu styles
+	.rd-navbar-dropdown,
+	.rd-navbar-megamenu {
+		display: none;
+		margin-top: 4px;
+	}
+
+	.rd-navbar-megamenu-banner {
+		> li:first-of-type {
+			display: none;
+		}
+	}
+
+	.rd-navbar-submenu {
+		position: relative;
+		@extend %rd-navbar-transition;
+
+		.rd-navbar-dropdown > li > a,
+		.rd-megamenu-list > li > a {
+			padding: 7px 56px 7px 30px;
+		}
+
+		.rd-megamenu-header {
+			padding-left: 20px;
+		}
+
+		.rd-navbar-dropdown li li > a,
+		.rd-navbar-megamenu ul li li > a {
+			padding-left: 48px;
+		}
+
+		&.opened {
+			> .rd-navbar-dropdown,
+			> .rd-navbar-megamenu {
+				display: block;
+			}
+		}
+	}
+
+
+	// RD Navbar Collapse
+	.rd-navbar-collapse {
+		position: fixed;
+		right: 4px;
+		top: $rd-navbar-fixed-height + 8px;
+		transform: translateX(-10px);
+
+		padding: 15px 10px;
+		width: 280px;
+
+		border-radius: 3px;
+		background-color: $rd-navbar-fixed-panel-background;
+		box-shadow: $rd-navbar-shadow;
+		text-align: left;
+		font-size: 14px;
+
+		opacity: 0;
+		pointer-events: none;
+		z-index: 997;
+		transition: opacity .3s, transform .3s;
+
+		&.active {
+			transform: none;
+			opacity: 1;
+			pointer-events: auto;
+			z-index: $zindex-rd-navbar;
+		}
+
+		&-toggle {
+			position: fixed;
+			right: 4px;
+			top: 4px;
+			display: inline-block;
+			z-index: $zindex-rd-navbar + 1;
+		}
+
+
+		&,
+		a.icon,
+		.list-inline a,
+		a.rd-navbar-shop-icon {
+			color: $rd-navbar-fixed-panel-color;
+
+			&:hover {
+				color: $secondary;
+			}
+		}
+
+		.rd-navbar-search,
+		.rd-navbar-shop {
+			position: relative;
+			top: auto;
+			right: auto;
+		}
+
+		.rd-navbar-search-toggle {
+			display: none;
+		}
+
+		.rd-navbar-search .rd-search {
+			position: relative;
+			width: 260px;
+			opacity: 1;
+			visibility: visible;
+			right: auto;
+			transform: translateX(0);
+			margin-bottom: 10px;
+		}
+
+		.rd-navbar-shop {
+			display: inline-flex;
+			margin-right: 10px;
+			vertical-align: middle;
+		}
+
+		.rd-navbar-top-panel-inner {
+			& + .rd-navbar-top-panel-inner {
+				margin-top: 10px;
+			}
+		}
+	}
+
+	// RD Navbar States
+	&.active {
+		.rd-navbar-nav {
+			transform: translateX(0);
+		}
+	}
+
+	&.rd-navbar--is-clone {
+		display: none;
+	}
+
+	.rd-navbar-fixed--visible {
+		display: block;
+	}
+
+	.rd-navbar-fixed--hidden {
+		display: none;
+	}
+}
+
+html.rd-navbar-fixed-linked {
+	.page {
+		padding-top: 55px;
+	}
+}

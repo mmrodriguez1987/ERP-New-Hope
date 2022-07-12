@@ -13,30 +13,34 @@ use Artesaos\SEOTools\Facades\JsonLdMulti;
 // OR
 use Artesaos\SEOTools\Facades\SEOTools;
 use Carbon\Carbon;
+use App\Models\Slide;
+use App\Models\Setting;
 
 class HomeController extends Controller
 {
     public function index() {
 
-        SEOMeta::setTitle('New Hope In Christ Ministry');
-        SEOMeta::setDescription('This is my page description');
-        SEOMeta::setCanonical('https://codecasts.com.br/lesson');
+        $seo_settings = Setting::where('group_setting_id', 1)->get();
+        $home_slides = Slide::where('slider_id',1)->get();
+        
+        $seo_settings->where('name','Title')->first()->value('short_key_value');
+            
+        SEOMeta::setTitle($seo_settings->where('name','Title')->first()->short_key_value);
+        SEOMeta::setDescription($seo_settings->where('name','Description')->first()->short_key_value);
+        SEOMeta::setCanonical($seo_settings->where('name','URL')->first()->short_key_value);
 
-        OpenGraph::setDescription('This is my page description');
-        OpenGraph::setTitle('Home');
-        OpenGraph::setUrl('http://current.url.com');
-        OpenGraph::addProperty('type', 'articles');
-
+        OpenGraph::setDescription($seo_settings->where('name','Title')->first()->short_key_value);
+        OpenGraph::setTitle($seo_settings->where('name','Description')->first()->short_key_value);
+        OpenGraph::setUrl($seo_settings->where('name','URL')->first()->short_key_value);
        
         // OR
 
-        SEOTools::setTitle('Home');
-        SEOTools::setDescription('This is my page description');
-        SEOTools::opengraph()->setUrl('http://current.url.com');
-        SEOTools::setCanonical('https://codecasts.com.br/lesson');
-        SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::twitter()->setSite('@LuizVinicius73');
-        SEOTools::jsonLd()->addImage('https://codecasts.com.br/img/logo.jpg');
+        SEOTools::setTitle($seo_settings->where('name','Title')->first()->short_key_value);
+        SEOTools::setDescription($seo_settings->where('name','Description')->first()->short_key_value);
+        SEOTools::opengraph()->setUrl($seo_settings->where('name','URL')->first()->short_key_value);
+        SEOTools::setCanonical($seo_settings->where('name','URL')->first()->short_key_value);
+        SEOTools::twitter()->setSite($seo_settings->where('name','Twitter Tag')->first()->short_key_value);
+        SEOTools::jsonLd()->addImage($seo_settings->where('name','Logo')->first()->short_key_value);
 
       
         $sundayService = Carbon::parse('next sunday');

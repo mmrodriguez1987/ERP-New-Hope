@@ -1,0 +1,248 @@
+/** @section Time Line Styles */
+$line-width: 2px;
+$circle-width: 14px;
+
+%time-line-circle {
+	width: $circle-width;
+	height: $circle-width;
+	border-radius: 50%;
+	background-color: $white;
+	border: 2px solid $secondary;
+}
+
+.time-line {
+}
+
+.time-line-time {
+	color: $gray-700;
+	letter-spacing: $spacing-sm;
+}
+
+.time-line-content {
+
+	* + img {
+		margin-top: 20px;
+	}
+
+	img + * {
+		margin-top: 20px;
+	}
+
+	img + p {
+		margin-top: 20px;
+	}
+
+	p {
+		letter-spacing: $spacing-sm;
+		color: $gray-500;
+	}
+
+	* + p {
+		margin-top: 10px;
+	}
+
+	.bg-gray-darker & p {
+		color: $gray-300;
+	}
+
+}
+
+/**
+* Vertical Time Line
+*/
+.time-line-vertical {
+	position: relative;
+	max-width: 830px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	overflow: hidden;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: $circle-width / 2;
+		transform: translateX(-50%);
+		border-left: $line-width solid $secondary;
+	}
+}
+
+.time-line-vertical-element {
+	position: relative;
+	padding-left: $circle-width * 2.5;
+
+	&:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 6px;
+		@extend %time-line-circle;
+	}
+}
+
+.time-line-vertical-element + .time-line-vertical-element {
+	margin-top: 35px;
+}
+
+@include media-breakpoint-up(md) {
+	.time-line-vertical,
+	.time-line-vertical-element {
+		&:before {
+			display: none;
+		}
+	}
+	.time-line-vertical-element {
+		padding-left: 0;
+
+		.time-line-content {
+			position: relative;
+			top: -3px;
+		}
+
+		.unit-left {
+			max-width: 150px;
+			width: 100%;
+			text-align: right;
+		}
+
+		.unit-body {
+			position: relative;
+
+			&:before {
+				content: '';
+				position: absolute;
+				z-index: 1;
+				left: -60px;
+				top: 8px;
+				width: $circle-width;
+				height: $circle-width;
+				border-radius: 50%;
+				background-color: $white;
+				border: 2px solid $secondary;
+			}
+		}
+
+		&:last-child {
+			.unit-body {
+				&:after {
+					content: '';
+					position: absolute;
+					left: -54px;
+					top: -250vh;
+					bottom: -250vh;
+					border-left: $line-width solid $secondary;
+				}
+			}
+		}
+	}
+	.time-line-vertical-element + .time-line-vertical-element {
+		margin-top: 45px;
+	}
+	.time-line-vertical-element-offset + .time-line-vertical-element-offset {
+		margin-top: 55px;
+	}
+}
+
+* + .time-line-vertical {
+	margin-top: 30px;
+}
+
+@include media-breakpoint-up(md) {
+	* + .time-line-vertical {
+		margin-top: 45px;
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	* + .time-line-vertical {
+		margin-top: 80px;
+	}
+}
+
+/**
+* Horizontal Time Line
+*/
+.time-line-horizontal {
+	max-width: 1340px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.time-line-horizontal-element {
+	padding-left: 5px;
+	padding-right: 5px;
+	max-width: 330px;
+	text-align: left;
+
+	.time-line-content {
+		* + p {
+			margin-top: 16px;
+		}
+	}
+
+	.time-line-time {
+		position: relative;
+		padding-bottom: 23px;
+
+		time {
+			display: block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		&:before {
+			content: '';
+			z-index: 10;
+			position: absolute;
+			left: 0;
+			bottom: -7px;
+			@extend %time-line-circle;
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: -40px;
+			right: -100vw;
+			border-bottom: 2px solid $secondary;
+		}
+	}
+
+	* + .time-line-content {
+		margin-top: 20px;
+	}
+
+	@include media-breakpoint-up(xxl) {
+		.time-line-time {
+			padding-bottom: 33px;
+		}
+		* + .time-line-content {
+			margin-top: 40px;
+		}
+	}
+}
+
+.bg-gray-lighter .time-line-horizontal-element .time-line-time:before {
+	background-color: $gray-100;
+}
+
+.bg-gray-darker {
+	.time-line-content {
+		color: $gray-300;
+	}
+
+	.time-line-horizontal-element .time-line-time:after,
+	.time-line-horizontal-element .time-line-time:before {
+		background-color: $gray-700;
+		border-color: $secondary-1;
+	}
+}
+
+
+

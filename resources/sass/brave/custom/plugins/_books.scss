@@ -1,0 +1,539 @@
+/** @section Book */
+.book {
+  position: relative;
+  margin: 0 auto;
+  width: 188px;
+  height: 246px;
+  text-align: center;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 0.5s, opacity 0.3s 0.3s;
+  transition: transform 0.5s, opacity 0.3s 0.3s;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+}
+
+.details-open {
+  .book {
+    margin: 0 auto 0 20px;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .book {
+    margin: 0 auto;
+  }
+  .details-open {
+    .book {
+      margin: 0 auto;
+    }
+  }
+}
+
+.block-with-details.details-open {
+  .book {
+    box-shadow: none;
+  }
+}
+
+.book[data-book="book-1"] .front { background: url(../images/book-01-188x246.jpg); }
+.book[data-book="book-1"] .cover::before {
+  background: url(../images/book-01-cover.jpg) , linear-gradient(to right, rgba(13,71,160,1) 0%,rgba(6,47,110,1) 100%);
+}
+
+.book[data-book="book-2"] .front { background: url(../images/book-02-188x246.jpg); }
+.book[data-book="book-2"] .cover::before { background: url(../images/book-2-cover.jpg), linear-gradient(to right, rgba(#0a8738, 1) 0%,rgba(#025320, 1) 100%); }
+
+.book[data-book="book-3"] .front { background: url(../images/book-03-188x246.jpg); }
+.book[data-book="book-3"] .cover::before {
+  background: url(../images/book-3-cover.jpg), linear-gradient(to right, rgba(216,67,21,1) 0%,rgba(143,38,6,1) 100%);
+}
+
+.book[data-book="book-4"] .front { background: url(../images/book-04-188x246.jpg); }
+.book[data-book="book-4"] .cover::before { background: url(../images/book-4-cover.jpg); }
+
+.book[data-book="book-5"] .front { background: url(../images/book-05-188x246.jpg); }
+.book[data-book="book-5"] .cover::before { background: url(../images/book-5-cover.jpg); }
+
+.book[data-book="book-6"] .front { background: url(../images/book-06-188x246.jpg); }
+.book[data-book="book-6"] .cover::before { background: url(../images/book-6-cover.jpg); }
+ 
+
+
+.book .front {
+  -webkit-background-size: cover !important;
+  background-size: cover !important;
+}
+
+.book div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-color: #33373b;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  .details-open & {
+    height: 246px;
+  }
+}
+
+.cover {
+  z-index: 10;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.cover::before {
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  visibility: hidden;
+  width: 20px;
+  height: 100%;
+  background: #000000;
+  content: '';
+  -webkit-transform: translateX(-100%) rotateY(-90deg);
+  transform: translateX(-100%) rotateY(-90deg);
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.front {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.inner {
+  border-width: 3px;
+  border-style: solid;
+  background-color: #ffffff;
+}
+
+.book .inner-left {
+  border-right: none;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.inner-right {
+  border-left: none;
+  background-color: #dddddd;
+  -webkit-transition: background-color 0.5s 0.25s;
+  transition: background-color 0.5s 0.25s;
+}
+
+// Show details btn
+//
+.show-details {
+  display: inline-block;
+  margin-top: 20px;
+  text-align: center;
+  color: $primary;
+  letter-spacing: $spacing-sm;
+  cursor: pointer;
+  &:hover {
+    color: $secondary;
+  }
+}
+
+// Details panel
+.details {
+  position: relative;
+  ul {
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: 15px;
+    text-align: left;
+    margin-top: 20px;
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .details {
+    ul {
+      max-width: 270px;
+      margin-left: auto;
+      margin-right: 30px;
+    }
+  }
+}
+
+.close-details {
+  position: absolute;
+  top: 28px;
+  right: 35px;
+  visibility: hidden;
+  width: 20px;
+  height: 20px;
+  font-size: 0;
+  opacity: 1;
+  cursor: pointer;
+  
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: $gray-300;
+    content: '';
+  }
+  
+  &:before {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
+  &:after {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  &:hover {
+    opacity: 1
+  }
+}
+
+.details-open .close-details {
+  visibility: visible
+}
+
+.block-with-details.details-open {
+  //z-index: 101;
+  //-webkit-transition: none;
+  //transition: none;
+}
+
+.details-open .book {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  -webkit-transform: translateX(0px) rotateY(90deg);
+  transform: translateX(19px) rotateY(90deg);
+}
+
+@include media-breakpoint-up(sm) {
+  .details-open .book {
+    transform: translateX(-56px) rotateY(90deg);
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .details-open .book {
+    transform: translateX(-30px) rotateY(90deg);
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .details-open .book {
+    transform: translateX(-10px) rotateY(90deg);
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .details-open .book {
+    transform: translateX(-4px) rotateY(90deg);
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .details-open .book {
+    -webkit-transform: translateX(-56px) rotateY(90deg);
+    transform: translateX(-56px) rotateY(90deg);
+  }
+}
+
+.cover::before {
+  -webkit-transition: visibility 0s 0.5s;
+  transition: visibility 0s 0.5s;
+}
+
+.details-open .cover::before {
+  visibility: visible;
+  -webkit-transition: none;
+  transition: none;
+}
+
+.details,
+.perspective {
+  
+}
+
+.details {
+  padding-top: 1px;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  max-height: 0;
+}
+
+.details-open .details {
+  display: block;
+  margin-top: 60px;
+  padding-bottom: 20px;
+  max-height: 100%;
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
+  -webkit-transition: opacity 0.5s, visibility 0s;
+  transition: opacity 0.5s, visibility 0s;
+  will-change: transfrom;
+}
+
+// Block with details
+//-----------------------
+
+.block-with-details {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  min-height: 541px;
+  max-width: 420px;
+  overflow: hidden;
+  vertical-align: top;
+  text-align: center;
+  border-radius: $border-sm;
+  
+  .figcaption {
+    transition: .3s ease-out all, .15s ease-out opacity;
+    visibility: visible;
+    margin-top: 20px;
+    opacity: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(0px);
+    text-align: center;
+    will-change: transfrom;
+  }
+  &:before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    background-color: $white;
+    opacity: 0;
+    border-radius: $border-sm;
+    pointer-events: none;
+    
+  }
+  &.details-open {
+    
+    
+    
+    z-index: 101;
+    -webkit-transition: none;
+    transition: none;
+    box-shadow: 0 5px 12px 0 rgba(#dcdeec, 1);
+    .perspective {
+      position: absolute;
+    }
+    .figcaption {
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+  
+    }
+    &:before {
+      opacity: 1;
+    }
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .block-with-details {
+    min-height: 589px;
+  }
+}
+
+@include media-breakpoint-up(xxxl) {
+  .block-with-details {
+    min-height: 589px;
+  }
+}
+
+.book-price {
+}
+
+.book-cite {
+  color: $gray-700;
+}
+
+.book-tag {
+  color: $secondary;
+  font-style: italic;
+  a {
+    font-style: inherit;
+    color: $secondary;
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.perspective {
+  position: relative;
+  width: 100%;
+  //height: 100%;
+  margin-top: 60px;
+  -webkit-perspective: 1800px;
+  perspective: 1800px;
+}
+
+.block-with-details.details-open .perspective {
+
+  
+}
+
+.book-title {
+  color: $secondary;
+  
+  a {
+    color: inherit;
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .book-title {
+    min-height: 68px;
+  }
+}
+
+.book-title,
+.book-cite,
+.book-content {
+  letter-spacing: $spacing-sm;
+}
+
+// Offsets
+* + .book-title { margin-top: 20px; }
+
+* + .book-cite { margin-top: 10px; }
+
+* + .book-content { margin-top: 15px; }
+
+* + .book-tag { margin-top: 10px; }
+
+* + .book-price { margin-top: 20px; }
+
+* + .book-button { margin-top: 20px; }
+
+@include media-breakpoint-up(xxl) {
+  
+  .block-with-details {
+    .figcaption {
+      margin-top: 40px;
+    }
+  }
+  * + .book-cite { margin-top: 15px; }
+  * + .book-content { margin-top: 22px; }
+  * + .book-tag { margin-top: 19px; }
+}
+
+.block-with-details.details-open::before {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s, visibility 0s;
+  transition: opacity 0.3s, visibility 0s;
+}
+
+.block-with-details.details-open::after {
+  height: 100%;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+// Animations for block with details
+//
+
+@-webkit-keyframes openSmallBook {
+  0% {
+  }
+  55%, 100% {
+    -webkit-transform: rotateY(-180deg)
+  }
+}
+
+@keyframes openSmallBook {
+  0% {
+  }
+  55%, 100% {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+  }
+}
+
+@-webkit-keyframes closeSmallBook {
+  0%, 45% {
+    -webkit-transform: rotateY(-180deg)
+  }
+  100% {
+    -webkit-transform: rotateY(0deg)
+  }
+}
+
+@keyframes closeSmallBook {
+  0%, 45% {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+}
+
+@-webkit-keyframes scaleUpSmallBook {
+  0% {
+  }
+  85%, 100% {
+    -webkit-transform: scale(1.4)
+  }
+}
+
+@keyframes scaleUpSmallBook {
+  0% {
+  }
+  85%, 100% {
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+}
+
+@-webkit-keyframes scaleDownSmallBook {
+  0%, 15% {
+    -webkit-transform: scale(1.4)
+  }
+  100% {
+    -webkit-transform: scale(1)
+  }
+}
+
+@keyframes scaleDownSmallBook {
+  0%, 15% {
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+

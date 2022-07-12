@@ -15,6 +15,8 @@ class GroupSettingSeeder extends Seeder
      */
     public function run()
     {
-        GroupSetting::factory()->count(50)->create();
+        GroupSetting::create(['name' => 'SEO']);
+        GroupSetting::create(['name' => 'page']);
+
     }
 }

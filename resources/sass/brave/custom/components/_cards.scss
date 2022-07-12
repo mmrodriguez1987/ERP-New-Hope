@@ -1,0 +1,66 @@
+/** @section Cards */
+
+/**
+* Card info
+*/
+.card-info {
+  display: flex;
+  flex-direction: column;
+  max-width: 730px;
+  text-align: left;
+
+  * + .card-info-subtitle { margin-top: 5px; }
+}
+
+.card-info-image {
+  border-radius: 9px;
+}
+
+.card-info-title {
+  color: $secondary;
+}
+
+.card-info-subtitle {
+  font-style: italic;
+}
+
+.card-info-aside {
+  flex-shrink: 0;
+  max-width: 30%;
+}
+
+.card-info-main {
+  flex-grow: 1;
+}
+
+* + .card-info-title { margin-top: 10px; }
+* + .card-info-main { padding-top: 15px; }
+
+@include media-breakpoint-up(sm) {
+  .card-info {
+    flex-direction: row;
+  }
+
+  * + .card-info-main {
+    padding-top: 0;
+    padding-left: 15px; 
+  }
+}
+
+@include media-breakpoint-up(md) {
+  * + .card-info-main {
+    padding-left: 30px;
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .card-info {
+    * + p {
+      margin-top: 26px;
+    }
+  }
+
+  * + .card-info-main {
+    padding-left: 45px;
+  }
+}

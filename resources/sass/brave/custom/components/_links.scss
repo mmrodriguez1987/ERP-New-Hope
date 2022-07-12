@@ -1,0 +1,111 @@
+/** @section Links */
+
+// Standard link style
+a {
+	color: $link-color;
+	text-decoration: none;
+	transition: .25s;
+
+	&:hover,
+	&:focus {
+		color: $link-hover-color;
+		text-decoration: $link-hover-decoration;
+		outline: none;
+	}
+
+	&[href*='tel'],
+	&[href*='mailto'] {
+		white-space: nowrap;
+	}
+}
+
+.privacy-link {
+	display: inline-block;
+}
+
+.link-hover {
+	color: $link-hover-color;
+}
+
+.link-press {
+	color: $link-press-color;
+}
+
+.link-video {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	overflow: hidden;
+	border-radius: 50%;
+	line-height: 1;
+
+	&,
+	&:active,
+	&:focus {
+		color: $white;
+	}
+
+	&:hover {
+		color: $secondary-1;
+	}
+
+	&::before {
+		position: static;
+		display: inline-block;
+		overflow: hidden;
+		content: '\f4fb';
+		font-family: $mdi;
+		font-size: 50px;
+		border-radius: 50%;
+	}
+
+	@include media-breakpoint-up(lg) {
+		&::before {
+			font-size: 75px;
+		}
+	}
+
+	@include media-breakpoint-up(xxl) {
+		&::before {
+			font-size: 100px;
+		}
+	}
+}
+
+// link bold
+.link-bold {
+	font-weight: 700;
+	color: $secondary;
+
+	&:hover {
+		color: $primary;
+	}
+}
+
+// Link image 
+.link-image {
+	display: inline-block;
+	max-width: 80%;
+	text-align: center;
+
+	img {
+		opacity: .5;
+		width: auto;
+		transition: .33s;
+	}
+
+	&:hover {
+		img {
+			opacity: 1;
+		}
+	}
+}
+
+.link-text-color {
+	color: $body-color;
+
+	&:hover {
+		color: $secondary;
+	}
+}
+

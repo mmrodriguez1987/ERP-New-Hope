@@ -17,8 +17,8 @@ class CreateSettingsTable extends Migration
             $table->id();
             $table->foreignId('group_setting_id')->constrained('group_settings'); 
             $table->string('name');
-            $table->string('short_key_alue');
-            $table->mediumText('logn_key_alue');
+            $table->string('short_key_value');
+            $table->mediumText('logn_key_value');
             $table->timestamps();
         });
     }

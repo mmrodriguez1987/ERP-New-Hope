@@ -1,0 +1,32 @@
+/** @section Lists */
+.halloween-section {
+	// Marked list
+	.list-marked {
+		padding-left: 0;
+		text-align: left;
+		list-style-type: none;
+
+		> li {
+			position: relative;
+			padding-left: 45px;
+
+			&::before {
+				position: absolute;
+				display: inline-block;
+				width: 26px;
+				height: 26px;
+				line-height: 26px;
+				left: 0;
+				top: -4px;
+				min-width: 25px;
+				content: '\f222';
+				font-family: 'Material Design Icons';
+				text-align: center;
+				color: $white;
+				background-color: $halloween-dark;
+				border-radius: 50%;
+				transform: none;
+			}
+		}
+	}
+}

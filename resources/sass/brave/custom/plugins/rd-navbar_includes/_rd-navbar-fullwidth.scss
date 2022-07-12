@@ -1,0 +1,73 @@
+/*
+* Fullwidth Layout
+*/
+
+.rd-navbar-fullwidth {
+	display: block;
+
+	.button-sm {
+		// Extra large < 1200px
+		@include media-breakpoint-down(lg) {
+			padding: 9px 28px;
+			min-width: auto;
+		}
+	}
+
+	// RD Navbar Inner
+	.rd-navbar-inner {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	// RD Navbar right aside
+	.rd-navbar-aside-right {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 25px;
+	}
+
+	.rd-navbar-panel {
+		text-align: center;
+	}
+
+	// RD Navbar Nav
+	.rd-navbar-nav {
+		> li {
+			margin: 0 18px;
+		}
+	}
+
+	.rd-navbar-dropdown {
+		margin-top: 20px;
+	}
+
+	.rd-navbar-megamenu {
+		max-width: 1200px;
+
+		> li + li {
+			margin-left: 30px;
+		}
+	}
+
+	// RD Navbar States
+	&.rd-navbar--is-stuck,
+	&.rd-navbar--is-clone {
+		.rd-navbar-inner {
+			padding-top: 13px;
+			padding-bottom: 13px;
+		}
+
+		.rd-navbar-aside-right {
+			margin-top: 0;
+		}
+
+		.rd-navbar-dropdown {
+			margin-top: 15px;
+		}
+
+		.rd-navbar-panel {
+			display: none;
+		}
+	}
+}

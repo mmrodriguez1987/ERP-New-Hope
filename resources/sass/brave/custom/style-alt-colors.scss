@@ -1,0 +1,83 @@
+/**
+ * [Table of contents]
+ */
+
+@import "color-theme/color-theme-2";
+@import "main-styles";
+
+.list-darker a:hover {
+	color: rgba($secondary-5, .5);
+}
+
+.bg-accent-accent {
+	.parallax-text {
+		color: rgba($secondary-1, .2);
+	}
+}
+
+.bg-gradient-1 {
+	.badge-cta-primary {
+		background: $secondary-3;
+	}
+}
+
+.swiper-main {
+	.button-default-outline:hover {
+		background: $secondary-3;
+		border-color: $secondary-3;
+	}
+
+	.button-secondary:hover {
+		background: $secondary-3;
+		border-color: $secondary-3;
+	}
+}
+
+a.title-inside-gallery-title:focus {
+	color: $secondary-1;
+}
+
+%context-dark {
+	a:focus {
+		color: $secondary-1;
+	}
+
+	.box-minimal-icon {
+		color: $secondary-1;
+	}
+
+	&.page-footer .list-marked-primary > li a:hover,
+	.twitter-feed-minimal-content a:hover,
+	.list-twitter a:hover {
+		color: $white;
+	}
+
+	.list-darker,
+	.page-footer-inline-list {
+		a:hover {
+			color: $secondary-1;
+		}
+	}
+
+	.badge-cta-primary {
+		background-color: $secondary;
+	}
+
+	.button-secondary:hover {
+		background: $secondary-3;
+		border-color: $secondary-3;
+	}
+}
+
+.owl-prev,
+.owl-next {
+	&:hover {
+		background: $secondary-4;
+	}
+}
+
+.ui-to-top {
+	&:hover {
+		background: $secondary-4;
+	}
+}

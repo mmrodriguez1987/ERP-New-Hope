@@ -1,0 +1,34 @@
+/** @Element groups */
+.page {
+	.group {
+		@include group(10px);
+	}
+
+	.group-xxs {
+		@include group(5px);
+	}
+
+	.group-xs {
+		@include group(9px);
+	}
+
+	.group-md {
+		@include group(30px, 30px);
+	}
+
+	.group-lg {
+		@include group(40px, 5px);
+	}
+
+	.group-xl {
+		@include group(50px, 10px);
+	}
+}
+
+.group-middle {
+	display: inline-table;
+
+	> * {
+		vertical-align: middle;
+	}
+}

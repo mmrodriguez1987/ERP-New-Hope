@@ -1,0 +1,242 @@
+/** @section Style Switcher */
+.style-switcher-panel-wrap {
+	position: relative;
+	z-index: 15;
+	width: 100%;
+	padding: 0 15px;
+	text-align: center;
+}
+
+.style-switcher-panel {
+	position: relative;
+	z-index: 11;
+	@include group(10px);
+	will-change: transform;
+	text-align: center;
+
+	> li {
+		transform: translate3d(0, 0, 0);
+		overflow: hidden;
+
+		&.active {
+			.button {
+				background: $secondary-2;
+				border-color: $secondary-2;
+			}
+		}
+	}
+
+	.button {
+		padding: 10px 28px;
+		min-width: 90px;
+		font-size: 14px;
+		@include btn-variant($gray-700, $white, $gray-110, $white, $primary, $primary);
+		-webkit-mask-image: -webkit-radial-gradient(white, black);
+
+		&:hover {
+			background: $secondary-2;
+			border-color: $secondary-2;
+		}
+	}
+
+	> li.active .button {
+		color: $white;
+		border-color: $primary;
+		background: $primary;
+	}
+}
+
+.style-switcher-container {
+	position: relative;
+
+	.section {
+		transition: .33s;
+	}
+}
+
+.style-switcher-toggle-wrap {
+	position: relative;
+	z-index: 10;
+	text-align: center;
+}
+
+// Navigation custom
+@include media-breakpoint-down(sm) {
+	.style-switcher-panel-wrap {
+		position: relative;
+
+		.style-switcher-panel-control {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 10px 20px;
+			color: $white;
+			background: $primary;
+			box-shadow: none;
+			border: 0;
+
+			&::after {
+				position: relative;
+				top: -1px;
+				display: inline-block;
+				margin-left: 5px;
+				content: '\f107';
+				font-family: 'FontAwesome';
+				font-size: 14px;
+				transition: .22s;
+				will-change: transform;
+			}
+
+			&.active {
+				&::after {
+					transform: scale(1, -1);
+				}
+			}
+		}
+	}
+
+	.style-switcher-panel {
+		position: absolute;
+		bottom: -5px;
+		left: 50%;
+		padding: 10px;
+		margin: 0;
+		min-width: 240px;
+		transform-origin: 50% 0;
+		transform: translate3d(-50%, 100%, 0);
+		border: 1px solid $gray-200;
+		opacity: 0;
+		visibility: hidden;
+		background: $white;
+		will-change: transform;
+		transition: transform .32s cubic-bezier(1, 0.54, 0.15, 0.86), opacity .2s ease;
+		border-radius: round($form-input-border-color-radius / 2);
+
+		&.active {
+			opacity: 1;
+			visibility: visible;
+			transform: translate3d(-50%, 100%, 0);
+		}
+
+		li {
+			display: block;
+			width: 100%;
+			margin: 0;
+		}
+
+		li + li {
+			margin-top: 5px;
+		}
+
+		.button {
+			padding: 4px 18px;
+			width: 100%;
+			border: 0;
+			text-align: left;
+			text-transform: none;
+			font-family: $font-family-base;
+			color: $gray-700;
+			letter-spacing: 0;
+			font-weight: 300;
+			background-color: transparent;
+		}
+
+		> li.active > .button,
+		.button:hover {
+			color: $secondary;
+			background-color: transparent;
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.style-switcher-panel-wrap {
+		.style-switcher-panel-control {
+			display: none;
+		}
+	}
+}
+
+* + .style-switcher {
+	margin-top: 30px;
+}
+
+* + .section-offset,
+* + .style-switcher-container {
+	margin-top: 20px;
+}
+
+.style-switcher-toggle-wrap + * {
+	margin-top: 20px;
+}
+
+@include media-breakpoint-up(md) {
+	* + .style-switcher {
+		margin-top: 50px;
+	}
+	* + .section-offset,
+	* + .style-switcher-container {
+		margin-top: 35px;
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	* + .style-switcher {
+		margin-top: 30px;
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	* + .style-switcher {
+		margin-top: 60px;
+	}
+	* + .section-offset {
+		margin-top: 80px;
+	}
+	* + .section-offset,
+	* + .style-switcher-container {
+		margin-top: 60px;
+	}
+}
+
+.desktop {
+	@include media-breakpoint-up(lg) {
+		.style-switcher-container {
+			.style-switcher-toggle {
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				will-change: transform;
+				top: 15px;
+				opacity: 0;
+				transition: .33s;
+			}
+
+			&:hover {
+				.style-switcher-toggle {
+					top: 35px;
+					opacity: 1;
+					transform: translateX(-50%);
+				}
+			}
+		}
+
+		.style-switcher-toggle-wrap + * {
+			margin-top: 0;
+		}
+	}
+
+	@include media-breakpoint-up(xxl) {
+		.style-switcher-container {
+			.style-switcher-toggle {
+				top: 45px;
+			}
+
+			&:hover {
+				.style-switcher-toggle {
+					top: 60px;
+				}
+			}
+		}
+	}
+}

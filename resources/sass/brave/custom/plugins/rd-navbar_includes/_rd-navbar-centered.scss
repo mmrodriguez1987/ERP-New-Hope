@@ -1,0 +1,148 @@
+// RD navbar default
+
+.rd-navbar-centered {
+  .rd-navbar {
+    
+  }
+  
+  .rd-navbar-panel {
+    text-align: center;
+  }
+
+  .rd-navbar-fullwidth {
+    .rd-navbar-inner{
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+
+    .rd-navbar-aside-left {
+      padding-left: 40px;
+    }
+    
+    .rd-navbar-collapse-toggle {
+      position: fixed;
+      right: 4px;
+      top: 20px;
+      display: inline-block;
+      z-index: $zindex-rd-navbar + 1;
+    }
+    .rd-navbar-collapse {
+      position: fixed;
+      right: 4px;
+      top: 64px;
+      display: block;
+      transform: translateX(-10px);
+      padding: 5px 10px;
+      width: 280px;
+      border-radius: 3px;
+      background-color: #fff;
+      box-shadow: 0 6px 8px rgba(110, 123, 157, 0.17);
+      text-align: left;
+      font-size: 14px;
+      opacity: 0;
+      visibility: hidden;
+      z-index: $zindex-rd-navbar;
+      transition: .3s;
+
+      &.active {
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    
+    .rd-navbar-search,
+    .rd-navbar-shop {
+      position: relative;
+      top: auto;
+      right: auto;
+      margin-left: 0;
+    }
+    .rd-navbar-search-toggle {
+      display: none;
+    }
+    .rd-navbar-search .rd-search {
+      position: relative;
+      width: 260px;
+      opacity: 1;
+      visibility: visible;
+      right: auto;
+      transform: translateX(0);
+      margin-bottom: 10px;
+    }
+
+    .rd-navbar-shop {
+      display: inline-flex;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    
+    &.rd-navbar--is-stuck {
+      .rd-navbar-collapse-toggle {
+        top: 4px;
+      }
+    }
+  }
+  
+  .rd-navbar-static {
+    .rd-navbar-inner {
+      >* {
+        flex-grow: 1;
+        max-width: 33.333%;
+        
+        .ie-10 &,
+        .ie-11 &,
+        .ie-edge & {
+          width: 33.33%;
+        }
+      }
+      
+      .rd-navbar-nav {
+        white-space: nowrap;
+        
+        > li {
+          white-space: normal;
+        }
+      }
+    }
+    
+    .rd-navbar-brand{
+      .brand-name {
+        margin-left: -33px;
+      }
+    }
+    .rd-navbar-aside-right {
+      justify-content: flex-end;
+     
+      > * + *{
+        margin-left: 30px;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .rd-navbar-static {
+      .rd-navbar-nav {
+        .rd-navbar-megamenu {
+          > li {
+            max-width: 215px;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+  
+
+  @include media-breakpoint-up(xxxl) {
+    .rd-navbar-static {
+      .rd-navbar-aside-right {
+        > * + *{
+          margin-left: 50px;
+        }
+      }
+    }
+  }
+}

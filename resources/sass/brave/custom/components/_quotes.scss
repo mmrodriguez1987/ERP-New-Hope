@@ -1,0 +1,390 @@
+/** @section Quotes */
+
+/**
+* Quote primary
+*/
+.quote-primary {
+  text-align: left;
+
+  .cite { color: $secondary; }
+}
+
+.quote-primary-text {
+  font-style: italic;
+  font-size: 18px;
+  line-height: (28 / 18);
+}
+
+.quote-primary-mark {
+  position: relative;
+  top: 6px;
+  display: block;
+  width: 37px;
+  height: 27px;
+  fill: $primary;
+  flex-shrink: 0;
+}
+
+.quote-primary-meta {
+  margin-left: -.2em;
+  color: $gray-300;
+  * { padding: 0 .2em; }
+}
+
+* + .quote-primary-text { margin-top: 20px; }
+
+* + .quote-primary-meta { margin-top: 15px; }
+
+@include media-breakpoint-up(md) {
+  .quote-primary-text {
+    font-size: 20px;
+  }
+
+  * + .quote-primary-text { margin-top: 30px; }
+  * + .quote-primary-meta { margin-top: 20px; }
+}
+
+@include media-breakpoint-up(xl) {
+  .quote-primary-text {
+    font-size: 24px;
+    line-height: (34 / 24);
+  }
+}
+
+/**
+* Quote minimal
+*/
+.quote-minimal {
+  padding-left: 30px;
+  padding-right: 20px;
+}
+
+.quote-minimal-text {
+  font-size: 18px;
+  font-style: italic;
+  color: $gray-700;
+}
+
+@include media-breakpoint-up(md) {
+  .quote-minimal {
+    max-width: 90%;
+  }
+  .quote-minimal-text {
+    font-size: 24px;
+  }
+}
+
+/**
+* Quote boxed
+*/
+.quote-boxed {
+  text-align: left;
+  @include group(30px, 20px);
+}
+
+.quote-boxed-image {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.quote-boxed-text,
+.quote-boxed-cite {
+  font-size: 18px;
+}
+
+.quote-boxed-text {
+  position: relative;
+  color: $gray-700;
+
+  &::before {
+    position: relative;
+    display: inline-block;
+    transform: scale(-1, -1);
+    top: -5px;
+    left: -10px;
+    content: '\f373';
+    font-family: $mdi;
+    font-size: 45px;
+    line-height: .8;
+    color: $secondary;
+  }
+}
+
+.quote-boxed-cite {
+  font-weight: 400;
+  color: $primary;
+}
+
+.quote-boxed-small {
+  color: $gray-500;
+}
+
+.quote-boxed-meta {
+  > * + * { margin-top: 0; }
+}
+
+* + .quote-boxed-meta { margin-top: 10px; }
+
+@include media-breakpoint-up(sm) {
+  .quote-boxed {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .quote-boxed-aside {
+    flex-shrink: 0;
+  }
+
+  .quote-boxed-main {
+    flex-grow: 1;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .quote-boxed-image {
+    width: 160px;
+  }
+
+  .quote-boxed-text,
+  .quote-boxed-cite {
+    font-size: 20px;
+    line-height: (34 / 24);
+  }
+
+  .quote-boxed-text {
+    &::before {
+      font-size: 60px;
+      top: -9px;
+    }
+  }
+
+  * + .quote-boxed-meta { margin-top: 20px; }
+}
+
+@include media-breakpoint-up(xl) {
+  .quote-boxed {
+    @include group(80px, 30px);
+  }
+
+  .quote-boxed-image {
+    width: 210px;
+  }
+
+  .quote-boxed-text,
+  .quote-boxed-cite {
+    font-size: 24px;
+  }
+
+  * + .quote-boxed-meta { margin-top: 30px; }
+}
+
+/**
+* Quote vertical
+*/
+.quote-vertical {
+}
+
+.quote-vertical-image {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+} 
+
+.quote-vertical-text {
+  position: relative;
+  color: $gray-700;
+
+  &::after {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    content: '\f373';
+    font-family: $mdi;
+    font-size: 40px;
+    line-height: 1;
+    color: $secondary;
+  }
+}
+
+.quote-vertical-cite {
+  font-weight: 400;
+  color: $primary;
+}
+
+.quote-vertical-small {
+  color: $gray-500;
+}
+ 
+.quote-vertical-meta {
+  > * + * { margin-top: 0; }
+}
+
+* + .quote-vertical-text { margin-top: 15px; }
+
+* + .quote-vertical-meta { margin-top: 5px; }
+
+@include media-breakpoint-up(sm) {
+  .quote-vertical-text,
+  .quote-vertical-cite {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .quote-vertical-text,
+  .quote-vertical-cite {
+    font-size: 20px;
+    line-height: (30 / 20);
+  }
+
+  .quote-vertical-text {
+    &::after { margin-top: 20px; }
+  }
+
+  * + .quote-vertical-text { margin-top: 25px; }
+}
+
+@include media-breakpoint-up(xl) {
+  .quote-vertical-text,
+  .quote-vertical-cite {
+    font-size: 24px;
+  }
+}
+
+/**
+* Quote classic
+*/
+.quote-classic {
+  text-align: left;
+}
+
+.quote-classic-image {
+  width: 70px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.quote-classic-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  @include group(20px);
+}
+
+.quote-classic-text {
+  font-style: italic;
+  color: $gray-700;
+}
+
+.quote-classic-cite {
+  font-weight: 400;
+  color: $primary;
+}
+
+.quote-classic-small {
+  font-style: italic;
+  color: $gray-500;
+}
+
+.quote-classic-meta {
+  > * + * { margin-top: 0; }
+}
+
+* + .quote-classic-text { margin-top: 20px; }
+
+@include media-breakpoint-up(sm) {
+  .quote-classic-text,
+  .quote-classic-cite {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .quote-classic-text,
+  .quote-classic-cite {
+    font-size: 20px;
+    line-height: (30 / 20);
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .quote-classic-text,
+  .quote-classic-cite {
+    font-size: 24px;
+  }
+}
+
+/**
+* Quote modern
+*/
+
+.quote-modern {
+  text-align: left;
+}
+
+.quote-modern-image {
+  width: 80px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.quote-modern-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  @include group(20px);
+}
+
+.quote-modern-text {
+  position: relative;
+  font-size: 18px;
+  color: $gray-700;
+
+  &::before {
+    position: relative;
+    display: inline-block;
+    transform: scale(-1, -1);
+    left: -10px;
+    content: '\f373';
+    font-family: $mdi;
+    font-size: 60px;
+    font-style: normal;
+    line-height: 1;
+    color: $secondary;
+  }
+}
+
+.quote-modern-cite {
+  font-weight: 400;
+  color: $primary;
+}
+
+.quote-modern-small {
+  color: $gray-500;
+}
+
+.quote-modern-meta {
+  > * + * { margin-top: 0; }
+}
+
+* + .quote-modern-text { margin-top: 20px; }
+
+* + .quote-modern-footer { margin-top: 20px; }
+
+@include media-breakpoint-up(md) {
+  .quote-modern-cite,
+  .quote-modern-text {
+    font-size: 20px;
+    line-height: (30 / 20);
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .quote-modern-cite,
+  .quote-modern-text {
+    font-size: 24px;
+  }
+}

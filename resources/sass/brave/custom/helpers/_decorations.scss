@@ -1,0 +1,149 @@
+/** @section Decorations */
+
+// Heading decorated diamonds
+.heading-decorated-diamonds {
+	position: relative;
+	display: inline-block;
+	padding: 0 20px;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%) rotate(45deg);
+		width: 10px;
+		height: 10px;
+		background: $primary;
+	}
+
+	&::before {
+		left: 0;
+	}
+
+	&::after {
+		right: 0;
+	}
+
+	@include media-breakpoint-up(md) {
+		padding: 0 40px;
+		&::before,
+		&::after {
+			width: 15px;
+			height: 15px;
+		}
+	}
+}
+
+// divider
+.divider {
+	display: inline-block;
+	border: 0;
+	font-size: 0;
+	line-height: 0;
+	height: 3px;
+	max-width: 100px;
+	width: 100%;
+}
+
+h3 + .divider {
+	margin-top: 20px;
+
+	& + h5 {
+		margin-top: 35px;
+
+		& + p {
+			margin-top: 15px;
+
+		}
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	h3 + .divider {
+		margin-top: 40px;
+	}
+}
+
+.divider-sm {
+	height: 2px;
+	max-width: 60px;
+}
+
+.divider-default {
+	background: linear-gradient(to right, $secondary 50%, $primary 120%);
+}
+
+.divider-secondary {
+	background: $secondary;
+}
+
+.divider-thin {
+	border-top: 1px solid #d2d5e4;
+}
+
+.divider-xl {
+	max-width: 1770px;
+	width: 100%;
+	margin: 30px auto;
+	border-bottom: 1px solid #cacbd3;
+}
+
+.heading-decor {
+	font-family: $font-family-sans-serif-2;
+	font-weight: 200;
+	letter-spacing: $spacing-md;
+	text-transform: uppercase;
+
+	> span {
+		position: relative;
+		display: inline-block;
+		padding-left: 70px;
+		padding-right: 70px;
+
+		&:before, &:after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			border-top: 1px solid;
+			width: 40px;
+		}
+
+		&:before {
+			left: 0;
+		}
+
+		&:after {
+			right: 0;
+		}
+	}
+}
+
+.heading-decor + * {
+	margin-top: 20px;
+}
+
+@include media-breakpoint-up(xxl) {
+	.heading-decor {
+		font-size: 28px;
+	}
+	.heading-decor + * {
+		margin-top: 30px;
+	}
+}
+
+.caret {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin-left: 2px;
+	vertical-align: middle;
+	border-top: 4px dashed;
+	border-top: 4px solid;
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+	border-left-width: 4px;
+	border-left-style: solid;
+	border-left-color: transparent;
+}

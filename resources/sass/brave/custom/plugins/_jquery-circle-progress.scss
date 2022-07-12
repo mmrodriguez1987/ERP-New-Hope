@@ -1,0 +1,110 @@
+/** @section Circle Progress Bars */
+
+.progress-circle {
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	line-height: 1.2;
+}
+
+.progress-circle-counter {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	font-family: $font-family-sec;
+	font-weight: 400;
+	font-size: 28px;
+	line-height: 28px;
+	color: $gray-700;
+	letter-spacing: $spacing-md;
+	transform: translate(-50%, -50%);
+
+	&.radial {
+		&:after {
+			content: "%";
+		}
+	}
+}
+
+.progress-circle-block {
+	position: relative;
+}
+
+.bg-gray-darker {
+	.progress-circle {
+		span {
+			color: $white;
+		}
+	}
+}
+
+* + .progress-circle {
+	margin-top: 25px;
+}
+
+* + .progress-circle-title {
+	margin-top: 10px;
+}
+
+@include media-breakpoint-up(md) {
+	* + .progress-circle-title {
+		margin-top: 15px;
+	}
+	* + .progress-circle {
+		margin-top: 60px;
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	* + .progress-circle-title {
+		margin-top: 25px;
+	}
+}
+
+.progress-circle-bg {
+	fill: transparent;
+	stroke: $gray-100;
+	stroke-width: 5px;
+}
+
+.progress-circle-fg {
+	fill: transparent;
+	stroke: $secondary;
+	stroke-width: 5px;
+}
+
+.progress-circle-classic {
+
+	.progress-circle-bg {
+		stroke-width: 1px;
+	}
+}
+
+.progress-circle-modern {
+
+	.progress-circle-bg {
+		stroke-width: 10px;
+	}
+
+	.progress-circle-fg {
+		stroke-width: 10px;
+	}
+}
+
+
+.bg-gray-lighter {
+	.progress-circle-bg {
+		stroke: $white;
+	}
+}
+
+.bg-gray-darker {
+
+	.progress-circle-counter {
+		color: $white;
+	}
+
+	.progress-circle-bg {
+		stroke: $white;
+	}
+}

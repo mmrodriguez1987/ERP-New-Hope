@@ -1,0 +1,94 @@
+/** @section Vide BG */
+.vide {
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+
+	> * {
+		position: relative;
+		z-index: 1;
+	}
+
+	video {
+		will-change: transform;
+		pointer-events: none;
+	}
+}
+
+
+// Youtube Video
+.video-background {
+	position: relative;
+	overflow: hidden;
+	background-color: $black;
+}
+
+.video-background-poster {
+	display: none;
+}
+
+.video-foreground,
+.video-background iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.video-foreground {
+	height: 300%;
+	top: -100%;
+
+	iframe {
+		left: -5px;
+		width: calc(100% + 5px);
+	}
+}
+
+.video-background-inner {
+	pointer-events: none;
+	position: relative;
+	z-index: 1;
+}
+
+[data-x-mode="true"],
+.builder,
+.ios,
+.ipad,
+.tablet,
+.devices,
+.mobile {
+	.video-foreground {
+		display: none;
+	}
+
+	.video-background-poster {
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+
+		img {
+			object-fit: cover;
+			object-position: center;
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+* + .vide,
+* + .video-background {
+	margin-top: 50px;
+}
+
+@include media-breakpoint-up(lg) {
+	* + .vide,
+	* + .video-background {
+		margin-top: 60px;
+	}
+}
+

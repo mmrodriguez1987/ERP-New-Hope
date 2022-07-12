@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        
+
         $this->call(RoleSeeder::class);   
         $this->call(UserSeeder::class);    
         $this->call(PositionSeeder::class); 
@@ -24,7 +26,8 @@ class DatabaseSeeder extends Seeder
         $this->call(GenderSeeder::class); 
         $this->call(MaritalStatusSeeder::class); 
         $this->call(PersonSeeder::class);    
-        $this->call(GroupSettingSeeder::class); 
+       
+        $this->call(GroupSettingSeeder::class);
         $this->call(SettingSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(PostSeeder::class);
@@ -33,6 +36,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TagSeeder::class);
         $this->call(PostTagSeeder::class);
         $this->call(PostCategorySeeder::class);
+
         $this->call(SubmissionSeeder::class);
         $this->call(SubmissionDataSeeder::class);
         $this->call(SliderSeeder::class);

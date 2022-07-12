@@ -1,0 +1,65 @@
+/** @section Page layout */
+
+// Page
+.page {
+	position: relative;
+	overflow: hidden;
+	min-height: 100vh !important;
+
+	.text-primary {
+		color: $primary;
+	}
+
+	.text-secondary {
+		color: $secondary;
+	}
+
+	.text-secondary-3 {
+		color: $secondary-3;
+	}
+
+	.text-gray-1 {
+		color: $gray-300;
+	}
+
+	.text-gray-light {
+		color: $gray-500;
+	}
+
+	.text-gray-4 {
+		color: $gray-200;
+	}
+
+	.text-gray-darker {
+		color: $gray-700;
+	}
+
+	a {
+		&.text-secondary-1 {
+			&, &:focus, &:active {
+				color: inherit;
+			}
+
+			&:hover {
+				color: $secondary-1;
+			}
+		}
+
+		&.text-gray-darker {
+			color: $gray-700;
+
+			&:hover {
+				color: $primary;
+			}
+		}
+	}
+}
+
+// Page header
+.page-header {
+	position: relative;
+	//z-index: 101;
+	padding: 0;
+	margin: 0;
+	border-bottom: none;
+}

@@ -1,0 +1,645 @@
+/** @section Offsets */
+
+// Element offset
+* + p {
+	margin-top: 15px;
+}
+
+p + p {
+	margin-top: 12px;
+}
+
+* + figcaption {
+	margin-top: 10px;
+}
+
+* + h6, * + .heading-6 {
+	margin-top: 20px;
+}
+
+// Headings
+
+// Headings + Paragraph
+h1 + p, .heading-1 + p {
+	margin-top: 20px;
+}
+
+h2 + p, .heading-2 + p {
+	margin-top: 20px;
+}
+
+h3 + p, .heading-3 + p {
+	margin-top: 15px;
+}
+
+h4 + p, .heading-4 + p {
+	margin-top: 18px;
+}
+
+h5 + p, .heading-5 + p {
+	margin-top: 20px;
+}
+
+.heading-5 + h3 {
+	margin-top: 5px;
+	@include media-breakpoint-up(xxl) {
+		margin-top: 23px;
+	}
+}
+
+* + .list-xxs {
+	margin-top: 20px;
+}
+
+h6 + p, .heading-6 + p {
+	margin-top: 20px;
+}
+
+// Tags + Tags
+
+// Tags + Classes
+p + .list-marked {
+	margin-top: 10px;
+}
+
+p + p + .list-marked {
+	margin-top: 20px;
+}
+
+p + .button {
+	margin-top: 25px;
+}
+
+h3 + .parallax-container {
+	margin-top: 40px;
+}
+
+h3 + .section {
+	margin-top: 40px;
+}
+
+.divider + p {
+	margin-top: 10px;
+}
+
+// Medium < 768px
+@include media-breakpoint-down(sm) {
+	.row + .button-offset-lg {
+		margin-top: 40px;
+	}
+}
+
+// Classes
+* + .list-xs {
+	margin-top: 25px;
+}
+
+* + .list-marked {
+	margin-top: 20px;
+}
+
+* + .list-terms {
+	margin-top: 30px;
+}
+
+* + .button {
+	margin-top: 20px;
+}
+
+.container + .button {
+	margin-top: 50px;
+}
+
+* + .list-ordered {
+	margin-top: 20px;
+}
+
+* + .figure-light {
+	margin-top: 20px;
+}
+
+* + .rd-mailform {
+	margin-top: 30px;
+}
+
+* + .quote-primary {
+	margin-top: 25px;
+}
+
+* + .quote-minimal {
+	margin-top: 25px;
+}
+
+.quote-minimal + * {
+	margin-top: 25px;
+}
+
+* + .group-xs {
+	margin-top: 25px;
+}
+
+* + .group-md {
+	margin-top: 25px;
+}
+
+* + .rd-mailform-inline {
+	margin-top: 25px;
+}
+
+* + .owl-carousel {
+	margin-top: 40px;
+}
+
+* + .frame-header {
+	margin-top: 40px;
+}
+
+* + .facebook {
+	margin-top: 40px;
+}
+
+* + .flickr {
+	margin-top: 40px;
+}
+
+* + .divider-thin {
+	margin-top: 13px;
+}
+
+* + .list-twitter {
+	margin-top: 25px;
+}
+
+* + .box-inline {
+	margin-top: 25px;
+}
+
+* + .box-2-columns {
+	margin-top: 25px;
+}
+
+* + .button-blog {
+	margin-top: 30px;
+}
+
+* + .rd-search-results {
+	margin-top: 30px;
+}
+
+* + .d3-chart-wrap {
+	margin-top: 30px;
+}
+
+* + .privacy-link {
+	margin-top: 30px;
+}
+
+* + .typed-text-wrap {
+	margin-top: 30px;
+}
+
+* + [class^='custom-wrap'] {
+	margin-top: 40px;
+}
+
+.heading-group + .divider-default {
+	margin-top: 15px;
+}
+
+* + .isotope-wrap {
+	margin-top: 30px;
+}
+
+// Classes + Tags
+h6 + .rd-mailform-inline,
+.heading-6 + .rd-mailform-inline {
+	margin-top: 10px;
+}
+
+h2 + .divider, .heading-2 + .divider {
+	margin-top: 10px;
+}
+
+.big + form {
+	margin-top: 20px;
+}
+
+// Classes + Classes
+.container + .container {
+	margin-top: 60px;
+}
+
+.container + .bg-gradients {
+	margin-top: 60px;
+}
+
+.row + .row {
+	margin-top: 60px;
+}
+
+.divider-thin + .box-inline {
+	margin-top: 15px;
+}
+
+.divider-thin + .box-inline-wrap {
+	margin-top: 15px;
+}
+
+h3 + .swiper-slider {
+	margin-top: 30px;
+}
+
+.container + .swiper-slider {
+	margin-top: 30px;
+}
+
+.page {
+	* + .offset-top-0 {
+		margin-top: 0;
+	}
+
+	* + .offset-custom-1 {
+		margin-top: 20px;
+	}
+
+	* + .offset-custom-2 {
+		 margin-top: 50px;
+
+		 @include media-breakpoint-up(xxl) {
+			 margin-top: 90px;
+		 }
+	 }
+
+	* + .offset-custom-3 {
+		margin-top: 30px;
+	}
+
+	* + .offset-custom-4 {
+		margin-top: 10px;
+	}
+}
+
+// Media offsets
+@include media-breakpoint-up(md) {
+	* + figcaption {
+		margin-top: 20px;
+	}
+	* + hr {
+		margin-top: 30px;
+	}
+	* + .quote-primary {
+		margin-top: 35px;
+	}
+	* + .group-md {
+		margin-top: 35px;
+	}
+	* + .owl-carousel {
+		margin-top: 70px;
+	}
+	* + .frame-header {
+		margin-top: 60px;
+	}
+	* + .list-twitter {
+		margin-top: 47px;
+	}
+	* + .list-terms {
+		margin-top: 45px;
+	}
+	* + .button {
+		margin-top: 35px;
+	}
+	* + .rd-search-results {
+		margin-top: 45px;
+	}
+	* + .typed-text-wrap {
+		margin-top: 50px;
+	}
+	.typed-text-wrap + .button {
+		margin-top: 35px;
+	}
+	.custom-subtitle + * {
+		margin-top: 25px;
+	}
+	.divider + .box-2-columns {
+		margin-top: 40px;
+	}
+
+	h3 + .parallax-container {
+		margin-top: 40px;
+	}
+	h3 + .section {
+		margin-top: 40px;
+	}
+	hr + .row {
+		margin-top: 40px;
+	}
+	h3 + .swiper-slider {
+		margin-top: 55px;
+	}
+	.container + .swiper-slider {
+		margin-top: 55px;
+	}
+	h2 + .divider,
+	.heading-2 + .divider {
+		margin-top: 25px;
+	}
+	.heading-group + .divider-default {
+		margin-top: 30px;
+	}
+	.big + .button {
+		margin-top: 30px;
+	}
+
+	.page {
+		* + .offset-custom-1 {
+			margin-top: 30px;
+		}
+	}
+
+}
+
+@include media-breakpoint-up(lg) {
+	* + .figure-light {
+		margin-top: 40px;
+	}
+	* + hr {
+		margin-top: 40px;
+	}
+	* + .d3-chart-wrap {
+		margin-top: 50px;
+	}
+	h1 + p, .heading-1 + p {
+		margin-top: 30px;
+	}
+	h2 + p, .heading-2 + p {
+		margin-top: 33px;
+	}
+	h3 + p, .heading-3 + p {
+		margin-top: 25px;
+	}
+	* + .list-xxs {
+		margin-top: 30px;
+	}
+	h6 + p, .heading-6 + p {
+		margin-top: 30px;
+	}
+	h2 + .divider, .heading-2 + .divider {
+		margin-top: 35px;
+	}
+	.divider-thin + .box-inline {
+		margin-top: 30px;
+	}
+
+}
+
+@include media-breakpoint-up(xl) {
+	* + .list-xs {
+		margin-top: 40px;
+	}
+	* + .group-md {
+		margin-top: 60px;
+	}
+	p + p + .list-marked {
+		margin-top: 30px;
+	}
+	* + .rd-search-results {
+		margin-top: 60px;
+	}
+	.divider + p {
+		margin-top: 18px;
+	}
+	.container + .bg-gradients {
+		margin-top: 90px;
+	}
+	.owl-carousel + .button {
+		margin-top: 50px;
+	}
+	.row + .button {
+		margin-top: 50px;
+	}
+	.typed-text-wrap + .button {
+		margin-top: 55px;
+	}
+
+	h3 + p,
+	.heading-3 + p {
+		margin-top: 33px;
+	}
+
+	h3 + .big,
+	.heading-3 + .big {
+		margin-top: 25px;
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	.divider + p {
+		margin-top: 40px;
+	}
+	* + .facebook {
+		margin-top: 80px;
+	}
+	* + [class^='custom-wrap'] {
+		margin-top: 60px;
+	}
+	* + .button-blog {
+		margin-top: 90px;
+	}
+	* + .rd-search-results {
+		margin-top: 90px;
+	}
+	* + .d3-chart-wrap {
+		margin-top: 70px;
+	}
+	hr + .big {
+		margin-top: 40px;
+	}
+
+	h1 + p,
+	.heading-1 + p {
+		margin-top: 43px;
+	}
+
+	h3 + .parallax-container {
+		margin-top: 60px;
+	}
+	h3 + .section {
+		margin-top: 60px;
+	}
+	hr + .row {
+		margin-top: 85px;
+	}
+
+	.row + .row.row-xxl {
+		margin-top: 90px;
+	}
+	.owl-carousel + .button {
+		margin-top: 90px;
+	}
+	.row + .button {
+		margin-top: 80px;
+	}
+	.big + .button {
+		margin-top: 50px;
+	}
+}
+
+.inset-sm {
+	@include media-breakpoint-up(xxl) {
+		padding-left: 20px;
+	}
+}
+
+.inset-md {
+	@include media-breakpoint-up(xxl) {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+
+.inset-xl {
+	@include media-breakpoint-up(xl) {
+		padding-right: 5px;
+	}
+	@include media-breakpoint-up(xxl) {
+		padding-right: 30px;
+	}
+	@include media-breakpoint-up(xxxl) {
+		padding-right: 80px;
+	}
+}
+
+
+// Range spacing
+.row-0 {
+	@include grid-offset(0);
+}
+
+.row-10 {
+	@include grid-offset(10px);
+}
+
+.row-15 {
+	@include grid-offset(15px);
+}
+
+.row-20 {
+	@include grid-offset(20px);
+}
+
+.row-30 {
+	@include grid-offset(30px);
+}
+
+.row-50 {
+	@include grid-offset(50px);
+}
+
+.row-60 {
+	@include grid-offset(50px);
+}
+
+.row-70 {
+	@include grid-offset(50px);
+}
+
+.row-90 {
+	@include grid-offset(50px);
+}
+
+.row-shop {
+	@include grid-offset(70px);
+}
+
+.row-100 {
+	@include grid-offset(100px);
+}
+
+.row-120 {
+	@include grid-offset(50px);
+}
+
+.row-counter {
+	@include grid-offset(130px);
+}
+
+.row-135 {
+	@include grid-offset(50px);
+	@include media-breakpoint-up(xl) {
+		@include grid-offset(65px);
+	}
+	@include media-breakpoint-up(xxl) {
+		@include grid-offset(135px);
+	}
+}
+
+.desktop {
+	.row-100 {
+		@include grid-offset(30px);
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.row-md-30 {
+		@include grid-offset(30px);
+	}
+	.row-md-50 {
+		@include grid-offset(50px);
+	}
+	.row-60 {
+		@include grid-offset(60px);
+	}
+	.row-md-90 {
+		@include grid-offset(90px);
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.row-lg-50 {
+		@include grid-offset(50px);
+	}
+	.row-90 {
+		@include grid-offset(90px);
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.row-70 {
+		@include grid-offset(70px);
+	}
+	.row-xl-50 {
+		@include grid-offset(50px);
+	}
+	.row-120 {
+		@include grid-offset(80px);
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	.row-70 {
+		@include grid-offset(70px);
+	}
+	.row-xxl-90 {
+		@include grid-offset(90px);
+	}
+	.page {
+		* + .row-xxl-90 {
+			margin-top: 90px;
+		}
+	}
+
+	.row-120 {
+		@include grid-offset(120px);
+	}
+}
+
+* + p.offset-0 {
+	margin-top: 0;
+}
+
+.section-inset-1 {
+	// Large < 991px
+	@include media-breakpoint-down(md) {
+		padding-top: 0;
+	}
+}

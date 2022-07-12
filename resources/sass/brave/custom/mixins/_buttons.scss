@@ -1,0 +1,24 @@
+// Custom button variants
+@mixin btn-variant($clr, $bg, $bd, $clr-hover, $bg-hover, $bd-hover) {
+  &,
+  &:focus {
+    color: $clr;
+    background-color: $bg;
+    border-color: $bd;
+  }
+
+  &:hover,
+  &:active,
+  &:hover {
+    color: $clr-hover;
+    background-color: $bg-hover;
+    border-color: $bd-hover;
+  }
+}
+
+// Button sizes
+@mixin btn-size($padding-vertical, $padding-horizontal, $font-size, $line-height) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  line-height: $line-height;
+}

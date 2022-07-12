@@ -1,0 +1,88 @@
+/** @section Call To Action */
+
+.box-cta {
+  font-size: 18px;
+  color: $gray-500;
+  margin-left: -20px;
+  margin-right: -20px;
+  
+  > * {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  &-title {
+    color: $secondary-2;
+    & + * {
+      margin-top: 20px;
+    }
+  }
+  .button {
+    font-size: 18px;
+  }
+}
+
+
+// Call to action inline
+.box-cta-inline {
+  > * + * { margin-top: 30px; }
+  @include media-breakpoint-up(md) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+// Call to action thin
+.box-cta-thin {
+  .badge-cta{
+    margin-right: 18px;
+  }
+}
+
+
+// Call to action vertical
+.box-cta-vertical {
+  
+}
+
+
+// Call to action label
+.badge-cta {
+  padding: 5px 18px;
+  font-size: 16px;
+  font-weight: 700;
+  
+  &-primary {
+    color: $white;
+    background: $primary;
+  }
+}
+
+// Call to action media
+
+@include media-breakpoint-up(md) {
+  .box-cta {
+    font-size: 19px;
+  }
+  // Call to action vertical
+  .box-cta-vertical {
+    > * + * {
+      margin-top: 40px;
+    }
+    * + .button {
+      margin-top: 45px;
+    }
+  }
+}
+
+
+
+@include media-breakpoint-up(xxl) {
+  .box-cta {
+    font-size: 24px;
+  }
+  .cta-avatar {
+    max-width: none;
+  }
+}

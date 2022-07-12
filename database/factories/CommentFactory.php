@@ -12,10 +12,10 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->word,
+            'user_id' => 1,
             'post_id' => 1,
             'parent_id' => 1,
-            'contentHtml' => $this->faker->randomHtml(2,3),
+            'content' => $this->faker->word,
             'title' => $this->faker->word,
             'published' => $this->faker->boolean
 

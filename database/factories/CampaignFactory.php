@@ -12,8 +12,8 @@ class CampaignFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word,
-            'description' => $this->faker->sentence($nbWords = 6, $variableNbWords = true)
+            'name' => $this->faker->realText(rand(10, 20)),
+            'description' => $this->faker->realText(rand(10, 20))
         ];
     }
 }

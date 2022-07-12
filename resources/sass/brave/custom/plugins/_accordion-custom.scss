@@ -1,0 +1,310 @@
+/** @section Accordion custom */
+
+// Primary (corporate)
+$accordion-corporate-color: $gray-700;
+$accordion-corporate-background: $white;
+$accordion-corporate-border: #dedede;
+$accordion-corporate-content-color: $gray-500;
+$accordion-corporate-arrow-color: $white;
+$accordion-corporate-arrow-background: $secondary;
+$accordion-corporate-shadow: 0px 5px 12px 0px #dcdeec;
+$accordion-corporate-border-radius: 10px;
+$accordion-corporate-header-padding: 18px 82px 18px 32px;
+$accordion-corporate-content-padding: 0 nth($accordion-corporate-header-padding, 2) 25px nth($accordion-corporate-header-padding, 4);
+
+// Light
+$accordion-light-color: $gray-700;
+$accordion-light-border: $gray-110;
+$accordion-light-content-color: rgba($gray-500, .47);
+$accordion-light-arrow-color: $secondary;
+$accordion-light-header-padding: 19px 55px 19px 32px;
+$accordion-light-content-padding: 0 44px 25px nth($accordion-light-header-padding, 4);
+
+// Accordion groups
+.accordion-custom-group-custom {
+	flex-direction: column;
+	margin-bottom: 0;
+
+	.accordion-custom-heading + .accordion-custom-collapse > .accordion-custom-body,
+	.accordion-custom-heading + .accordion-custom-collapse > .list-group {
+		border-top: 0;
+	}
+
+	.accordion-custom-item + .accordion-custom-item {
+		margin-top: 0;
+	}
+
+	.accordion-custom-item {
+		flex: auto;
+	}
+}
+
+.accordion-custom-group.accordion-custom-group-corporate {
+	.accordion-custom-item + .accordion-custom-item {
+		margin-top: 20px;
+	}
+}
+
+.accordion-custom-group.accordion-custom-group-custom.accordion-custom-group-corporate {
+	.accordion-custom.accordion-custom-corporate {
+		border-radius: $accordion-corporate-border-radius;
+	}
+}
+
+.accordion-custom-item {
+	margin: 0;
+	background: inherit;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	text-align: left;
+
+	// Accordion heading
+	.accordion-custom-heading {
+		padding: 0;
+		border-bottom: 0;
+		border-top-left-radius: 0;
+	}
+
+	// Accordion contents
+	.accordion-custom-body {
+		padding: 0;
+		border: 0;
+	}
+}
+
+.accordion-custom-title {
+	margin-bottom: 0;
+}
+
+.accordion-custom-button {
+	display: block;
+	width: 100%;
+	text-align: left;
+	background-color: transparent;
+}
+
+* + .accordion-custom-group-custom {
+	margin-top: 35px;
+
+	@include media-breakpoint-up(md) {
+		margin-top: 50px;
+	}
+
+	@include media-breakpoint-up(xxl) {
+		margin-top: 60px;
+	}
+}
+
+
+// Accordion corporate
+.accordion-custom-corporate {
+	position: relative;
+	z-index: 1;
+	text-align: left;
+	background: $accordion-corporate-background;
+	box-shadow: $accordion-corporate-shadow;
+
+	.accordion-custom-heading button {
+		padding: $accordion-corporate-header-padding;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 1.5;
+		letter-spacing: 0;
+		color: $accordion-corporate-color;
+		transition: inherit;
+		border-radius: $accordion-corporate-border-radius $accordion-corporate-border-radius 0 0;
+
+		// Open state
+		.accordion-custom-arrow {
+			transition: .33s;
+		}
+
+		// Collapsed state
+		&.collapsed {
+			border-bottom-width: 0;
+			border-radius: $accordion-corporate-border-radius;
+
+			.accordion-custom-arrow {
+				&::before {
+					opacity: 1;
+				}
+
+				&::after {
+					opacity: 0;
+				}
+			}
+		}
+	}
+
+	// Accordion arrow
+	.accordion-custom-arrow {
+		position: absolute;
+		top: 0;
+		bottom: -1px;
+		right: -1px;
+		z-index: 2;
+		width: 70px;
+		background: $accordion-corporate-arrow-background;
+		border-radius: 0 $accordion-corporate-border-radius $accordion-corporate-border-radius 0;
+		transition: .33s all ease;
+
+		&::before,
+		&::after {
+			position: absolute;
+			top: 18px;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 4;
+			font-family: $mdi;
+			color: $accordion-corporate-arrow-color;
+			transition: .22s;
+		}
+
+		&::before {
+			content: '\f504';
+			opacity: 0;
+		}
+
+		&::after {
+			content: '\f465';
+			opacity: 1;
+		}
+
+		&:hover {
+			background: $primary;
+		}
+	}
+
+	.accordion-custom-collapse {
+		position: relative;
+		z-index: 1;
+		color: $accordion-corporate-content-color;
+		border-radius: 0 0 $accordion-corporate-border-radius $accordion-corporate-border-radius;
+	}
+
+	.accordion-custom-body {
+		padding: $accordion-corporate-content-padding;
+	}
+
+	// Media queries
+	@include media-breakpoint-down(sm) {
+		.accordion-custom-heading button,
+		.accordion-custom-body {
+			padding-left: 25px;
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		.accordion-custom-heading button {
+			font-size: $h5-font-size;
+			line-height: $h5-line-height;
+		}
+
+		.accordion-custom-body {
+			padding-right: 150px;
+		}
+	}
+}
+
+
+// Accordion light
+.accordion-custom-light {
+	&:first-child {
+		.accordion-custom-heading {
+			border-top: 1px solid $accordion-light-border;
+		}
+	}
+
+	.accordion-custom-heading {
+
+		&:nth-child(n + 2) {
+			margin-top: -1px;
+		}
+	}
+
+	.accordion-custom-heading button {
+		position: relative;
+		padding: $accordion-light-header-padding;
+		border-bottom: 1px solid transparent;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 1.5;
+		letter-spacing: 0;
+		color: $accordion-light-color;
+		transition: .2s all ease;
+
+		// Opened state
+		.accordion-custom-arrow::after {
+			opacity: 0;
+			visibility: hidden;
+			transition: .2s all ease;
+		}
+
+		// Closed state
+		&.collapsed {
+			border-bottom-color: $accordion-light-border;
+
+			.accordion-custom-arrow::after {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
+	.accordion-custom-arrow {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 26px;
+		transition: .33s;
+		will-change: transform;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: $accordion-light-arrow-color;
+		}
+
+		&::before {
+			width: 18px;
+			height: 2px;
+			right: 0;
+		}
+
+		&::after {
+			width: 2px;
+			height: 18px;
+			right: 8px;
+		}
+	}
+
+	.collapse {
+		position: relative;
+		border-bottom: 1px solid $accordion-light-border;
+		will-change: transform;
+	}
+
+	.accordion-custom-body {
+		padding: $accordion-light-content-padding;
+		color: $accordion-light-content-color;
+	}
+
+	// Media queries
+	@include media-breakpoint-down(sm) {
+		.accordion-custom-heading button,
+		.accordion-custom-body {
+			padding-left: 15px;
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		.accordion-custom-heading button {
+			font-size: $h5-font-size;
+			line-height: $h5-line-height;
+		}
+	}
+}

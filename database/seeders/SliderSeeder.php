@@ -15,6 +15,13 @@ class SliderSeeder extends Seeder
      */
     public function run()
     {
-        Slider::factory()->count(50)->create();
+        Slider::create([
+            'page_name' => 'homepage',
+            'first_div_css' => 'swiper-container swiper-slider swiper-modern',
+            'second_div_css' => 'swiper-wrapper',
+            'data_loop' => 'true',
+            'data_autoplay' => '5500',
+            'data_simulate_touch' => 'false',
+        ]);
     }
 }

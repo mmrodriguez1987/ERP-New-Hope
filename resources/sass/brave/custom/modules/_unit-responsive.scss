@@ -1,0 +1,37 @@
+/** @section Responsive unit */
+@include unit-responsive(20px, 15px);
+
+// Unit Spacing
+//
+
+.unit {
+	@include media-breakpoint-up(xxl) {
+		@include unit-spacing(30px, 20px);
+	}
+}
+
+.unit-spacing-sm {
+	@include unit-spacing(20px, 10px);
+}
+
+.unit-spacing-md-midle {
+	@include media-breakpoint-up(xxl) {
+		@include unit-spacing(50px, 20px);
+	}
+}
+
+.unit-spacing-md {
+	@include unit-spacing(30px, 20px);
+
+	@include media-breakpoint-up(xl) {
+		@include unit-spacing(65px, 20px);
+	}
+}
+
+.unit-spacing-xxl {
+	@include unit-spacing(15px, 10px);
+
+	@include media-breakpoint-up(md) {
+		@include unit-spacing(115px, 20px);
+	}
+}

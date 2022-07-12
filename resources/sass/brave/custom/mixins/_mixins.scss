@@ -1,0 +1,49 @@
+// Mixins
+
+// Clearfix
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+// Disable padding - top on two similar backgrounds
+@mixin bg-behaviour($bg-color) {
+	background-color: $bg-color;
+	fill: $bg-color;
+	.way-point {
+		> svg {
+			fill: inherit;
+		}
+	}
+	& + & {
+		padding-top: 0;
+	}
+	.bg-decoration > svg {
+		fill: $bg-color;
+	}
+}
+
+// Reset default button styles
+@mixin reset-button {
+	background: none;
+	border: 0;
+	color: inherit;
+	cursor: pointer;
+	font: inherit;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	vertical-align: middle;
+	white-space: nowrap;
+	outline: none;
+
+	&:active {
+		cursor: wait;
+	}
+}

@@ -1,0 +1,88 @@
+/** @section Tooltip Custom */
+
+//== Tooltips variables
+//
+//##
+
+//** Tooltip max width
+$tooltip-max-width: 253px;
+
+//** Tooltip background color
+$tooltip-bg: $primary;
+$tooltip-opacity: 1;
+
+//** Tooltip arrow width
+$tooltip-arrow-width: 7px;
+
+//** Tooltip arrow color
+$tooltip-arrow-color: $tooltip-bg;
+
+.tooltip-custom {
+  display: inline-block;
+  cursor: pointer;
+  & + .tooltip {
+    &.in {
+      opacity: $tooltip-opacity;
+    }
+    &.top .tooltip-arrow {
+      bottom: floor(-$tooltip-arrow-width / 3) + 1px;
+      margin-left: -$tooltip-arrow-width;
+      border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
+      border-top-color: $tooltip-arrow-color;
+    }
+    &.top-left .tooltip-arrow {
+      bottom: 0;
+      right: $tooltip-arrow-width;
+      margin-bottom: -$tooltip-arrow-width;
+      border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
+      border-top-color: $tooltip-arrow-color;
+    }
+    &.top-right .tooltip-arrow {
+      left: $tooltip-arrow-width;
+      margin-bottom: -$tooltip-arrow-width;
+      border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
+      border-top-color: $tooltip-arrow-color;
+    }
+    &.right .tooltip-arrow {
+      margin-top: -$tooltip-arrow-width;
+      border-width: $tooltip-arrow-width $tooltip-arrow-width $tooltip-arrow-width 0;
+      border-right-color: $tooltip-arrow-color;
+    }
+    &.left .tooltip-arrow {
+      margin-top: -$tooltip-arrow-width;
+      border-width: $tooltip-arrow-width 0 $tooltip-arrow-width $tooltip-arrow-width;
+      border-left-color: $tooltip-arrow-color;
+    }
+    &.bottom .tooltip-arrow {
+      margin-left: -$tooltip-arrow-width;
+      border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
+      border-bottom-color: $tooltip-arrow-color;
+    }
+    &.bottom-left .tooltip-arrow {
+      right: $tooltip-arrow-width;
+      margin-top: -$tooltip-arrow-width;
+      border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
+      border-bottom-color: $tooltip-arrow-color;
+    }
+    &.bottom-right .tooltip-arrow {
+      top: 0;
+      left: $tooltip-arrow-width;
+      margin-top: -$tooltip-arrow-width;
+      border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
+      border-bottom-color: $tooltip-arrow-color;
+    }
+  }
+}
+
+.tooltip-custom + .tooltip {
+  .tooltip-inner {
+    font-family: $font-family-base;
+    max-width: $tooltip-max-width;
+    padding: 5px 12px;
+    font-size: 18px;
+    font-weight: 300;
+    border-radius: 0;
+    letter-spacing: .02em;
+    background: $tooltip-bg;
+  }
+}

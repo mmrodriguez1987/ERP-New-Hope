@@ -1,0 +1,93 @@
+/** @section Pagination custom */
+$pagination-font-size: 16px;
+$pagination-lh-size: 20px;
+$pagination-size: 50px;
+
+$pagination-color: $white;
+$pagination-bg: $secondary;
+
+$pagination-hover-color: $white;
+$pagination-hover-bg: $secondary-2;
+
+$pagination-active-color: $pagination-hover-color;
+$pagination-active-bg: $pagination-hover-bg;
+
+$pagination-disabled-color: $white;
+$pagination-disabled-bg: lighten($secondary, 20%);
+
+.pagination-custom {
+  display: inline-table;
+  @include group(10px);
+
+  > li,
+  > li > a {
+    border-radius: 10px;
+  }
+
+  > li {
+    font-family: $font-family-sec;
+    font-size: $pagination-font-size;
+    letter-spacing: $spacing-lg;
+
+    min-width: $pagination-size;
+    color: $pagination-color;
+    background: $pagination-bg;
+    vertical-align: middle;
+  }
+  
+  > li > a {
+    display: block;
+    height: $pagination-size;
+    line-height: $pagination-size;
+    vertical-align: middle;
+    color: inherit;
+    background: inherit;
+    text-align: center;
+
+    &:hover {
+      color: $pagination-hover-color;
+      background: $pagination-hover-bg;
+    }
+  }
+  
+  > li.disabled,
+  > li.active {
+    pointer-events: none;
+  }
+  
+  > li.active {
+    color: $pagination-active-color;
+    background: $pagination-active-bg;
+  }
+  
+  > li.disabled {
+    color: $pagination-disabled-color;
+    background: $pagination-disabled-bg;
+  }
+  
+  .pagination-control {
+    a::before {
+      color: inherit;
+      font-family: $mdi;
+    }
+    
+    &:first-child {
+      a::before {
+        content: '\f14a';
+      }
+    }
+    
+    &:last-child {
+      a::before {
+        content: '\f14f';
+      }
+    }
+  }
+}
+
+
+* + .pagination-custom { margin-top: 30px; }
+
+@include media-breakpoint-up(xl) {
+  * + .pagination-custom { margin-top: 50px; }
+}
