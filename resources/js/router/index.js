@@ -1,67 +1,85 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import store from '../store'
+import { h, resolveComponent } from 'vue'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
-window.Vue = Vue
+import DefaultLayout from '../layouts/DefaultLayout.vue'
 
-Vue.use(Router)
+const routes = [{
+    path: '/login',
+    name: 'login',
+    component: () =>
+        import ('../views/admin/auth/Login.vue')
+}, {
+    path: '/register',
+    name: 'register',
+    component: () =>
+        import ('../views/admin/auth/Register.vue')
+}, {
+    path: '*',
+    name: 'Page404',
+    component: () =>
+        import ('../views/admin/pages/404.vue')
+}, {
+    path: '/500',
+    name: 'Page500',
+    component: () =>
+        import ('../views/admin/pages/500.vue')
+}, {
+    path: '/admin/',
+    name: 'Home',
+    component: DefaultLayout,
+    meta: {
+        middlewareAuth: true
+    },
+    redirect: '/dashboard',
+    children: [{
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: () =>
+            import ('../views/Dashboard.vue'),
+        meta: { middlewareAuth: true },
+    }, {
+        path: '/admin',
+        name: 'Website Management',
+        meta: { middlewareAuth: true },
+        component: {
+            render() {
+                return h(resolveComponent('router-view'))
+            },
+        },
+        redirect: '/admin/persons',
+        children: [{
+                path: '/admin/persons',
+                name: 'Persons',
+                meta: { middlewareAuth: true },
+                component: () =>
+                    import ('../views/admin/persons/Index.vue'),
 
-let router = new Router({
-    mode: 'history',
-    history: true,
-    scrollBehavior: () => ({
-        y: 0
-    }),
-    routes: [
-        { 
-            path: '/login',   
-            name: 'login',      
-            component: () => import('../components/auth/Login.vue') 
-        },{ 
-            path: '/register',
-            name: 'register',   
-            component: () => import('../components/auth/Register.vue')
-        },{ 
-            path: '*',
-            name: 'Page404',    
-            component: () => import('../components/pages/404.vue') 
-        },{ 
-            path: '/500',    
-            name: 'Page500',    
-            component: () => import('../components/pages/500.vue') 
-        },{ 
-            path: '/admin/',         
-            component: () => import('../container/TheContainer.vue'),
-            meta: { middlewareAuth: true },
-            children: [{
-                path: 'dashboard',
-                name: 'Dashboard',
-                component: () => import('../components/Dashboard.vue'),
-                meta: { middlewareAuth: true }
-            },{
-                path: 'professions',
-                name: 'Professions',
-                component: () => import('../components/profession/Index.vue'),
-                meta: { middlewareAuth: true }
-            }]
-        }
-        
-    ]
-})
+            },
+            {
+                path: '/admin/professions',
+                name: 'Breadcrumbs',
+                meta: { middlewareAuth: true },
+                component: () =>
+                    import ('../views/admin/professions/Index.vue'),
+            },
+            {
+                path: '/base/cards',
+                name: 'Cards',
+                meta: { middlewareAuth: true },
+                component: () =>
+                    import ('../views/base/Cards.vue'),
+            },
+        ],
+    }, ],
+}, ]
 
-router.beforeEach((to, from, next) => {
-    if (to.matched.some(record => record.meta.middlewareAuth)) {      
-        if (!store.getters.isAuthenticated) {
-            next({
-                path: '/login',
-                query: {
-                    redirect: to.fullPath
-                }
-            });
-            return;
-        }
-    }
-    next();
+const router = createRouter({
+    history: createWebHashHistory(process.env.APP_URL),
+    routes,
+    scrollBehavior() {
+        // always scroll to top
+        return { top: 0 }
+    },
 })
 
 export default router

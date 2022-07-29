@@ -1,28 +1,26 @@
 require('./bootstrap')
+import App from './App.vue'
+import { createApp } from 'vue'
+
 
 import router from './router'
 import store from './store'
-import {
-    iconsSet as icons
-} from './icons/icons.js'
 
-window.Event = new Vue
+import CoreuiVue from '@coreui/vue-pro'
+import CIcon from '@coreui/icons-vue'
+import { iconsSet as icons } from './assets/icons.js'
+import Notifications from '@kyvg/vue3-notification'
+import { VueReCaptcha } from 'vue-recaptcha-v3'
 
-//3rd vue components
-require('./vendor_components')
+const app = createApp(App)
 
-//Own App components
-require('./vue_components')
+app.use(store)
+app.use(router)
+app.use(CoreuiVue)
+app.use(Notifications)
+Vue.use(VueReCaptcha, { siteKey: process.env.MIX_INVISIBLE_RECAPTCHA_SITEKEY })
 
-//Functions Utilities & Filters
-require('./utilities.js')
+app.provide('icons', icons)
+app.component('CIcon', CIcon)
 
-
-window.moment = require('moment');
-
-new Vue({
-    el: '#app',
-    icons,
-    router,
-    store
-})
+app.mount('#app')

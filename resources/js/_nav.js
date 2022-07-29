@@ -1,16 +1,27 @@
 export default [{
-    _name: 'CSidebarNav',
-    _children: [
-        {
-            _name: 'CSidebarNavItem',
-            name: 'Dashboard',
-            to: '/admin/dashboard',
-            icon: 'cil-speedometer',            
-        },{
-            _name: 'CSidebarNavItem',
-            name: 'Professions',
-            to: '/admin/professions',
-            icon: 'cil-puzzle'
-        }
-    ]
-}]
+        component: 'CNavItem',
+        name: 'Dashboard',
+        to: '/dashboard',
+        icon: 'cil-speedometer',
+        badge: {
+            color: 'info',
+            text: 'NEW',
+        },
+    },
+    {
+        component: 'CNavTitle',
+        name: 'Website Management',
+    },
+    {
+        component: 'CNavItem',
+        name: 'Professions',
+        to: '/admin/professions',
+        icon: 'cil-drop',
+    },
+    {
+        component: 'CNavItem',
+        name: 'Persons',
+        to: '/admin/persons',
+        icon: 'cil-pencil',
+    },
+]

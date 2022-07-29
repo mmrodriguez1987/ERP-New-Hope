@@ -1,7 +1,0 @@
-Vue.component('home', require('./container/TheContainer.vue').default)
-Vue.component('login', require('./components/auth/Login.vue').default)
-Vue.component('register', require('./components/auth/Register.vue').default)
-Vue.component('Page500', require('./components/pages/500.vue').default)
-Vue.component('Page404', require('./components/pages/404.vue').default)
-//Vue.component('person-edit', require('./components/person/Edit.vue').default)
-Vue.component('profession', require('./components/profession/Index.vue').default)
