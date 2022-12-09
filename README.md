@@ -37,20 +37,32 @@ NHCRM is an Open Source Web Application with many modules that help with the Adm
 └── package.json
 ```
 
- 
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+##Report Status
 
+
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![GitHub contributors](https://img.shields.io/github/contributors/ERP-New-Hope/crm.svg)](#contributors-)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/w/mmrodriguez1987/ERP-New-Hope.svg?style=plastic)
+[![mmrodriguez - ERP-New-Hope](https://img.shields.io/static/v1?label=mmrodriguez&message=ERP-New-Hope&color=blue&logo=github)](https://github.com/mmrodriguez/ERP-New-Hope "Go to GitHub repo")
+[![stars - ERP-New-Hope](https://img.shields.io/github/stars/mmrodriguez/ERP-New-Hope?style=social)](https://github.com/mmrodriguez/ERP-New-Hope)
+[![forks - ERP-New-Hope](https://img.shields.io/github/forks/mmrodriguez/ERP-New-Hope?style=social)](https://github.com/mmrodriguez/ERP-New-Hope)
+[![GitHub tag](https://img.shields.io/github/tag/mmrodriguez/ERP-New-Hope?include_prereleases=&sort=semver&color=blue)](https://github.com/mmrodriguez/ERP-New-Hope/releases/)
+[![License](https://img.shields.io/badge/License-MIT-blue)](#license)
+[![issues - ERP-New-Hope](https://img.shields.io/github/issues/mmrodriguez/ERP-New-Hope)](https://github.com/mmrodriguez/ERP-New-Hope/issues)
 
+_Call-to-Action buttons_
 
-[![Build Status](https://img.shields.io/travis/mmrodriguez1987/ERP-New-Hope/master.svg?style=flat-square)](https://travis-ci.org/mmrodriguez1987/ERP-New-Hope)
-[![Quality Score](https://img.shields.io/scrutinizer/g/mmrodriguez1987/ERP-New-Hope.svg?style=flat-square)](https://scrutinizer-ci.com/g/mmrodriguez1987/ERP-New-Hope)
+<div align="center">
 
+[![Use this template](https://img.shields.io/badge/Generate-Use_this_template-2ea44f?style=for-the-badge)](https://github.com/mmrodriguez/ERP-New-Hope/generate)
+
+[![View site - GH Pages](https://img.shields.io/badge/View_site-GH_Pages-2ea44f?style=for-the-badge)](https://beta.newhopeinchrist.church)
+
+</div>
 
 ## Website
 
-[https://application.newhopeinchrist.church](https://application.newhopeinchrist.church)
+[https://application.newhopeinchrist.church](https://app.newhopeinchrist.church)
 
 ## Installation, Upgrades and Documentation
 
