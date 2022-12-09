@@ -50,16 +50,6 @@ NHCRM is an Open Source Web Application with many modules that help with the Adm
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 [![issues - ERP-New-Hope](https://img.shields.io/github/issues/mmrodriguez/ERP-New-Hope)](https://github.com/mmrodriguez/ERP-New-Hope/issues)
 
-_Call-to-Action buttons_
-
-<div align="center">
-
-[![Use this template](https://img.shields.io/badge/Generate-Use_this_template-2ea44f?style=for-the-badge)](https://github.com/mmrodriguez/ERP-New-Hope/generate)
-
-[![View site - GH Pages](https://img.shields.io/badge/View_site-GH_Pages-2ea44f?style=for-the-badge)](https://beta.newhopeinchrist.church)
-
-</div>
-
 ## Website
 
 [https://application.newhopeinchrist.church](https://app.newhopeinchrist.church)
@@ -69,13 +59,3 @@ _Call-to-Action buttons_
 * [Download the lastest release](https://github.com/mmrodriguez1987/nhcrm/releases/latest)
 
 * [Checkout our online Docs](http://docs.application.newhopeinchrist.church)
-
-## Project Metrics 
-
-[![Throughput Graph](https://graphs.waffle.io/ChurchCRM/CRM/throughput.svg)](https://waffle.io/ChurchCRM/CRM/metrics/throughput)
-
-see [Download Stats](http://www.somsubhra.com/github-release-stats/?username=churchcrm&repository=CRM)
-
-##  Change Log
-
-see [Checkout our Change Log](CHANGELOG.md)
