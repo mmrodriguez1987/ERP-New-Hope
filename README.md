@@ -42,7 +42,7 @@ NHCRM is an Open Source Web Application with many modules that help with the Adm
 [![Github All Releases](https://img.shields.io/github/downloads/nhcrm/total.svg)](https://github.com/ChurchCRM/CRM/releases)
 
 ### Development 
-[![GitHub contributors](https://img.shields.io/github/contributors/nhcrm/crm.svg)]()
+[![GitHub contributors](https://img.shields.io/github/contributors/nhcrm/crm.svg)](#contributors-)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/w/mmrodriguez1987/nhcrm.svg?style=plastic)
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
