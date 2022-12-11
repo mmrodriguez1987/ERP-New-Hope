@@ -36,7 +36,7 @@ class SettingSeeder extends Seeder
         Setting::create([
             'group_setting_id' => 1,
             'name' => 'Site Meta',
-            'short_key_value' => '',
+            'short_key_value' => 'iglesia cristiana, iglesias en miami',
             'logn_key_value' => 'nueva esperanza, iglesia cristiana en hialeah, New Hope In Christ Ministry, Ministerio Nueva Esperanza en Cristo, new hope, ministerio nueva esperanza, iglesias cristianas en miami, iglesia en miami, Dios en miami, amor de Dios, brazos de amor, libros del pastores edgar ordoñez, pastora monica ordoñez, apostol gustavo lara, hijos espirituales del apostol gustavo lara,  Doctor Edgar Ordoñez, Clinica Pastoral, Señor Muestra, Una iglesia donde tu esperanza se renovará, monica ordonez, edgar ordonez'
         ]);
         Setting::create([
@@ -56,6 +56,12 @@ class SettingSeeder extends Seeder
             'name' => 'Facebook Tag',
             'short_key_value' => '@newhopeinchrist.church',
             'logn_key_value' => 'https://facebook.com/newhopeinchrist.church/'
+        ]);
+        Setting::create([
+            'group_setting_id' => 2,
+            'name' => 'Logo',
+            'short_key_value' => 'images/logonewhope.png',
+            'logn_key_value' => 'images/logonewhope.png'
         ]);
     }
 }

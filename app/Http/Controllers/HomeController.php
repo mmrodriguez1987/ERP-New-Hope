@@ -40,7 +40,7 @@ class HomeController extends Controller
         SEOTools::opengraph()->setUrl($seo_settings->where('name','URL')->first()->short_key_value);
         SEOTools::setCanonical($seo_settings->where('name','URL')->first()->short_key_value);
         SEOTools::twitter()->setSite($seo_settings->where('name','Twitter Tag')->first()->short_key_value);
-        SEOTools::jsonLd()->addImage($seo_settings->where('name','Logo')->first()->short_key_value);
+        //SEOTools::jsonLd()->addImage($seo_settings->where('name','Logo')->first()->short_key_value);
 
       
         $sundayService = Carbon::parse('next sunday');

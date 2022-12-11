@@ -47,8 +47,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PaymentMethodSeeder::class);
         $this->call(ClassroomSeeder::class);
         $this->call(StudentSeeder::class);
-        $this->call(AttendanceSeeder::class);
-        $this->call(ClassroomStudentSeeder::class);
+        //$this->call(AttendanceSeeder::class);
+        //$this->call(ClassroomStudentSeeder::class);
         $this->call(ManufacturerSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(FaqSeeder::class);

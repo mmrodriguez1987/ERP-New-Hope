@@ -13,26 +13,26 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->fake->name,
-            'page_heading' => $this->fake->text,
-            'short_description' => $this->fake->text,
-            'long_description' => $this->fake->text,
-            'meta_keywords' => $this->fake->text,
-            'meta_description' => $this->fake->textword,
-            'SKU' => $this->fake->word,
-            'amazon_link' => $this->fake->word,
-            'price' => $this->fake->number,
-            'length' => $this->fake->numberBetween(100,999),
-            'height' => $this->fake->numberBetween(100,999),
-            'width' => $this->fake->numberBetween(100,999),
-            'weight' => $this->fake->numberBetween(100,999),
-            'main_image' => $this->fake->word,
-            'small_image' => $this->fake->word,
-            'status' => $this->fake->boolean,
-            'alias' => $this->fake->word,
-            'weight_unit_id' => $this->fake->numberBetween(1,10),
-            'category_id' => $this->fake->numberBetween(1,10),
-            'manufacturer_id' => $this->fake->numberBetween(1,10)
+            'name' => $this->faker->word(),
+            'page_heading' => $this->faker->sentence(4),
+            'short_description' => $this->faker->paragraph(),
+            'long_description' => $this->faker->paragraph(),
+            'meta_keywords' => $this->faker->paragraph(),
+            'meta_description' => $this->faker->paragraph(),
+            'SKU' => $this->faker->ean13(),
+            'amazon_link' => $this->faker->url(),
+            'price' => $this->faker->randomFloat(1, 20, 30),
+            'length' => $this->faker->numberBetween(100,999),
+            'height' => $this->faker->numberBetween(100,999),
+            'width' => $this->faker->numberBetween(100,999),
+            'weight' => $this->faker->numberBetween(100,999),
+            'main_image' => $this->faker->word(),
+            'small_image' => $this->faker->word(),
+            'status' => $this->faker->boolean,
+            'alias' => $this->faker->word(),
+            'weight_unit_id' => $this->faker->numberBetween(1,10),
+            'category_id' => $this->faker->numberBetween(1,10),
+            'manufacturer_id' => $this->faker->numberBetween(1,10)
         ];
     }
 }

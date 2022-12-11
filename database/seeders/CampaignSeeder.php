@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Compaign;
+use App\Models\Campaign;
 
 class CampaignSeeder extends Seeder
 {
@@ -14,9 +14,7 @@ class CampaignSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        
-        Campaign::factory()->count(50)->create();
-        
+    {        
+        Campaign::factory()->count(50)->create();        
     }
 }

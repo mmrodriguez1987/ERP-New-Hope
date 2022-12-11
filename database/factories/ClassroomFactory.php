@@ -14,7 +14,7 @@ class ClassroomFactory extends Factory
     {
         return [
             'group_name' => $this->faker->word,
-            'description' => 1
+            'professor_id' => 1
         ];
     }
 }
