@@ -3,7 +3,10 @@
 /public/storage
 /storage/*.key
 /vendor
+/resources/js/*.bak
 .env
+.backup
+.backup
 composer.lock
 .env.backup
 package-lock.json

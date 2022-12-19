@@ -1,0 +1,45 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "mix",
+        "build": "mix build"
+    },
+    "devDependencies": {
+        "axios": "^0.25.0",
+        "cross-env": "^7.0.3",
+        "eslint": "^8.20.0",
+        "eslint-plugin-vue": "^9.2.0",
+        "laravel-mix": "^4.0.10",
+        "laravel-vite-plugin": "^0.3.0",
+        "lodash": "^4.17.21",
+        "postcss": "^8.4.14",
+        "resolve-url-loader": "^5.0.0",
+        "sass": "^1.53.0",
+        "sass-loader": "^13.0.2",
+        "vite": "^2.9.11",
+        "vue": "^3.2.37",
+        "vue-loader": "^17.0.0",
+        "vue-template-compiler": "^2.7.4"
+    },
+    "dependencies": {
+        "@coreui/chartjs": "^3.0.0",
+        "@coreui/coreui-pro": "^4.3.2",
+        "@coreui/icons": "^2.1.0",
+        "@coreui/icons-vue": "2.0.0",
+        "@coreui/utils": "^1.3.1",
+        "@coreui/vue": "^4.1.0",
+        "@coreui/vue-chartjs": "2.0.0",
+        "@coreui/vue-pro": "^4.3.0",
+        "@fullcalendar/core": "^5.11.0",
+        "@fullcalendar/daygrid": "^5.11.0",
+        "@fullcalendar/interaction": "^5.11.0",
+        "@fullcalendar/vue3": "^5.11.1",
+        "@kyvg/vue3-notification": "^2.3.5",
+        "core-js": "^3.19.0",
+        "vue": "^3.2.23",
+        "vue-moment": "^4.1.0",
+        "vue-recaptcha-v3": "^2.0.1",
+        "vue-router": "^4.0.12",
+        "vuex": "^4.0.2"
+    }
+}

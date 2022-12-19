@@ -26,7 +26,7 @@
                     <CButton color="link" class="d-md-none">Register now!</CButton>
                   </CCol>
                 </CRow>
-              <!-- <vue-recaptcha  ref="invisibleRecaptcha" @verify="onVerify" @expired="onExpired" size="invisible" :badge="badge" :sitekey="sitekey" :loadRecaptchaScript="true"></vue-recaptcha> -->
+                <button @click="recaptcha">Execute recaptcha</button>
               </CForm>
             </CCardBody>
           </CCard> 
@@ -43,7 +43,7 @@
   </CContainer>
 </template>
 <script>
-import VueRecaptcha from 'vue-recaptcha-v3'
+import { useReCaptcha } from 'vue-recaptcha-v3'
 
 
 export default{

@@ -85,7 +85,7 @@ import AppHeaderDropdownAccnt from './AppHeaderDropdownAccnt'
 import AppHeaderDropdownMssgs from './AppHeaderDropdownMssgs'
 import AppHeaderDropdownNotif from './AppHeaderDropdownNotif'
 import AppHeaderDropdownTasks from './AppHeaderDropdownTasks'
-import { logo } from './assets/brand/logo'
+import { logo } from '../assets/brand/logo'
 
 export default {
   name: 'AppHeader',
