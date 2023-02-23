@@ -15,6 +15,8 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-
+Route::get('/admin',function(){
+    return view('app');
+});
 //Route::get('stripe', [StripeController::class, 'stripe']);
 //Route::post('stripe', [StripeController::class, 'stripePost'])->name('stripe.post');

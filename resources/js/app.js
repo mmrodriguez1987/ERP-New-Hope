@@ -7,6 +7,8 @@ import store from './store'
 
 import CoreuiVue from '@coreui/vue-pro'
 import CIcon from '@coreui/icons-vue'
+
+import { CFormInput  } from '@coreui/vue'
 import { iconsSet as icons } from './assets/icons'
 import Notifications from '@kyvg/vue3-notification'
 import { VueReCaptcha } from 'vue-recaptcha-v3'
@@ -18,9 +20,13 @@ app.use(router)
 app.use(CoreuiVue)
 app.use(Notifications)
 
-app.use(VueReCaptcha, {siteKey: process.env.MIX_INVISIBLE_RECAPTCHA_SITEKEY})
+app.use(VueReCaptcha, {
+    siteKey: process.env.MIX_INVISIBLE_RECAPTCHA_SITEKEY,
+    badge: process.env.MIX_INVISIBLE_RECAPTCHA_BADGE
+})
 
 app.provide('icons', icons)
 app.component('CIcon', CIcon)
 
+app.component('CFormInput ', CFormInput )
 app.mount('#app')
