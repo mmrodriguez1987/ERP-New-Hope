@@ -9,7 +9,7 @@
                 <CImage fluid align="center" src="/images/nh-logo.png"  alt="New Hope Logo" />
               </CCardHeader>
               <CCardBody>
-                <CForm>
+                <CForm @submit.prevent="login()">
                   <h1>Login</h1>
                   <p class="text-medium-emphasis">Sign In to your account</p>
                   <CInputGroup class="mb-3">
@@ -26,7 +26,7 @@
                   </CInputGroup>
                   <CRow>
                     <CCol :xs="6">
-                      <CButton color="primary" class="px-4"> Login </CButton>
+                      <CButton @click="recaptcha" color="primary" class="px-4" type="submit"> Login </CButton>
                     </CCol>
                     <CCol :xs="6" class="text-right">
                       <CButton color="link" class="px-0">
@@ -56,31 +56,17 @@
 </template>
 <script>
 import { useReCaptcha } from 'vue-recaptcha-v3'
-
-
 export default {
   setup() {
     const { executeRecaptcha, recaptchaLoaded } = useReCaptcha()
-
     const recaptcha = async () => {
-      // (optional) Wait until recaptcha has been loaded.
       await recaptchaLoaded()
-
-      // Execute reCAPTCHA with action "login".
       const token = await executeRecaptcha('login')
-
-      // Do stuff with the received token.
-      this.$store.dispatch('login', this.userCredential)
-			.then(response => {
-				this.$router.push('/admin/dashboard')			
-			}).catch( response =>  {        
-        console.log(error)
-      })     
+      console.log({ token })
     }
-
     return {
       recaptcha
-   }
+    }
   },
 	data(){
 		return{
@@ -97,6 +83,15 @@ export default {
 		loading(){
 			return this.$store.state.Auth.loading
 		},
+	},
+  methods:{
+		login(){
+			this.$store.dispatch('login', this.userCredential)
+				.then(response => {
+					this.$router.push('/admin/dashboard')
+					location.reload()
+				})
+		}
 	}
 }
 </script>

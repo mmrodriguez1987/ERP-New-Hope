@@ -15,8 +15,8 @@ import { VueReCaptcha } from 'vue-recaptcha-v3'
 
 const app = createApp(App)
 
-app.use(store)
 app.use(router)
+app.use(store)
 app.use(CoreuiVue)
 app.use(Notifications)
 
