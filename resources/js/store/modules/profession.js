@@ -26,8 +26,7 @@ let actions = {
                            
             })
             .catch(error => {  
-                Vue.toasted.show('Error en action vue: ' + error.message, { icon: 'exclamation-triangle', type: 'error' }) 
-              
+                toast.error('Error en action vue: ' + error.message)
                 context.state.loading = false
             })
     },
@@ -36,12 +35,12 @@ let actions = {
         state.loading = true
         axios.post('/api/professions/', payload)
             .then(response => {
-                Vue.toasted.show(response.data.message, { icon: 'plus', type: 'success' })
+                toast.success(response.data.message)
                 commit('createProfession', response.data.data)
                 state.loading = false
             })
-            .catch(error => {
-                Vue.toasted.show(error.message, { icon: 'exclamation-triangle', type: 'error' })
+            .catch(error => {               
+                toast.error(error.message);
                 if (error.response) {
                     console.log(error.response.data)
                     console.log(error.response.status)
@@ -60,7 +59,7 @@ let actions = {
         state.loading = true
         axios.put('/api/professions/' + payload.id, payload)
             .then(response => {
-                Vue.toasted.show(response.data.message, { icon: 'pencil', type: 'info' })
+                toast.success(response.data.message)
                 commit('updateProfession', response.data.data)
                 state.loading = false
             })
@@ -85,7 +84,9 @@ let actions = {
         axios.delete('api/professions/' + id)
             .then(response => {
                 context.commit('removeProfession', id)
-                Vue.toasted.show(response.data.message, { icon: 'trash-o', type: 'error' })
+                
+                toast.error(response.data.message)
+                
                 context.state.loading = false
             })
             .catch(error => {

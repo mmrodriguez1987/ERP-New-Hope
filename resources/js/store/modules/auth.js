@@ -13,30 +13,19 @@ export default {
                     axios.post('api/login', payload).then(response => {
                         context.state.loading = false
                         context.commit('login', response.data)
-                        Vue.toasted.show(response.data.message, {
-                            icon: 'pencil', type: 'info'
-                        })
+                        this.toast.success(response.data.message)
                         resolve(response)
-                    }).catch(error => {                        
-                        Vue.toasted.show(response.data.message, {
-                            icon: 'exclamation-triangle', type: 'error'
-                        })
+                    }).catch(error => { 
                         console.log(error)
                         context.state.loading = false
                         reject(error)
                     });
-                }).catch(r => {                   
-                    Vue.toasted.show(r.message, {
-                        icon: 'exclamation-triangle', type: 'error'
-                    })
+                }).catch(r => {                
                     console.log(r)
                     reject(r)
                 });
             }).catch(error =>{
-                Vue.toasted.show(error.message, {
-                    icon: 'exclamation-triangle',
-                    type: 'error'
-                })
+                console.log(error)
             })                  
         },
 
@@ -49,11 +38,8 @@ export default {
                     context.state.loading = false
                     resolve(response)
                 })
-                .catch(error => {
-                    Vue.toasted.show('This email is already taken by another account, please login or use another email.', {
-                        icon: 'exclamation-triangle',
-                        type: 'error'
-                    })
+                .catch(error => {                    
+                    this.toast.error('This email is already taken by another account, please login or use another email.')
                     context.state.loading = false
                     reject(error)
                 })
@@ -71,6 +57,7 @@ export default {
                     })
                     .catch(error => {
                         console.log(error)
+                        this.toast.error(error)
                         context.state.loading = false
                         reject(error)
                     })
@@ -86,6 +73,7 @@ export default {
                         resolve(response)
                     })
                     .catch(error => {
+                        this.toast.error(error)
                         context.state.loading = false
                         reject(error)
                     })
@@ -103,6 +91,7 @@ export default {
                         resolve(response)
                     })
                     .catch(error => {
+                        this.toast.error(error)
                         console.log(error)
                         reject(error)
                     })

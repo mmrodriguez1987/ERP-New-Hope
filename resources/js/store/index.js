@@ -1,7 +1,9 @@
 import { createStore } from 'vuex'
+import { useToast } from 'vue-toastification'
 
 import Auth from './modules/auth.js'
 import Profession from './modules/profession.js'
+const toast = useToast()
 
 export default createStore({
     state: {
