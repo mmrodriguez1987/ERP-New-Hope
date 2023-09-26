@@ -973,7 +973,7 @@
 </template>
 
 <script>
-import VueImg from '.../assets/images/vue.jpg'
+import VueImg from '../../../../img/logos/vue.png'
 export default {
   name: 'Cards',
   setup() {

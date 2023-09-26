@@ -8,7 +8,7 @@ import store from './store'
 
 import CoreuiVue from '@coreui/vue-pro'
 import CIcon from '@coreui/icons-vue'
-import { iconsSet as icons } from './assets/icons.js'
+import { iconsSet as icons } from './assets/icons/index.js'
 import Notifications from '@kyvg/vue3-notification'
 import { VueReCaptcha } from 'vue-recaptcha-v3'
 

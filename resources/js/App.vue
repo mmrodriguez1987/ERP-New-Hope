@@ -24,5 +24,5 @@ export default {
 
 <style lang="scss">
 // Import Main styles for this application
-@import 'styles/style';
+//@import '../css/style.css';
 </style>

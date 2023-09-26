@@ -8,7 +8,7 @@ import {
     CNavGroup,
     CNavTitle,
 } from '@coreui/vue-pro'
-import nav from '@/_nav.js'
+import nav from '../_nav.js'
 
 const normalizePath = (path) =>
     decodeURI(path)

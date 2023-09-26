@@ -35,7 +35,7 @@ const routes = [{
         path: '/dashboard',
         name: 'Dashboard',
         component: () =>
-            import ('../views/Dashboard.vue'),
+            import ('../views/admin/Dashboard.vue'),
         meta: { middlewareAuth: true },
     }, {
         path: '/admin',
@@ -60,14 +60,14 @@ const routes = [{
                 name: 'Breadcrumbs',
                 meta: { middlewareAuth: true },
                 component: () =>
-                    import ('../views/admin/professions/Index.vue'),
+                    import ('../views/admin/profession/Index.vue'),
             },
             {
                 path: '/base/cards',
                 name: 'Cards',
                 meta: { middlewareAuth: true },
                 component: () =>
-                    import ('../views/base/Cards.vue'),
+                    import ('../views/admin/base/Cards.vue'),
             },
         ],
     }, ],

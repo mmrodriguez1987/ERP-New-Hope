@@ -96,10 +96,10 @@
   </CDropdown>
 </template>
 <script>
-import avatar4 from './assets/images/avatars/4.jpg'
-import avatar5 from './assets/images/avatars/5.jpg'
-import avatar6 from './assets/images/avatars/6.jpg'
-import avatar7 from './assets/images/avatars/7.jpg'
+import avatar4 from '../../img/avatars/4.jpg'
+import avatar5 from '../../img/avatars/5.jpg'
+import avatar6 from '../../img/avatars/6.jpg'
+import avatar7 from '../../img/avatars/7.jpg'
 export default {
   name: 'TheHeaderDropdownMssgs',
   setup() {

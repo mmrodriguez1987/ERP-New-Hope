@@ -181,7 +181,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -194,7 +193,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class,
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
     ],
 
     /*
@@ -210,15 +209,15 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
-        'Form' => Collective\Html\FormFacde::class,
-        'Html' => Collective\Html\HtmlFacde::class,
         'SEOMeta'       => Artesaos\SEOTools\Facades\SEOMeta::class,
         'OpenGraph'     => Artesaos\SEOTools\Facades\OpenGraph::class,
         'Twitter'       => Artesaos\SEOTools\Facades\TwitterCard::class,
         'JsonLd'        => Artesaos\SEOTools\Facades\JsonLd::class,
         'JsonLdMulti'   => Artesaos\SEOTools\Facades\JsonLdMulti::class,
-        
+        // or
         'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
+        // ...
+
     ])->toArray(),
 
 ];
