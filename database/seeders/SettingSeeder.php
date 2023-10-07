@@ -15,11 +15,12 @@ class SettingSeeder extends Seeder
      */
     public function run()
     {
+        //SEO
         Setting::create([
             'group_setting_id' => 1,
             'name' => 'Title',
             'short_key_value' => 'New Hope',
-            'logn_key_value' => 'New Hope In Christ Ministry'
+            'logn_key_value' => 'Nueva Esperanza en Cristo | Una Iglesia para toda la familia'
         ]);
         Setting::create([
             'group_setting_id' => 1,
@@ -57,11 +58,46 @@ class SettingSeeder extends Seeder
             'short_key_value' => '@newhopeinchrist.church',
             'logn_key_value' => 'https://facebook.com/newhopeinchrist.church/'
         ]);
+
+        //Site Settings
         Setting::create([
             'group_setting_id' => 2,
             'name' => 'Logo',
             'short_key_value' => 'images/logonewhope.png',
             'logn_key_value' => 'images/logonewhope.png'
+        ]);
+
+        //Company Settings
+        Setting::create([
+            'group_setting_id' => 3,
+            'name' => 'name',
+            'short_key_value' => 'New Hope',
+            'logn_key_value' => 'New Hope In Christ Ministry'
+        ]);
+
+        Setting::create([
+            'group_setting_id' => 3,
+            'name' => 'address',
+            'short_key_value' => '',
+            'logn_key_value' => '8841 NW 107 Street, Hialeah Gardens, FL 33018'
+        ]);
+        Setting::create([
+            'group_setting_id' => 3,
+            'name' => 'email',
+            'short_key_value' => 'info@newhopeinchrist.church',
+            'logn_key_value' => ''
+        ]);
+        Setting::create([
+            'group_setting_id' => 3,
+            'name' => 'fax',
+            'short_key_value' => '305-364-0200',
+            'logn_key_value' => ''
+        ]);
+        Setting::create([
+            'group_setting_id' => 3,
+            'name' => 'phone',
+            'short_key_value' => '305-364-0200',
+            'logn_key_value' => ''
         ]);
     }
 }

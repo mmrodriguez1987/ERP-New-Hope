@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="wide wow-animation" lang="{{ config('app.locale') }}">
+<html class="wide wow-animation" lang="{{ str_replace('_','-', app()->getLocale()) }}">
    <head>
       <title>New Hope in Christ Ministry</title>
       <meta name="format-detection" content="telephone=no">
@@ -9,7 +9,7 @@
       @section('seo')
 
       @show  
-      <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+      <link rel="icon" href="{{ asset('images/logos/favicon.ico') }}" type="image/x-icon">
       <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald:200,400%7CLato:300,400,300italic,700%7CMontserrat:900">
       <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
       <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -32,7 +32,7 @@
 
         
          @show  
-         @section('site.footer')
+         @include('site.footer')
       </div>
       <div class="snackbars" id="form-output-global"></div>
       <script src="js/core.min.js"></script>

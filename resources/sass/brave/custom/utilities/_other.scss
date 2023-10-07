@@ -164,7 +164,7 @@ img {
 	background-size: cover;
 
 	&[data-blick-overlay='ipad'] {
-		background-image: url(../images/blick-01.png);
+		background-image: url('../images/blick-01.png');
 	}
 }
 

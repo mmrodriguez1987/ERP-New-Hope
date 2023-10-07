@@ -7,8 +7,11 @@
                 <div class="countdown-wrap">
                     <div class="DateCountdown" 
                         data-type="until" 
-                        data-date="{{ $nextService }}" data-format="wdhms"
-                        data-color="#ed1c94" data-bg="rgba(255, 255, 255, 1)" data-width="0.02">
+                        data-date="{{ $nextService }}" 
+                        data-format="wdhms" 
+                        data-color="#ed1c94" 
+                        data-bg="rgba(255, 255, 255, 1)" 
+                        data-width="0.02">
                     </div>
                 </div>
             </div>

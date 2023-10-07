@@ -14,7 +14,7 @@
                     <div class="rd-navbar-brand"> 
                         <a class="brand-name" href="index.html"> 
                             <img class="logo-default" src="images/logos/nhic_logo_white_100.png" alt="" width="128" height="52"> 
-                            <img class="logo-inverse" src="images/logo-inverse-128x52.png" alt="" width="128" height="52"> 
+                            <img class="logo-inverse" src="images/logos/nhic_logo_white_100.png" alt="" width="128" height="52"> 
                         </a> 
                     </div>
                 </div>

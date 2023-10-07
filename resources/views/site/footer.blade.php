@@ -133,7 +133,7 @@
                     data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
                     <div class="rd-mailform-inline-inner">
                         <div class="form-wrap"> <input class="form-input" type="email" name="email"
-                                data-constraints="@Email @Required" id="subscribe-form-email-2"> <label
+                                id="subscribe-form-email-2"> <label
                                 class="form-label" for="subscribe-form-email-2">Enter your e-mail</label></div>
                         <button class="button form-button button-sm button-secondary button-nina"
                             type="submit">Subscribe</button>
@@ -145,17 +145,18 @@
         <div class="row row-fix align-items-sm-center row-30 text-left">
             <div class="col-xl-6 text-xl-left">
                 <ul class="page-footer-inline-list">
-                    <li><a href="blocks-videos.html">About</a> </li>
-                    <li><a href="blocks-videos.html">Services</a> </li>
-                    <li><a href="shop-4-columns-layout.html">Shop</a> </li>
-                    <li><a href="blocks-videos.html">Blog</a> </li>
-                    <li><a href="blocks-videos.html">Portfolio</a> </li>
-                    <li><a href="blocks-videos.html">Contacts</a> </li>
+                    <li><a href="#">About</a> </li>
+                    <li><a href="#">Services</a> </li>
+                    <li><a href="#">Shop</a> </li>
+                    <li><a href="#">Blog</a> </li>
+                    <li><a href="#">Portfolio</a> </li>
+                    <li><a href="#">Contacts</a> </li>
                 </ul>
             </div>
             <div class="col-xl-6 text-xl-right">
-                <p class="right">©&nbsp; <span class="copyright-year"></span> All Rights Reserved&nbsp; <a
-                        href="#">Terms of Use</a>&nbsp;and&nbsp; <a href="blocks-videos.html">Privacy Policy</a> </p>
+                <p class="right">©&nbsp; {{ now()->year }}
+                 &nbsp;All Rights Reserved&nbsp;|
+                <a href="#">Terms of Use</a>&nbsp;|&nbsp; <a href="#">Privacy Policy</a> </p>
             </div>
         </div>
     </div>

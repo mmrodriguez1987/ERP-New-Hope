@@ -16,7 +16,8 @@ class GroupSettingSeeder extends Seeder
     public function run()
     {
         GroupSetting::create(['name' => 'SEO']);
-        GroupSetting::create(['name' => 'page']);
-
+        GroupSetting::create(['name' => 'site']);
+        GroupSetting::create(['name' => 'home']);
+        GroupSetting::create(['name' => 'company']);
     }
 }

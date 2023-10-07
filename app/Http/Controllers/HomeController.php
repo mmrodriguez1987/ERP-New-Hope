@@ -44,7 +44,7 @@ class HomeController extends Controller
 
       
         $sundayService = Carbon::parse('next sunday');
-        $sundayService->hour = 10;
+        $sundayService->hour = 9;
         $sundayService->minute = 30;
         $sundayService->second = 0;   
         $sundayService->format('Y-m-d h:m:s');
